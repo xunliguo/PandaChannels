@@ -20,7 +20,7 @@ public class OkHttpUtils {
     private Handler handler;
     //单例保证该方法执行后只能在同一时间使用同一个对象
     public static synchronized OkHttpUtils getInstance(){
-        if (okHttpUtils == null) {
+            if (okHttpUtils == null) {
             okHttpUtils=new OkHttpUtils();
         }
         return okHttpUtils;
