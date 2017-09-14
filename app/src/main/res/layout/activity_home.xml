@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   android:orientation="vertical"
+    tools:context="com.example.administrator.pandachannels.HomeActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="#1F539E"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/text"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:id="@+id/image1"
+            android:layout_marginLeft="5dp"
+            android:visibility="invisible"
+            android:src="@drawable/panda_sign"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/hudong_sign"
+            android:layout_toLeftOf="@+id/image"
+            android:id="@+id/image3"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="7dp"
+
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/image"
+            android:src="@drawable/person_sign"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12dp"
+            />
+
+    </RelativeLayout>
+
+
+    <FrameLayout
+        android:id="@+id/framlayout"
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <RadioGroup
+        android:layout_alignParentBottom="true"
+        android:id="@+id/layout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:fadingEdge="none"
+        android:gravity="center_vertical"
+        android:layout_centerVertical="true">
+
+        <RadioButton
+            android:id="@+id/rb_01"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:background="@drawable/background01"
+
+            android:drawableTop="@mipmap/tab_home_normal"
+            android:gravity="center"
+            android:text="首页" />
+
+        <RadioButton
+            android:id="@+id/rb_02"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:background="@drawable/background01"
+
+            android:drawableTop="@mipmap/tab_panda_live_normal"
+            android:gravity="center"
+            android:text="熊猫直播" />
+
+
+        <RadioButton
+            android:id="@+id/rb_03"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:background="@drawable/background01"
+
+            android:drawableTop="@mipmap/tab_panda_culture_normals"
+            android:gravity="center"
+            android:text="滚滚视频" />
+
+        <RadioButton
+            android:id="@+id/rb_04"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:background="@drawable/background01"
+
+
+            android:drawableTop="@mipmap/tab_panda_eye_normal"
+            android:gravity="center"
+            android:text="熊猫播报" />
+        <RadioButton
+            android:id="@+id/rb_05"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:background="@drawable/background01"
+            android:drawableTop="@mipmap/tab_live_china_normal"
+            android:gravity="center"
+            android:text="直播中国" />
+
+    </RadioGroup>
+
+</LinearLayout>

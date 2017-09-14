@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.pandachannels.fragmentchinese.Fragment_Chinese">
+
+  <!--  <RelativeLayout
+
+        android:background="#1F539E"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+        <TextView
+            android:textSize="18sp"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="直播中国"/>
+
+        <ImageView
+            android:id="@+id/img_persion"
+            android:scaleType="fitXY"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/person_sign"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="11dp" />
+    </RelativeLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tablayout_chinese"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            app:tabIndicatorColor="#1E539C"
+            app:tabSelectedTextColor="#1E539C"
+            app:tabTextColor="#302F36"
+            app:tabBackground="@color/coloros"
+            app:tabTextAppearance="@style/TextAppearance.AppCompat.Small"
+            app:tabIndicatorHeight="3dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"></android.support.design.widget.TabLayout>
+
+
+        <ImageView
+            android:id="@+id/img_add"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/live_china_add"
+            android:layout_centerVertical="true"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+    </LinearLayout>
+   <android.support.v4.view.ViewPager
+       android:id="@+id/viewpager_chinese"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="1"></android.support.v4.view.ViewPager>
+
+</LinearLayout>
