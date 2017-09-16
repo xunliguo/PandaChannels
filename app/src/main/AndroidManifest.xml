@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.administrator.pandachannels">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -16,6 +17,8 @@
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
 
     <application
+
+        tools:replace="android:icon, android:theme"
         android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -79,6 +82,12 @@
         <activity android:name=".fragmentobserve.activity.centeracticity.CollectActivity" />
         <activity android:name=".fragmentobserve.activity.centeracticity.SetActivity" />
         <activity android:name=".fragmentobserve.activity.centeracticity.setactivity.SetOneActivity"></activity>
+        <activity
+            android:name=".HomeActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity android:name=".fragmentlive.VideoActivity"></activity>
+
     </application>
 
 </manifest>

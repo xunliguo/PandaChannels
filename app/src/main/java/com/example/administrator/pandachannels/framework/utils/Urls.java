@@ -5,14 +5,14 @@ package com.example.administrator.pandachannels.framework.utils;
  * Time:2017/9/14
  * Motto: where my heart get peace,where my self get home.
  */
-public class Url {
+public class Urls {
 
 
     //服务器地址
     private static final String BASEURL = "http://www.ipanda.com/kehuduan/";
 
     //首页
-    public static final String PANDAHOME = BASEURL+"PAGE14501749764071042/index.json";
+    public static final String PANDAHOME = "http://www.ipanda.com/kehuduan/shouye/index.json";
     //首页互动
     public static final String HUDONG=BASEURL+"PAGE14501767715521482/index.json";
     //熊猫直播
@@ -62,5 +62,5 @@ public class Url {
     //熊猫播报视频播放
     public static final String VIDEOPLAY="http://115.182.35.91/api/getVideoInfoForCBox.do?pid=";
 
-
+//    http://vdn.live.cntv.cn/api2/live.do?channel=pa://cctv_p2p_hdzjjmht&client=androidapp
 }

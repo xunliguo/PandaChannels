@@ -1,5 +1,6 @@
 package com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.presenter;
 
+import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.MountTai_fragment;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.utils.Url;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
@@ -20,6 +21,8 @@ ArrayList<BeanTaishan.LiveBean> list=new ArrayList<>();
     public SubPresenterimpl_MountTai(MainContract.SubView subview) {
         this.subview = subview;
     }
+
+
 
     @Override
     public void requsetData() {

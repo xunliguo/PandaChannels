@@ -1,13 +1,16 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#A6A6A6"
     android:layout_height="match_parent"
     tools:context="com.example.administrator.pandachannels.fragmenthome.Fragment_home">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/homexrecycle">
+
+    </com.jcodecraeer.xrecyclerview.XRecyclerView>
 
 </FrameLayout>

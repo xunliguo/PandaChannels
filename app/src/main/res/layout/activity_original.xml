@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#aea6a6"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.pandachannels.fragmenthome.Original">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="#122dde">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@mipmap/personal_back_img"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/homeorigimage" />
+
+    <TextView
+        android:textColor="#fff"
+        android:textSize="20dp"
+        android:text="原创·互动"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+         />
+</RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hometime"/>
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:background="#dfcfcf"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:id="@+id/homeorigxdrecycle">
+
+    </com.jcodecraeer.xrecyclerview.XRecyclerView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#dacece"
+        />
+
+</LinearLayout>

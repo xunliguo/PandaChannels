@@ -1,17 +1,12 @@
 apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao'
 android {
-    compileSdkVersion 25
-    buildToolsVersion "26.0.0"
-    greendao {
-        schemaVersion 1
-        daoPackage 'com.example.administrator.pandachannels.fragmentobserve.dao'
-        targetGenDir 'src/main/java'
-    }
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
     defaultConfig {
         applicationId "com.example.administrator.pandachannels"
-        minSdkVersion 15
-        targetSdkVersion 25
+        minSdkVersion 18
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -43,6 +38,10 @@ dependencies {
     compile 'com.zhy:percent-support-extends:1.0.1'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
+
+
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support:design:26.0.0-alpha1'
     compile 'com.chanven.lib:cptr:1.1.0'
     compile 'org.greenrobot:greendao:3.2.0'
     compile 'com.github.bumptech.glide:glide:3.8.0'
@@ -50,7 +49,13 @@ dependencies {
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'com.youth.banner:banner:1.4.9'
     compile 'org.greenrobot:greendao-generator:3.0.0'
+    compile 'com.android.support:support-v4:26.+'
+    compile 'fm.jiecao:jiecaovideoplayer:2.0'
+    compile 'com.jcodecraeer:xrecyclerview:1.2.6'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
     compile 'in.srain.cube:ptr-load-more:1.0.6'
     compile 'com.android.support:support-v4:25.3.1'
     testCompile 'junit:junit:4.12'
+    compile project(path: ':vitamio')
 }

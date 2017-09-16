@@ -17,11 +17,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-
         setContentView(R.layout.activity_main);
         initView();//找id
-       initIntent();//跳转页面
+        initIntent();//跳转页面
 
     }
 
@@ -37,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        //坚挺UI讲啊送到你家卡布达
         imag_yindao = (ImageView) findViewById(R.id.imag_yindao);
     }
 

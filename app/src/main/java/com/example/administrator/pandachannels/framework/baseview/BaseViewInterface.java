@@ -15,6 +15,7 @@ public interface BaseViewInterface {
 
     void showData(ArrayList<BeanTaishan.LiveBean> list);
 
+
     void  showrror();
 
 
