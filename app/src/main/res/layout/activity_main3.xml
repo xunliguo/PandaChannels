@@ -5,8 +5,5 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.administrator.pandachannels.fragmentlive.LiveVideoActivity">
-    <io.vov.vitamio.widget.VideoView
-        android:id="@+id/vitamio_viedoview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+
 </android.support.constraint.ConstraintLayout>
