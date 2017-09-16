@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.pandachannels.R;
-import com.example.administrator.pandachannels.fragmenthome.Bean.HomeRolling;
+import com.example.administrator.pandachannels.fragmenthome.bean.HomeRolling;
 
 import java.util.List;
 

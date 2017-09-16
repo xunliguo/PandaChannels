@@ -2,6 +2,7 @@ package com.example.administrator.pandachannels.fragmenthome;
 
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
@@ -9,10 +10,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.administrator.pandachannels.R;
-import com.example.administrator.pandachannels.fragmenthome.Bean.HomeRolling;
-import com.example.administrator.pandachannels.fragmenthome.Bean.HomeWobderfulBean;
-import com.example.administrator.pandachannels.fragmenthome.Bean.PandaLiveBean;
-import com.example.administrator.pandachannels.fragmenthome.Presen.PresentImp;
+import com.example.administrator.pandachannels.fragmenthome.bean.HomeRolling;
+import com.example.administrator.pandachannels.fragmenthome.bean.HomeWobderfulBean;
+import com.example.administrator.pandachannels.fragmenthome.bean.PandaLiveBean;
+import com.example.administrator.pandachannels.fragmenthome.presen.PresentImp;
 import com.example.administrator.pandachannels.fragmenthome.adap.HomeListAdap;
 import com.example.administrator.pandachannels.fragmenthome.adap.HomeReayAdap;
 import com.example.administrator.pandachannels.fragmenthome.adap.HomeRecycleAdapter;
@@ -25,6 +26,7 @@ import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
+import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +47,6 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
     protected void initView(View view) {
         lo = new ProgressDialog(getActivity());
         lo.setMessage("");
-
         PresentImp presentImp = new PresentImp(this);
         presentImp.requsetData();
         xRecyclerView = view.findViewById(R.id.homexrecycle);
@@ -77,7 +78,7 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
         xRecyclerView.addHeaderView(inflate);
         banner = inflate.findViewById(R.id.homebanner);
         TextView home_birthday = inflate.findViewById(R.id.home_birthday);
-        TextView  attention= inflate.findViewById(R.id.attention);
+        TextView attention = inflate.findViewById(R.id.attention);
         home_birthday.setText(pandaLiveBean.getData().getPandaeye().getItems().get(0).getTitle());
         attention.setText(pandaLiveBean.getData().getPandaeye().getItems().get(1).getTitle());
         //轮播图
@@ -94,15 +95,15 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
     }
 
     private void Rolling(PandaLiveBean pandaLiveBean) {
-        String str=pandaLiveBean.getData().getList().get(0).getListUrl();
+        String str = pandaLiveBean.getData().getList().get(0).getListUrl();
         OkHttpUtils.getInstance().getNetData(str, new OkHttpUtils.CallBacks() {
             @Override
             public void getString(String ss) {
                 HomeRolling homeRolling = new Gson().fromJson(ss, HomeRolling.class);
-                List<HomeRolling.ListBean> arr=new ArrayList<HomeRolling.ListBean>();
+                List<HomeRolling.ListBean> arr = new ArrayList<HomeRolling.ListBean>();
                 arr.addAll(homeRolling.getList());
-                homeRoing.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL));
-                HomeListAdap adap=new HomeListAdap(getActivity(),arr);
+                homeRoing.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
+                HomeListAdap adap = new HomeListAdap(getActivity(), arr);
                 homeRoing.setAdapter(adap);
             }
         });
@@ -146,7 +147,7 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
 
     }
 
-    private void homhead(PandaLiveBean pandaLiveBean) {
+    private void homhead(final PandaLiveBean pandaLiveBean) {
         banner.setImageLoader(new GlideImageLoader());
         //设置图片集合
         List<String> images = new ArrayList<>();
@@ -174,5 +175,13 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
         banner.setIndicatorGravity(BannerConfig.RIGHT);
         //banner设置方法全部调用完毕时最后调用
         banner.start();
+        banner.setOnBannerListener(new OnBannerListener() {
+            @Override
+            public void OnBannerClick(int position) {
+                Intent intent = new Intent(getActivity(), Video.class);
+                intent.putExtra("homelunbo",pandaLiveBean.getData().getBigImg().get(position).getPid());
+                startActivity(intent);
+            }
+        });
     }
 }

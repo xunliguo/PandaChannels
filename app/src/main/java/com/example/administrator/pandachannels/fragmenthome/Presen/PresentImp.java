@@ -1,6 +1,6 @@
-package com.example.administrator.pandachannels.fragmenthome.Presen;
+package com.example.administrator.pandachannels.fragmenthome.presen;
 
-import com.example.administrator.pandachannels.fragmenthome.Bean.PandaLiveBean;
+import com.example.administrator.pandachannels.fragmenthome.bean.PandaLiveBean;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
 import com.example.administrator.pandachannels.framework.utils.OkHttpUtils;
 import com.example.administrator.pandachannels.framework.utils.Url;
