@@ -16,42 +16,42 @@ import java.util.List;
 /**
  * Created by lenovo on 2017/9/14.
  */
-//爱迪生ad按时 阿萨德
-public class HomeRecycleAdapter extends RecyclerView.Adapter {
+//阿萨德按时按时
+public class HomeReayAdap extends RecyclerView.Adapter {
     private Context context;
-    private List<PandaLiveBean.DataBean.ChinaliveBean.ListBeanX> list;
+    private List<PandaLiveBean.DataBean.PandaliveBean.ListBean> list;
 
-    public HomeRecycleAdapter(Context context, List<PandaLiveBean.DataBean.ChinaliveBean.ListBeanX> list) {
+    public HomeReayAdap(Context context, List<PandaLiveBean.DataBean.PandaliveBean.ListBean> list) {
         this.context = context;
         this.list = list;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View inflate = View.inflate(context, R.layout.homelivechin, null);
-        return new viewHolde(inflate);
+        View inflate = View.inflate(context, R.layout.homerecyitem, null);
+
+        return new ViewHodle(inflate);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-            viewHolde holde= (viewHolde) holder;
-            holde.name.setText(list.get(position).getTitle());
-        Glide.with(context).load(list.get(position).getImage()).into(holde.image);
+        ViewHodle hodel  = (ViewHodle) holder;
+        Glide.with(context).load(list.get(position).getImage()).into(hodel.image);
+        hodel.tvtitle.setText(list.get(position).getTitle());
     }
 
     @Override
     public int getItemCount() {
         return list.size();
     }
+    class ViewHodle extends RecyclerView.ViewHolder{
+        ImageView image;
+        TextView tvtitle;
 
-class  viewHolde extends RecyclerView.ViewHolder{
-    TextView name;
-    ImageView image;
-
-    public viewHolde(View itemView) {
-        super(itemView);
-        image = itemView.findViewById(R.id.imageView5);
-        name=itemView.findViewById(R.id.textView7);
+        public ViewHodle(View itemView) {
+            super(itemView);
+            image=itemView.findViewById(R.id.homelive);
+            tvtitle=itemView.findViewById(R.id.textView);
+        }
     }
-}
 }

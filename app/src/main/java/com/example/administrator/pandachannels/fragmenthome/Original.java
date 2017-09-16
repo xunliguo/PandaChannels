@@ -22,7 +22,7 @@ import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+//阿萨德阿萨德按时
 public class Original extends BaseActivity {
 
     private ImageView homeorigimage;

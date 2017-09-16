@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        //坚挺UI讲啊送到你家卡布达
         imag_yindao = (ImageView) findViewById(R.id.imag_yindao);
     }
 }

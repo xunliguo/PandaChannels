@@ -29,7 +29,7 @@ import com.youth.banner.Transformer;
 import java.util.ArrayList;
 import java.util.List;
 
-
+//十大按时打算的
 public class Fragment_home extends BaseFragment implements MainContract.SubHome {
 
 
