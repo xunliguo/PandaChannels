@@ -77,7 +77,7 @@ public class MyAdapter_TaiShan extends RecyclerView.Adapter<MyAdapter_TaiShan.Vi
         public ViewHolder(View itemView) {
 
             super(itemView);
-            img1_taishan = itemView.findViewById(R.id.img1_taishan);
+            img1_taishan = (ImageView) itemView.findViewById(R.id.img1_taishan);
             tv1_taishan = (TextView) itemView.findViewById(R.id.tv1_taishan);
 
         }

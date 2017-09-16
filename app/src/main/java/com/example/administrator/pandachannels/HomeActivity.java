@@ -1,5 +1,6 @@
 package com.example.administrator.pandachannels;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -13,7 +14,8 @@ import com.example.administrator.pandachannels.fragmentchinese.Fragment_Chinese;
 import com.example.administrator.pandachannels.fragmentculture.Fragment_culture;
 import com.example.administrator.pandachannels.fragmenthome.Fragment_home;
 import com.example.administrator.pandachannels.fragmentlive.Fragment_live;
-import com.example.administrator.pandachannels.fragmentobserve.Fragment_observe;
+import com.example.administrator.pandachannels.fragmentobserve.activity.centeracticity.CentreActivity;
+import com.example.administrator.pandachannels.fragmentobserve.fragemnt.Fragment_observe;
 import com.example.administrator.pandachannels.framework.baseview.BaseActivity;
 
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
@@ -32,6 +34,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private TextView text;
     private ImageView image1;
     private ImageView image3;
+    private ImageView image;
 
 
     @Override
@@ -92,7 +95,15 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         text = (TextView) findViewById(R.id.text);
         image1 = (ImageView) findViewById(R.id.image1);
         image3 = (ImageView) findViewById(R.id.image3);
-
+        image = (ImageView) findViewById(R.id.image);
+        //点击登录
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, CentreActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

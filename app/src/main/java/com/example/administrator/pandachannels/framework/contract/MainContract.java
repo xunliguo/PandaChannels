@@ -1,5 +1,6 @@
 package com.example.administrator.pandachannels.framework.contract;
 
+import com.example.administrator.pandachannels.fragmentobserve.ShiViewInterface;
 import com.example.administrator.pandachannels.framework.basepresenter.BasePresenter;
 import com.example.administrator.pandachannels.framework.baseview.BaseViewInterface;
 
@@ -10,6 +11,9 @@ import com.example.administrator.pandachannels.framework.baseview.BaseViewInterf
 public interface MainContract  {
 
     interface SubView extends BaseViewInterface{//定义V层子接口，
+
+    }
+    interface ShiView extends ShiViewInterface {
 
     }
 
