@@ -5,7 +5,7 @@ import com.example.administrator.pandachannels.fragmenthome.Bean.PandaLiveBean;
 /**
  * Created by lenovo on 2017/9/14.
  */
-
+//阿萨德按时
 public interface HomeViewInterface {
     void showLoading();
 
