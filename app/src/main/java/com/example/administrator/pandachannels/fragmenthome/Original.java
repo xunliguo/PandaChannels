@@ -15,7 +15,8 @@ import com.example.administrator.pandachannels.fragmenthome.bean.HomeOrginal;
 import com.example.administrator.pandachannels.fragmenthome.adap.HomeOrginaAdap;
 import com.example.administrator.pandachannels.framework.baseview.BaseActivity;
 import com.example.administrator.pandachannels.framework.utils.OkHttpUtils;
-import com.example.administrator.pandachannels.framework.utils.Url;
+
+import com.example.administrator.pandachannels.framework.utils.Urls;
 import com.google.gson.Gson;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
@@ -40,7 +41,7 @@ public class Original extends BaseActivity {
     @Override
     protected void initData() {
         lo.show();
-        OkHttpUtils.getInstance().getNetData(Url.HUDONG, new OkHttpUtils.CallBacks() {
+        OkHttpUtils.getInstance().getNetData(Urls.HUDONG, new OkHttpUtils.CallBacks() {
             @Override
             public void getString(String ss) {
                 HomeOrginal homeOrginal = new Gson().fromJson(ss, HomeOrginal.class);

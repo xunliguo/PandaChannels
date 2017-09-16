@@ -4,10 +4,7 @@ package com.example.administrator.pandachannels.fragmenthome;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmenthome.bean.HomeRolling;
@@ -18,30 +15,25 @@ import com.example.administrator.pandachannels.fragmenthome.adap.HomeListAdap;
 import com.example.administrator.pandachannels.fragmenthome.adap.HomeReayAdap;
 import com.example.administrator.pandachannels.fragmenthome.adap.HomeRecycleAdapter;
 import com.example.administrator.pandachannels.fragmenthome.adap.HomeWobder;
+import com.example.administrator.pandachannels.fragmenthome.Bean.PandaLiveBean;
 import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
-import com.example.administrator.pandachannels.framework.utils.OkHttpUtils;
-import com.google.gson.Gson;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.youth.banner.Banner;
-import com.youth.banner.BannerConfig;
-import com.youth.banner.Transformer;
-import com.youth.banner.listener.OnBannerListener;
-
-import java.util.ArrayList;
-import java.util.List;
-
-//十大按时打算的
-public class Fragment_home extends BaseFragment implements MainContract.SubHome {
 
 
-    private XRecyclerView xRecyclerView;
-    private Banner banner;
-    private RecyclerView homerecycle;
-    private RecyclerView homewobderful;
-    private RecyclerView homeRoing;
-    private RecyclerView homelive;
-    private ProgressDialog lo;
+
+    //十大按时打算的
+    public class Fragment_home extends BaseFragment implements MainContract.SubHome {
+
+
+        private XRecyclerView xRecyclerView;
+        private Banner banner;
+        private RecyclerView homerecycle;
+        private RecyclerView homewobderful;
+        private RecyclerView homeRoing;
+        private RecyclerView homelive;
+        private ProgressDialog lo;
 
     @Override
     protected void initView(View view) {
@@ -50,27 +42,33 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
         PresentImp presentImp = new PresentImp(this);
         presentImp.requsetData();
         xRecyclerView = view.findViewById(R.id.homexrecycle);
+        @Override
+        protected void initView(View view) {
+            lo = new ProgressDialog(getActivity());
+            lo.setMessage("");
 
-    }
 
-    @Override
-    protected int getLayout() {
-        return R.layout.fragment_fragment_home;
-    }
+        }
 
-    @Override
-    protected void initData() {
-    }
+        @Override
+        protected int getLayout() {
+            return R.layout.fragment_fragment_home;
+        }
 
-    @Override
-    public void showLoading() {
-        lo.show();
-    }
+        @Override
+        protected void initData() {
+        }
 
-    @Override
-    public void dissmissLoading() {
-        lo.dismiss();
-    }
+
+        @Override
+        public void showLoading() {
+
+        }
+
+        @Override
+        public void dissmissLoading() {
+
+        }
 
     @Override
     public void showDate(PandaLiveBean pandaLiveBean) {
@@ -91,7 +89,11 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
         initWoudefl(pandaLiveBean);
         //滚滚视屏    直播中国
         Rolling(pandaLiveBean);
+        @Override
+        public void showDate(PandaLiveBean pandaLiveBean) {
 
+        }
+    }
     }
 
     private void Rolling(PandaLiveBean pandaLiveBean) {

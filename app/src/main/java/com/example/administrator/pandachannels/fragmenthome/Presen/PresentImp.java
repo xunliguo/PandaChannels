@@ -3,7 +3,8 @@ package com.example.administrator.pandachannels.fragmenthome.presen;
 import com.example.administrator.pandachannels.fragmenthome.bean.PandaLiveBean;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
 import com.example.administrator.pandachannels.framework.utils.OkHttpUtils;
-import com.example.administrator.pandachannels.framework.utils.Url;
+
+import com.example.administrator.pandachannels.framework.utils.Urls;
 import com.google.gson.Gson;
 
 /**
@@ -20,7 +21,7 @@ public class PresentImp implements MainContract.SubPresenter {
     @Override
     public void requsetData() {
         subView.showLoading();
-        OkHttpUtils.getInstance().getNetData(Url.PANDAHOME, new OkHttpUtils.CallBacks() {
+        OkHttpUtils.getInstance().getNetData(Urls.PANDAHOME, new OkHttpUtils.CallBacks() {
             @Override
             public void getString(String ss) {
                 PandaLiveBean pandaLiveBean = new Gson().fromJson(ss, PandaLiveBean.class);
