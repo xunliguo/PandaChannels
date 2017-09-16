@@ -8,7 +8,7 @@ package com.example.administrator.pandachannels.framework.utils;
 public class Urls {
 
 
-    //服务器地址
+    //服务器  地址
     private static final String BASEURL = "http://www.ipanda.com/kehuduan/";
 
     //首页
