@@ -10,7 +10,7 @@ import android.view.View;
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
 import com.example.administrator.pandachannels.fragmentlive.App;
-import com.example.administrator.pandachannels.fragmentlive.VideoActivity;
+import com.example.administrator.pandachannels.fragmentlive.LiveVideoActivity;
 import com.example.administrator.pandachannels.fragmentlive.adapter.WondfulAdapters;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.ManyBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PandaLiveBean;
@@ -90,7 +90,7 @@ private List<WondBean.VideoBean> mlist=new ArrayList<>();
         adapters.setOnclick(new WondfulAdapters.Listener() {
             @Override
             public void Onclick(int position, View view) {
-                Intent intent=new Intent(getActivity(), VideoActivity.class);
+                Intent intent=new Intent(getActivity(), LiveVideoActivity.class);
                 String url = mlist.get(position).getUrl();
                 String vid = mlist.get(position).getVid();
                 intent.putExtra("url",url+vid);

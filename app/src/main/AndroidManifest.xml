@@ -26,7 +26,7 @@
             android:name=".HomeActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
-        <activity android:name=".fragmentlive.VideoActivity"></activity>
+        <activity android:name=".fragmentlive.LiveVideoActivity"></activity>
 
     </application>
 
