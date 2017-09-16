@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.example.administrator.pandachannels.MainActivity;
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmenthome.bean.HomeRolling;
 import com.example.administrator.pandachannels.fragmenthome.bean.HomeWobderfulBean;
@@ -180,7 +181,7 @@ import com.youth.banner.Banner;
         banner.setOnBannerListener(new OnBannerListener() {
             @Override
             public void OnBannerClick(int position) {
-                Intent intent = new Intent(getActivity(), Video.class);
+                Intent intent = new Intent(getActivity(), MainActivity.class);
                 intent.putExtra("homelunbo",pandaLiveBean.getData().getBigImg().get(position).getPid());
                 startActivity(intent);
             }
