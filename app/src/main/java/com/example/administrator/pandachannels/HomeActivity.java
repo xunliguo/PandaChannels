@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.pandachannels.fragmentchinese.Fragment_Chinese;
 import com.example.administrator.pandachannels.fragmentculture.Fragment_culture;
@@ -35,6 +37,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private ImageView image1;
     private ImageView image3;
     private ImageView imageView;
+    private long firstTime = 0;
 
 
     @Override
@@ -95,10 +98,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         text = (TextView) findViewById(R.id.text);
         image1 = (ImageView) findViewById(R.id.image1);
         image3 = (ImageView) findViewById(R.id.image3);
-        image3.setOnClickListener(this);
-        image1.setOnClickListener(this);
-        imageView = (ImageView) findViewById(R.id.image);
-        imageView.setOnClickListener(this);
+
+
     }
 
     @Override
@@ -115,12 +116,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         //方法2隐藏所有的Fragment。
         hideAll(transaction);
         switch (v.getId()) {
-            case  R.id.image3:
-               startActivity(new Intent(HomeActivity.this, Original.class));
-                break;
-            case R.id.image:
-                startActivity(new Intent(HomeActivity.this, Presonal.class));
-                break;
             case R.id.rb_01:
                 image3.setVisibility(View.VISIBLE);
                 image1.setVisibility(View.VISIBLE);
@@ -203,18 +198,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         if (fragment5 != null) {
             transaction.hide(fragment5);
         }
-
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        FragmentManager msg = getSupportFragmentManager();
-        //开启Fragment事物
-        FragmentTransaction transaction = msg.beginTransaction();
-        fragment1=new Fragment_home();
-        transaction.add(R.id.framlayout,fragment1);
-        transaction.commit();
 
     }
 }

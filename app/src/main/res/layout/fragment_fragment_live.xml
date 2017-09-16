@@ -1,13 +1,29 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context="com.example.administrator.pandachannels.fragmentlive.Fragment_live">
+<android.support.design.widget.TabLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    app:tabIndicatorColor="@color/colorPrimary"
+     app:tabSelectedTextColor="#1F539E"
+    android:id="@+id/tablayout">
+
+</android.support.design.widget.TabLayout>
+    <com.example.administrator.pandachannels.fragmentlive.utils.NoScrollViewPager
+
+
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+        android:layout_height="match_parent"
+        android:id="@+id/viewpager">
+
+    </com.example.administrator.pandachannels.fragmentlive.utils.NoScrollViewPager>
+
+
+
+</LinearLayout>

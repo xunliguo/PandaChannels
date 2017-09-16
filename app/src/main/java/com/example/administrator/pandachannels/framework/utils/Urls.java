@@ -5,7 +5,7 @@ package com.example.administrator.pandachannels.framework.utils;
  * Time:2017/9/14
  * Motto: where my heart get peace,where my self get home.
  */
-public class Url {
+public class Urls {
 
 
     //服务器地址
