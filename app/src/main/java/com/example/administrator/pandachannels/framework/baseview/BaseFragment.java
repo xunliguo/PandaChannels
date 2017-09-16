@@ -22,9 +22,6 @@ public abstract class BaseFragment extends Fragment {
         return view;
 
     }
-
-
-
     //找id
     protected abstract void initView(View view);
 //初始化布局

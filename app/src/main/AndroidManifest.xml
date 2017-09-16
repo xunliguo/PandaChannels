@@ -20,6 +20,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomeActivity" />
+        <activity android:name=".fragmenthome.Original" />
+        <activity android:name=".Presonal" />
+        <activity android:name=".fragmenthome.HomeWebView"></activity>
     </application>
 
 </manifest>
