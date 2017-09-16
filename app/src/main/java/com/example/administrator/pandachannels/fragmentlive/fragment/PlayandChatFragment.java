@@ -89,8 +89,5 @@ public class PlayandChatFragment extends BaseFragment implements MainContract.XS
 
     }
 
-    @Override
-    public void showDataBurang() {
 
-    }
 }

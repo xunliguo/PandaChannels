@@ -1,16 +1,11 @@
 package com.example.administrator.pandachannels.fragmentlive.presenter;
 
-import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
 import com.example.administrator.pandachannels.fragmentlive.App;
-import com.example.administrator.pandachannels.fragmentlive.fragment.Burang_fragment;
-import com.example.administrator.pandachannels.fragmentlive.model.entity.ManyBean;
-import com.example.administrator.pandachannels.fragmentlive.model.entity.PandaLiveBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.WondBean;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
 import com.example.administrator.pandachannels.framework.utils.OkHttpUtils;
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

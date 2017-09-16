@@ -1,21 +1,17 @@
 package com.example.administrator.pandachannels;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.administrator.pandachannels.fragmentchinese.Fragment_Chinese;
 import com.example.administrator.pandachannels.fragmentculture.Fragment_culture;
 import com.example.administrator.pandachannels.fragmenthome.Fragment_home;
-import com.example.administrator.pandachannels.fragmenthome.Original;
 import com.example.administrator.pandachannels.fragmentlive.Fragment_live;
 import com.example.administrator.pandachannels.fragmentobserve.Fragment_observe;
 import com.example.administrator.pandachannels.framework.baseview.BaseActivity;

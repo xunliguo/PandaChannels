@@ -2,27 +2,20 @@ package com.example.administrator.pandachannels.fragmentlive.fragment;
 
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
 
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
 import com.example.administrator.pandachannels.fragmentlive.App;
 import com.example.administrator.pandachannels.fragmentlive.VideoActivity;
-import com.example.administrator.pandachannels.fragmentlive.adapter.DataAdapters;
 import com.example.administrator.pandachannels.fragmentlive.adapter.WondfulAdapters;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.ManyBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PandaLiveBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.WondBean;
 import com.example.administrator.pandachannels.fragmentlive.presenter.WonfulPersenterImpl;
-import com.example.administrator.pandachannels.framework.A;
 import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
@@ -136,8 +129,5 @@ public class Wonderful_fragment extends BaseFragment implements MainContract.XSu
 
     }
 
-    @Override
-    public void showDataBurang() {
 
-    }
 }

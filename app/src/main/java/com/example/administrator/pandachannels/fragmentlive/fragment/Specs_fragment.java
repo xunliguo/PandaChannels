@@ -113,8 +113,5 @@ public class Specs_fragment extends BaseFragment implements MainContract.XSubVie
 
     }
 
-    @Override
-    public void showDataBurang() {
 
-    }
 }

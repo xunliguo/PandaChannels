@@ -2,14 +2,9 @@ package com.example.administrator.pandachannels.fragmentlive.presenter;
 
 import com.example.administrator.pandachannels.fragmentlive.model.biz.PandaLiveModelImpl;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PandaLiveBean;
-import com.example.administrator.pandachannels.fragmentlive.utils.net.callback.MyNetWorkCallback;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
 import com.example.administrator.pandachannels.framework.utils.OkHttpUtils;
 import com.google.gson.Gson;
-
-import java.util.List;
-
-import static android.os.Build.VERSION_CODES.O;
 
 /**
  * Created by ASUS-PC on 2017/9/14.

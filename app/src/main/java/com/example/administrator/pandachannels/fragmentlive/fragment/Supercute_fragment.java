@@ -2,13 +2,10 @@ package com.example.administrator.pandachannels.fragmentlive.fragment;
 
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
@@ -118,8 +115,5 @@ public class Supercute_fragment extends BaseFragment implements MainContract.XSu
 
     }
 
-    @Override
-    public void showDataBurang() {
 
-    }
 }

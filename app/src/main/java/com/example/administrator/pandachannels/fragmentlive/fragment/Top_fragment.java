@@ -116,8 +116,5 @@ public class Top_fragment extends BaseFragment implements MainContract.XSubView 
 
     }
 
-    @Override
-    public void showDataBurang() {
 
-    }
 }
