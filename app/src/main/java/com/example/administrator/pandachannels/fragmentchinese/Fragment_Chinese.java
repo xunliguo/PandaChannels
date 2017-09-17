@@ -114,7 +114,7 @@ public class Fragment_Chinese extends BaseFragment implements View.OnClickListen
         }
     }
 
-  //PopWindow的设置
+  //PopWindow的   设置
     private void showPopwindow() {
         //获取网络数据
         OkHttpUtils.getInstance().getNetData("http://www.ipanda.com/kehuduan/PAGE14501775094142282/index.json", new OkHttpUtils.CallBacks() {
