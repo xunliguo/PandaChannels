@@ -13,7 +13,7 @@ public interface BaseViewInterface {
 
     void dissmissLoading();
 
-    void showData(ArrayList<BeanTaishan.LiveBean> list);
+   void showData(ArrayList<BeanTaishan.LiveBean> list);
 
     void  showrror();
 
