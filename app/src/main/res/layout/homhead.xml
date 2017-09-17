@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.youth.banner.Banner
+        android:id="@+id/homebanner"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+    </com.youth.banner.Banner>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#A6A6A6" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:text="  熊猫播报"
+        android:textColor="#4b48d7" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginTop="2dp"
+        android:background="#fff">
+
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:src="@drawable/tab_panda_eye_normal" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/frame_hometext_follow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/home_text"
+                    android:text="新生"
+                    android:textColor="#FF276E"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/home_birthday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="大熊猫白云26岁,,生日快乐"
+                    android:textColor="#000" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="10dp"
+                android:background="#000" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/home_text"
+                    android:text="关注"
+                    android:textColor="#FF276E"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/attention"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="四川洪雅发现野生大熊猫在树上酣睡"
+                    android:textColor="#000" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:text="  直播秀场"
+        android:textColor="#4b48d7" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/home_recycleview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:background="#fff"></android.support.v7.widget.RecyclerView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:text="  精彩一刻"
+        android:textColor="#4b48d7" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/home_wonderful"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:background="#fff">
+
+    </android.support.v7.widget.RecyclerView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:text="  滚滚视屏"
+        android:textColor="#4b48d7" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/home_Roing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+
+        android:background="#fff">
+
+    </android.support.v7.widget.RecyclerView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginTop="5dp"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:text="  直播中国"
+        android:textColor="#4b48d7" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/homeliveChid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:background="#fff">
+
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>

@@ -32,6 +32,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private TextView text;
     private ImageView image1;
     private ImageView image3;
+    private ImageView imageView;
+    private long firstTime = 0;
 
 
     @Override

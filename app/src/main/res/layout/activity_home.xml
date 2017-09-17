@@ -92,9 +92,9 @@
             android:button="@null"
             android:background="@drawable/background01"
 
-            android:drawableTop="@mipmap/tab_panda_live_normal"
+            android:drawableTop="@mipmap/tab_panda_eye_normal"
             android:gravity="center"
-            android:text="熊猫直播" />
+            android:text="熊猫播报" />
 
 
         <RadioButton
@@ -118,9 +118,9 @@
             android:background="@drawable/background01"
 
 
-            android:drawableTop="@mipmap/tab_panda_eye_normal"
+            android:drawableTop="@mipmap/tab_panda_live_normal"
             android:gravity="center"
-            android:text="熊猫播报" />
+            android:text="熊猫直播" />
         <RadioButton
             android:id="@+id/rb_05"
             android:layout_width="0dp"
