@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.pandachannels.R;
-import com.example.administrator.pandachannels.fragmenthome.Bean.PandaLiveBean;
+import com.example.administrator.pandachannels.fragmenthome.bean.PandaLiveBean;
 
 import java.util.List;
 
@@ -50,8 +50,8 @@ public class HomeReayAdap extends RecyclerView.Adapter {
 
         public ViewHodle(View itemView) {
             super(itemView);
-            image=itemView.findViewById(R.id.homelive);
-            tvtitle=itemView.findViewById(R.id.textView);
+            image= (ImageView) itemView.findViewById(R.id.homelive);
+            tvtitle= (TextView) itemView.findViewById(R.id.textView);
         }
     }
 }

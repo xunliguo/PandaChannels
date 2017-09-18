@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.pandachannels.R;
-import com.example.administrator.pandachannels.fragmenthome.Bean.HomeRolling;
+import com.example.administrator.pandachannels.fragmenthome.bean.HomeRolling;
 
 import java.util.List;
 
@@ -51,10 +51,10 @@ public class HomeListAdap extends RecyclerView.Adapter {
              TextView Leng, name, time;
         public ViewHould(View itemView) {
             super(itemView);
-            image = itemView.findViewById(R.id.homeimage4);
-            Leng = itemView.findViewById(R.id.hometext6);
-            name = itemView.findViewById(R.id.hometext7);
-            time = itemView.findViewById(R.id.hometext8);
+            image = (ImageView) itemView.findViewById(R.id.homeimage4);
+            Leng = (TextView) itemView.findViewById(R.id.hometext6);
+            name = (TextView) itemView.findViewById(R.id.hometext7);
+            time = (TextView) itemView.findViewById(R.id.hometext8);
         }
     }
 }

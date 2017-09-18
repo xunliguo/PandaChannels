@@ -65,10 +65,10 @@ private List<WondBean.VideoBean> list;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            wond_name =  itemView.findViewById(R.id.wond_title);
-            wond_timer =  itemView.findViewById(R.id.wond_time);
-            wond_imagea = itemView.findViewById(R.id.wond_image);
-            lenght = itemView.findViewById(R.id.wond_length);
+            wond_name = (TextView) itemView.findViewById(R.id.wond_title);
+            wond_timer = (TextView) itemView.findViewById(R.id.wond_time);
+            wond_imagea = (ImageView) itemView.findViewById(R.id.wond_image);
+            lenght = (TextView) itemView.findViewById(R.id.wond_length);
         }
     }
     public interface  Listener{

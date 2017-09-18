@@ -21,4 +21,6 @@
         android:id="@+id/pin_contont"
         android:textSize="19sp"
         />
+
+
 </LinearLayout>

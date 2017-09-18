@@ -6,6 +6,7 @@
 
     <TextView
         android:gravity="center"
+
         android:layout_marginTop="10dp"
         android:id="@+id/poprecy1_but1"
         android:text="1111111"
@@ -16,6 +17,7 @@
         android:layout_centerHorizontal="true" />
 
   <!--  <ImageView
+    <ImageView
         android:visibility="gone"
         android:id="@+id/poprecy1_img1"
         android:layout_width="wrap_content"
@@ -25,4 +27,5 @@
         android:layout_marginStart="72dp"
         android:layout_alignBottom="@+id/poprecy1_but1"
         android:layout_alignStart="@+id/poprecy1_but1" />-->
+        android:layout_alignStart="@+id/poprecy1_but1" />
 </RelativeLayout>

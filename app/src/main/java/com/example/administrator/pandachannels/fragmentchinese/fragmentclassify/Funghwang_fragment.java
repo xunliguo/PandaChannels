@@ -40,7 +40,7 @@ public class Funghwang_fragment extends BaseFragment implements MainContract.Sub
     @Override
     protected void initView(View view) {
         //p层有了，怎么关联，把this传进来,调用请求数据方法
-        SubPresenterimpl_Fenghuang subPresenterimpl_mountTai = new SubPresenterimpl_Fenghuang(this);
+        SubPresenterimpl_Fenghuang  subPresenterimpl_mountTai = new SubPresenterimpl_Fenghuang(this);
         subPresenterimpl_mountTai.requsetData();
 
         mountai_recy = (XRecyclerView) view.findViewById(R.id.mountai_recy);

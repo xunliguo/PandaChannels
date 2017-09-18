@@ -32,6 +32,8 @@ public class Urls {
 
     //熊猫播报 （温）
     public static final String PANDABROADCAST="http://www.ipanda.com/kehuduan/PAGE14503485387528442/index.json";
+    //熊猫播报 （温）下边listview
+    public static final String PANDAVIEW="http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getArticleAndVideoListInfo.json&primary_id=PAGE1422435191506336&serviceId=panda";
     //直播中国
     public static final String LIVECHINA=BASEURL+"PAGE14501775094142282/index.json";
     //    熊猫直播 其他 fragment

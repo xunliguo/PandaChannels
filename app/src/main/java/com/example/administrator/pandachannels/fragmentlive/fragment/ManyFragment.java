@@ -11,6 +11,7 @@ import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.
 import com.example.administrator.pandachannels.fragmentlive.adapter.Xian_WathAdapter;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.ManyBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PandaLiveBean;
+import com.example.administrator.pandachannels.fragmentlive.model.entity.PinBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.WondBean;
 import com.example.administrator.pandachannels.fragmentlive.presenter.ManyFraPersenterImpl;
 import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
@@ -32,7 +33,7 @@ public class ManyFragment extends BaseFragment implements MainContract.XSubView{
 
   @Override
     protected void initView(View view) {
-    recycle = view.findViewById(R.id.recycleview);
+    recycle = (RecyclerView) view.findViewById(R.id.recycleview);
 
     }
 
@@ -79,6 +80,13 @@ public class ManyFragment extends BaseFragment implements MainContract.XSubView{
           recycle.setLayoutManager(new GridLayoutManager(getActivity(),3));
            recycle.setAdapter(adapter);
     }
+
+  @Override
+  public void showPinlun(List<PinBean.DataBean.ContentBean> content) {
+
+  }
+
+
 
   @Override
   public void showDatasWond(List<WondBean.VideoBean> videolist) {

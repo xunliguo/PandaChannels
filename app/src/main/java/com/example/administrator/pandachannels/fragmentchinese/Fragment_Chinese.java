@@ -23,12 +23,20 @@ import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import com.example.administrator.pandachannels.R;
+import com.example.administrator.pandachannels.fragmentchinese.data.ArrayListData1;
+import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.Funghwang_fragment;
+import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.MountEmei_fragment;
+import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.MountHang_fragment;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.MountTai_fragment;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.adapter.MyGridAdapter1;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.adapter.MyGridAdapter2;
+
+import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.adapter.PopRecyAdapter1;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanChinese;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.Students;
+import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.presenter.Fragment_ChineseimplMain;
+import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.presenter.Fragment_ChineseimplMain;
 import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
@@ -43,6 +51,7 @@ import java.util.List;
 
 //实现V层接口
 public class Fragment_Chinese extends BaseFragment implements MainContract.SubView, View.OnClickListener {
+public class Fragment_Chinese extends BaseFragment implements View.OnClickListener,MainContract.SubView {
 
     //  http://www.ipanda.com/kehuduan/PAGE14501775094142282/index.json
     //30个已经有数据了
@@ -105,6 +114,7 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
 
     @Override
     protected void initData() {
+      /*  titlelist.add("泰山");
         OkHttpUtils.getInstance().getNetData("http://www.ipanda.com/kehuduan/PAGE14501775094142282/index.json", new OkHttpUtils.CallBacks() {
             @Override
             public void getString(String ss) {
@@ -383,6 +393,31 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
     @Override
     public void showDataChina(ArrayList<BeanChinese> list111) {
 
+
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void dissmissLoading() {
+
+    }
+
+    @Override
+    public void showData(ArrayList<BeanTaishan.LiveBean> list) {
+
+    }
+
+    @Override
+    public void showrror() {
+
+    }
+
+    @Override
+    public void showDataChina(ArrayList<BeanChinese> list111) {
 
     }
 

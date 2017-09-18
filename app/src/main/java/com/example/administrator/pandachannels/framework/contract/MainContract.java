@@ -1,9 +1,13 @@
 package com.example.administrator.pandachannels.framework.contract;
 
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanChinese;
+import com.example.administrator.pandachannels.fragmentobserve.ShiViewInterface;
+import com.example.administrator.pandachannels.fragmentculture.LiViewInterface;
+import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanChinese;
 import com.example.administrator.pandachannels.fragmenthome.HomeViewInterface;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.ManyBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PandaLiveBean;
+import com.example.administrator.pandachannels.fragmentlive.model.entity.PinBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.WondBean;
 import com.example.administrator.pandachannels.framework.basepresenter.BasePresenter;
 import com.example.administrator.pandachannels.framework.baseview.BaseViewInterface;
@@ -22,13 +26,22 @@ public interface MainContract  {
 
 
     }
+    interface ShiView extends ShiViewInterface {
+
+    }
+
     interface  XSubView extends BaseViewInterface{
         void  showDatasWond(List<WondBean.VideoBean> video);
         void showDatas(PandaLiveBean pandaLiveBean);
         void showDatas1(List<ManyBean.ListBean> list);
+        void  showPinlun(List<PinBean.DataBean.ContentBean> content);
 
     }
+    interface  LiView extends LiViewInterface {
 
+
+
+    }
     interface  SubHome extends HomeViewInterface {
 
     }
@@ -38,6 +51,7 @@ public interface MainContract  {
     interface  SubPresenter extends BasePresenter{   //定义P层子接口，定义方法请求数据
 
     }
+
 
 
 }

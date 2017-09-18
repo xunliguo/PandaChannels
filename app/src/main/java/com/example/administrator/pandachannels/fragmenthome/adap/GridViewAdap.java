@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.pandachannels.R;
-import com.example.administrator.pandachannels.fragmenthome.Bean.PandaLiveBean;
+import com.example.administrator.pandachannels.fragmenthome.bean.PandaLiveBean;
 
 import java.util.List;
 
@@ -47,7 +47,7 @@ public class GridViewAdap extends BaseAdapter {
                if(convertView==null){
                    convertView=View.inflate(context, R.layout.homerecyitem,null);
                    hould.image= (ImageView) convertView.findViewById(R.id.homelive);
-                   hould.textView=convertView.findViewById(R.id.textView);
+                   hould.textView= (TextView) convertView.findViewById(R.id.textView);
                    convertView.setTag(hould);
                }else{
                    hould = (ViowHould) convertView.getTag();

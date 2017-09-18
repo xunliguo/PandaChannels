@@ -16,6 +16,7 @@ import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.adapter.MyAdapter_TaiShan;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanChinese;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
+
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.presenter.SubPresenterimpl_EMei;
 import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
@@ -121,6 +122,12 @@ public class MountEmei_fragment extends BaseFragment implements MainContract.Sub
 
     @Override
     public void showDataChina(ArrayList<BeanChinese> list111) {
+
+    }
+    @Override
+    public void showDataChina(ArrayList<BeanChinese> list111) {
+
+
 
     }
 }
