@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_video"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.administrator.pandachannels.fragmenthome.Video">
-    <!--<io.vov.vitamio.widget.VideoView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:id="@+id/video"/>-->
+    tools:context="com.example.administrator.pandachannels.fragmenthome.Homelive">
     <fm.jiecao.jcvideoplayer_lib.JCVideoPlayer
-        android:id="@+id/videocontroller1"
+        android:id="@+id/homeocontroller1"
         android:layout_width="match_parent"
         android:background="@mipmap/tab_panda_live_normal"
         android:layout_height="match_parent">

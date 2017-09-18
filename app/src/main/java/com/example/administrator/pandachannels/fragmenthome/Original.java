@@ -117,7 +117,7 @@ public class Original extends BaseActivity {
         int hour = t.hour;
         int minute = t.minute;
         int second = t.second;
-        String str=year+"年"+month+"月"+date+"日"+hour+":"+minute+":"+second;
+        String str="刷新时间为:"+year+"年"+month+"月"+date+"日"+hour+":"+minute+":"+second;
         return str;
     }
 
