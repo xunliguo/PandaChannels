@@ -124,11 +124,6 @@ public class MountEmei_fragment extends BaseFragment implements MainContract.Sub
     public void showDataChina(ArrayList<BeanChinese> list111) {
 
     }
-    @Override
-    public void showDataChina(ArrayList<BeanChinese> list111) {
 
-
-
-    }
 }
 

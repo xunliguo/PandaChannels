@@ -7,7 +7,7 @@ import org.greenrobot.greendao.annotation.Generated;
 
 /**
  * Author:111
- * Time:2017/9/17
+ * Time:2017/9/18
  * Motto: where my heart get peace,where my self get home.
  */
 @Entity
@@ -52,8 +52,5 @@ public class Students {
     @Generated(hash = 174834727)
     public Students() {
     }
-
-
-
 
 }
