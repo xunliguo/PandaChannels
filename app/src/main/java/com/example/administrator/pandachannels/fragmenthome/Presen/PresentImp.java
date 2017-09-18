@@ -1,4 +1,4 @@
-package com.example.administrator.pandachannels.fragmenthome.presen;
+package com.example.administrator.pandachannels.fragmenthome.Presen;
 
 import com.example.administrator.pandachannels.fragmenthome.bean.PandaLiveBean;
 import com.example.administrator.pandachannels.framework.contract.MainContract;

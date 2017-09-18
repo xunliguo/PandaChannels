@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.chanven.lib.cptr.recyclerview.RecyclerAdapterWithHF;
 import com.example.administrator.pandachannels.R;
+import com.example.administrator.pandachannels.fragmenthome.Presen.PresentImp;
 import com.example.administrator.pandachannels.fragmenthome.adap.HomeListAdap;
 import com.example.administrator.pandachannels.fragmenthome.adap.HomeReayAdap;
 import com.example.administrator.pandachannels.fragmenthome.adap.HomeRecycleAdapter;
@@ -17,7 +18,7 @@ import com.example.administrator.pandachannels.fragmenthome.adap.HomeWobder;
 import com.example.administrator.pandachannels.fragmenthome.bean.HomeRolling;
 import com.example.administrator.pandachannels.fragmenthome.bean.HomeWobderfulBean;
 import com.example.administrator.pandachannels.fragmenthome.bean.PandaLiveBean;
-import com.example.administrator.pandachannels.fragmenthome.presen.PresentImp;
+
 import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
 import com.example.administrator.pandachannels.framework.utils.OkHttpUtils;
@@ -48,7 +49,7 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
     protected void initView(View view) {
         lo = new ProgressDialog(getActivity());
         lo.setMessage("");
-        PresentImp presentImp = new PresentImp(this);
+     PresentImp presentImp = new PresentImp(this);
         presentImp.requsetData();
         xRecyclerView = (XRecyclerView) view.findViewById(R.id.homexrecycle);
         lo = new ProgressDialog(getActivity());
