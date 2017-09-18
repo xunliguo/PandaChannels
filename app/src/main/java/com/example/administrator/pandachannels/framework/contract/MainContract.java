@@ -1,5 +1,6 @@
 package com.example.administrator.pandachannels.framework.contract;
 
+import com.example.administrator.pandachannels.fragmentculture.LiViewInterface;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanChinese;
 import com.example.administrator.pandachannels.fragmenthome.HomeViewInterface;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.ManyBean;
@@ -28,7 +29,11 @@ public interface MainContract  {
         void showDatas1(List<ManyBean.ListBean> list);
 
     }
+    interface  LiView extends LiViewInterface {
 
+
+
+    }
     interface  SubHome extends HomeViewInterface {
 
     }
