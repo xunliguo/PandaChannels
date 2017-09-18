@@ -1,5 +1,6 @@
 package com.example.administrator.pandachannels.framework.contract;
 
+import com.example.administrator.pandachannels.fragmentculture.LiViewInterface;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanChinese;
 import com.example.administrator.pandachannels.fragmenthome.HomeViewInterface;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.ManyBean;
@@ -30,7 +31,11 @@ public interface MainContract  {
         void  showPinlun(List<PinBean.DataBean.ContentBean> content);
 
     }
+    interface  LiView extends LiViewInterface {
 
+
+
+    }
     interface  SubHome extends HomeViewInterface {
 
     }
