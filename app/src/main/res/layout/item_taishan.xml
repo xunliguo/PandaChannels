@@ -2,16 +2,77 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-<ImageView
-    android:scaleType="fitXY"
-    android:id="@+id/img1_taishan"
-    android:layout_width="match_parent"
-    android:layout_height="300dp"
-   />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:scaleType="fitXY"
+            android:id="@+id/img1_taishan"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            />
+        <ImageView
+            android:id="@+id/img2_taishan"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/play"/>
+
+
+    </RelativeLayout>
+
+
     <TextView
+        android:layout_marginTop="6dp"
+        android:textSize="18sp"
+
+        android:text="正在直播"
+        android:textColor="#1C1B20"
         android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
 
         android:id="@+id/tv1_taishan"/>
+   <RelativeLayout
+       android:id="@+id/relayout_taishan"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+<TextView
+    android:text="       简介"
+    android:textSize="14sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    />
+
+       <ImageView
+           android:id="@+id/img3_taishan"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:src="@drawable/com_facebook_tooltip_blue_bottomnub"/>
+
+
+       <LinearLayout
+           android:visibility="gone"
+           android:id="@+id/layout_taishan"
+           android:layout_below="@id/img3_taishan"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+           <View
+               android:layout_marginTop="10dp"
+               android:background="#999999"
+               android:layout_width="match_parent"
+               android:layout_height="1dp"/>
+           <TextView
+               android:id="@+id/tv2_taishan"
+               android:textSize="16sp"
+               android:textColor="#000000"
+               android:layout_margin="15dp"
+               android:text="等哈记得和文件hi我的卫计委我去看的见我没加我IQ京东二维我几万缺口的鸡尾酒我就完全偶觉得"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+   </RelativeLayout>
+
+
 </LinearLayout>

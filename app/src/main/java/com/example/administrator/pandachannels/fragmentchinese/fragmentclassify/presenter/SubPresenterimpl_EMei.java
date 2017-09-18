@@ -1,6 +1,5 @@
 package com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.presenter;
 
-import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.MountTai_fragment;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.utils.Url;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
@@ -12,32 +11,30 @@ import java.util.List;
 
 /**
  * Author:111
- * Time:2017/9/14
+ * Time:2017/9/15
  * Motto: where my heart get peace,where my self get home.
- */                                   //实现P层接口，实现请求数据方法
-public class SubPresenterimpl_MountTai implements MainContract.SubPresenter {
+ */
+public class SubPresenterimpl_EMei implements MainContract.SubPresenter {
     MainContract.SubView subview;
-ArrayList<BeanTaishan.LiveBean> list=new ArrayList<>();
-    public SubPresenterimpl_MountTai(MainContract.SubView subview) {
+    ArrayList<BeanTaishan.LiveBean> list=new ArrayList<>();
+    public SubPresenterimpl_EMei(MainContract.SubView subview) {
         this.subview = subview;
     }
 
-
-
     @Override
     public void requsetData() {
-
-        OkHttpUtils.getInstance().getNetData(Url.TAISHAN, new OkHttpUtils.CallBacks() {
+        subview.showLoading();
+        OkHttpUtils.getInstance().getNetData(Url.EMEI, new OkHttpUtils.CallBacks() {
             @Override
             public void getString(String ss) {
-                subview.showLoading();
                 Gson gson=new Gson();
                 BeanTaishan beanTaishan = gson.fromJson(ss, BeanTaishan.class);
                 List<BeanTaishan.LiveBean> live = beanTaishan.getLive();
                 list.addAll(live);
                 //p层请求完数据，调用V层方法展示数据
+
                 subview.showData(list);
-subview.dissmissLoading();
+                subview.dissmissLoading();
             }
         });
 

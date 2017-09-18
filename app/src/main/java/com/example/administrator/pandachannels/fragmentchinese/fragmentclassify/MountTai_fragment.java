@@ -1,11 +1,11 @@
 package com.example.administrator.pandachannels.fragmentchinese.fragmentclassify;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,41 +14,43 @@ import android.widget.Toast;
 
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.adapter.MyAdapter_TaiShan;
+import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanChinese;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.presenter.SubPresenterimpl_MountTai;
 import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
+import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  */                                                   //实现v层的接口
-public class MountTai_fragment extends BaseFragment implements MainContract.SubView{
+public class MountTai_fragment extends BaseFragment implements MainContract.SubView {
 
     private TextView fragment_tvtv1;
-    private RecyclerView mountai_recy;
+    private XRecyclerView mountai_recy;
+    private ProgressDialog dialog;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        View view = View.inflate(getActivity(), R.layout.fragment_mount_tai_fragment, null);
+        View view=inflater.inflate(R.layout.fragment_mount_tai_fragment,null);
+        dialog = new ProgressDialog(getActivity());
         initView(view);
-        //p层有了，怎么关联，把this传进来,调用请求数据方法
-        SubPresenterimpl_MountTai  subPresenterimpl_mountTai=new SubPresenterimpl_MountTai(this);
-        subPresenterimpl_mountTai.requsetData();
-        initData();
+        getLayout();
+
         return view;
 
     }
 
     @Override
     protected void initView(View view) {
+        //p层有了，怎么关联，把this传进来,调用请求数据方法
+        SubPresenterimpl_MountTai subPresenterimpl_mountTai = new SubPresenterimpl_MountTai(this);
+        subPresenterimpl_mountTai.requsetData();
 
-
-        mountai_recy = (RecyclerView) view.findViewById(R.id.mountai_recy);
-
+        mountai_recy = (XRecyclerView) view.findViewById(R.id.mountai_recy);
 
     }
 
@@ -66,18 +68,38 @@ public class MountTai_fragment extends BaseFragment implements MainContract.SubV
     @Override
     public void showLoading() {
 
+      dialog.show();
     }
 
     @Override
     public void dissmissLoading() {
+ dialog.dismiss();
 
     }
 
     @Override
     public void showData(ArrayList<BeanTaishan.LiveBean> list) {
-        MyAdapter_TaiShan myAdapter_taiShan=new MyAdapter_TaiShan(getActivity(),list);
-        mountai_recy.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
-        mountai_recy.setAdapter(myAdapter_taiShan);
+        final MyAdapter_TaiShan myAdapter_taiShan = new MyAdapter_TaiShan(getActivity(), list);
+        mountai_recy.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+         mountai_recy.setAdapter(myAdapter_taiShan);
+
+           mountai_recy.setLoadingListener(new XRecyclerView.LoadingListener() {
+               @Override
+               public void onRefresh() {
+                   myAdapter_taiShan.notifyDataSetChanged();
+                   mountai_recy.refreshComplete();
+               }
+
+               @Override
+               public void onLoadMore() {
+                   myAdapter_taiShan.notifyDataSetChanged();
+                   mountai_recy.loadMoreComplete();
+               }
+           });
+
+
+
+
         myAdapter_taiShan.setonitenclicklistener(new MyAdapter_TaiShan.Listener() {
             @Override
             public void setonduanclick(View v, int postion) {
@@ -91,8 +113,15 @@ public class MountTai_fragment extends BaseFragment implements MainContract.SubV
         });
     }
 
+
     @Override
     public void showrror() {
+
+    }
+
+
+    @Override
+    public void showDataChina(ArrayList<BeanChinese> list111) {
 
     }
 }

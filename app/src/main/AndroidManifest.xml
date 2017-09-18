@@ -33,6 +33,13 @@
         <activity android:name=".fragmentlive.LiveVideoActivity" />
         <activity android:name=".fragmenthome.Homelive"
             android:screenOrientation="landscape"></activity>
+
+
+            />
+        <activity android:name=".fragmentlive.LiveVideoActivity"
+           android:screenOrientation="landscape"
+            ></activity>
+
     </application>
 
 </manifest>

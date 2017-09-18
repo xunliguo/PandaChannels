@@ -3,9 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.MountTai_fragment">
-<android.support.v7.widget.RecyclerView
+<com.jcodecraeer.xrecyclerview.XRecyclerView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/mountai_recy"></android.support.v7.widget.RecyclerView>
+    android:id="@+id/mountai_recy"></com.jcodecraeer.xrecyclerview.XRecyclerView>
 
 </FrameLayout>
