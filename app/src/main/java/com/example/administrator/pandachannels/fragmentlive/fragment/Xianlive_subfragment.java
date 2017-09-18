@@ -11,9 +11,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.administrator.pandachannels.fragmentlive.adapter.MyAdapters;
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
+import com.example.administrator.pandachannels.fragmentlive.adapter.MyAdapters;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.ManyBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PandaLiveBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PinBean;
@@ -26,8 +26,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
-
-import static com.example.administrator.pandachannels.R.id.textView;
 
 
 public class Xianlive_subfragment extends BaseFragment implements MainContract.XSubView, View.OnClickListener {
@@ -75,23 +73,23 @@ public class Xianlive_subfragment extends BaseFragment implements MainContract.X
 
     @Override
     protected void initView(View view) {
-        videoController = view.findViewById(R.id.videocontroller1);
+        videoController = (JCVideoPlayer) view.findViewById(R.id.videocontroller1);
         View view1 = View.inflate(getActivity(), R.layout.livemudel_wathch, null);
-        listView = view.findViewById(R.id.xian_listView);
+        listView = (ListView) view.findViewById(R.id.xian_listView);
 
         listView.addHeaderView(view1);
-        up = view.findViewById(R.id.up);
-        title_textView = view.findViewById(R.id.xian_text);
+        up = (ImageView) view.findViewById(R.id.up);
+        title_textView = (TextView) view.findViewById(R.id.xian_text);
 
 //      ----------------------------------------------
 
-        title = view1.findViewById(R.id.titlename);
+        title = (TextView) view1.findViewById(R.id.titlename);
 
         adapters = new MyAdapters(getActivity(), lists);
         listView.setAdapter(adapters);
 
-        Button but1s = view1.findViewById(R.id.but1s);
-        Button but2s = view1.findViewById(R.id.but2s);
+        Button but1s = (Button) view1.findViewById(R.id.but1s);
+        Button but2s = (Button) view1.findViewById(R.id.but2s);
         but1s.setOnClickListener(this);
         but2s.setOnClickListener(this);
         dialog = new ProgressDialog(getActivity());

@@ -50,8 +50,8 @@ public class HomeReayAdap extends RecyclerView.Adapter {
 
         public ViewHodle(View itemView) {
             super(itemView);
-            image=itemView.findViewById(R.id.homelive);
-            tvtitle=itemView.findViewById(R.id.textView);
+            image= (ImageView) itemView.findViewById(R.id.homelive);
+            tvtitle= (TextView) itemView.findViewById(R.id.textView);
         }
     }
 }

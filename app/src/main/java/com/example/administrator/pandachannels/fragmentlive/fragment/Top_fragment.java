@@ -23,8 +23,6 @@ import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.media.CamcorderProfile.get;
-
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -59,7 +57,7 @@ public class Top_fragment extends BaseFragment implements MainContract.XSubView 
 
     @Override
     protected void initView(View view) {
-        recyclerView = view.findViewById(R.id.top_recycle);
+        recyclerView = (XRecyclerView) view.findViewById(R.id.top_recycle);
         topfragPersenter.requsetData();
     }
 

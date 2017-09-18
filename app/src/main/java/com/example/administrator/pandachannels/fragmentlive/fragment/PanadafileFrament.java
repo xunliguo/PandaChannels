@@ -57,7 +57,7 @@ private List<WondBean.VideoBean> mlist=new ArrayList<>();
 
     @Override
     protected void initView(View view) {
-        recyclerView = view.findViewById(R.id.pandafile_recycle);
+        recyclerView = (XRecyclerView) view.findViewById(R.id.pandafile_recycle);
         pandlifPersenterimpl.requsetData();
     }
 

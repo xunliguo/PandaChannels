@@ -63,8 +63,8 @@ holder.poprecy1_but1.setText(list.get(position));
         ImageView poprecy1_img1;
         public ViewHolder(View itemView) {
             super(itemView);
-            poprecy1_but1=itemView.findViewById(R.id.poprecy1_but1);
-            poprecy1_img1=itemView.findViewById(R.id.poprecy1_img1);
+            poprecy1_but1= (Button) itemView.findViewById(R.id.poprecy1_but1);
+            poprecy1_img1= (ImageView) itemView.findViewById(R.id.poprecy1_img1);
         }
 }
     //定义接口

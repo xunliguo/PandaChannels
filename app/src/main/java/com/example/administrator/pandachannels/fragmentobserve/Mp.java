@@ -4,7 +4,7 @@ import com.example.administrator.pandachannels.fragmentobserve.entity.PandaBean;
 import com.example.administrator.pandachannels.fragmentobserve.entity.PandaViewBean;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
 import com.example.administrator.pandachannels.framework.utils.OkHttpUtils;
-import com.example.administrator.pandachannels.framework.utils.Url;
+import com.example.administrator.pandachannels.framework.utils.Urls;
 import com.google.gson.Gson;
 
 /**
@@ -20,7 +20,7 @@ public class Mp implements MainContract.SubPresenter {
 
     @Override
     public void requsetData() {
-        OkHttpUtils.getInstance().getNetData(Url.PANDAVIEW, new OkHttpUtils.CallBacks() {
+        OkHttpUtils.getInstance().getNetData(Urls.PANDAVIEW, new OkHttpUtils.CallBacks() {
 
             @Override
             public void getString(String ss) {
@@ -31,7 +31,7 @@ public class Mp implements MainContract.SubPresenter {
             }
         });
 
-        OkHttpUtils.getInstance().getNetData(Url.PANDABROADCAST, new OkHttpUtils.CallBacks() {
+        OkHttpUtils.getInstance().getNetData(Urls.PANDABROADCAST, new OkHttpUtils.CallBacks() {
             @Override
             public void getString(String ss) {
                 Gson gson=new Gson();

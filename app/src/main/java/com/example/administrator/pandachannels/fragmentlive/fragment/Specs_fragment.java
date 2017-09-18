@@ -54,7 +54,7 @@ public class Specs_fragment extends BaseFragment implements MainContract.XSubVie
 
     @Override
     protected void initView(View view) {
-        recyclerView = view.findViewById(R.id.spec_recycle);
+        recyclerView = (XRecyclerView) view.findViewById(R.id.spec_recycle);
         specPresenter.requsetData();
     }
 

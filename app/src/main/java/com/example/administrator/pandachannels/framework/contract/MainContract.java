@@ -28,7 +28,7 @@ public interface MainContract  {
     interface ShiView extends ShiViewInterface {
 
     }
-        }
+
     interface  XSubView extends BaseViewInterface{
         void  showDatasWond(List<WondBean.VideoBean> video);
         void showDatas(PandaLiveBean pandaLiveBean);
@@ -50,6 +50,7 @@ public interface MainContract  {
     interface  SubPresenter extends BasePresenter{   //定义P层子接口，定义方法请求数据
 
     }
+
 
 
 }

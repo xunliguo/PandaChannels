@@ -33,7 +33,7 @@ public class ManyFragment extends BaseFragment implements MainContract.XSubView{
 
   @Override
     protected void initView(View view) {
-    recycle = view.findViewById(R.id.recycleview);
+    recycle = (RecyclerView) view.findViewById(R.id.recycleview);
 
     }
 

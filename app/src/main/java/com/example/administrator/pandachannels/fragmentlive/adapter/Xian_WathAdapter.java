@@ -53,8 +53,8 @@ public class Xian_WathAdapter extends RecyclerView.Adapter<Xian_WathAdapter.View
 
         public ViewHolder(View itemView) {
             super(itemView);
-             thum = itemView.findViewById(R.id.xianImg);
-             title = itemView.findViewById(R.id.xianTitle);
+             thum = (ImageView) itemView.findViewById(R.id.xianImg);
+             title = (TextView) itemView.findViewById(R.id.xianTitle);
 
 
         }

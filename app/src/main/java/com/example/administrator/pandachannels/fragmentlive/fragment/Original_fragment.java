@@ -54,7 +54,7 @@ public class Original_fragment extends BaseFragment implements MainContract.XSub
 
     @Override
     protected void initView(View view) {
-        recyclerView = view.findViewById(R.id.or_recycle);
+        recyclerView = (XRecyclerView) view.findViewById(R.id.or_recycle);
         origPresenterimpl.requsetData();
     }
 

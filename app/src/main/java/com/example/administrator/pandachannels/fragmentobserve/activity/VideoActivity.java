@@ -3,39 +3,37 @@ package com.example.administrator.pandachannels.fragmentobserve.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-
 import com.example.administrator.pandachannels.R;
 
-import io.vov.vitamio.MediaPlayer;
-import io.vov.vitamio.Vitamio;
-import io.vov.vitamio.widget.MediaController;
-import io.vov.vitamio.widget.VideoView;
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+
 public class VideoActivity extends AppCompatActivity {
 
-    private VideoView shi_video;
+
+    private JCVideoPlayer shi_video;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video);
         initView();
-        Vitamio.isInitialized(this);
+
         initData();
     }
 
     private void initData() {
-        shi_video.setVideoPath("http://video.jiecao.fm/11/23/xin/%E5%81%87%E4%BA%BA.mp4");
-        shi_video.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mp) {
-                shi_video.start();
-            }
-        });
-        shi_video.setMediaController(new MediaController(VideoActivity.this));
 
+        shi_video.setUp("http://vod.cntv.lxdns.com/flash/mp4video61/TMS/2017/09/14/29261a6b576f488a9124a7ded9d241d3_h264418000nero_aac32.mp4","毛毛");
     }
 
     private void initView() {
-        shi_video = (VideoView) findViewById(R.id.shi_video);
+        shi_video = (JCVideoPlayer) findViewById(R.id.shi_video);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JCVideoPlayer.releaseAllVideos();
+
     }
 }

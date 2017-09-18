@@ -36,7 +36,7 @@ public class Wonderful_fragment extends BaseFragment implements MainContract.XSu
     @Override
     protected void initView(View view) {
 
-        recyclerView = view.findViewById(R.id.won_recycle);
+        recyclerView = (XRecyclerView) view.findViewById(R.id.won_recycle);
         wonfulPersenter.requsetData();
 
 

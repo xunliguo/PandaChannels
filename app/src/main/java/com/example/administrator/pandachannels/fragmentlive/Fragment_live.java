@@ -37,8 +37,8 @@ private List<Fragment> mlist=new ArrayList<>();
 
     @Override
     protected void initView(View view) {
-        tabLayout = view.findViewById(R.id.tablayout);
-        viewpager = view.findViewById(R.id.viewpager);
+        tabLayout = (TabLayout) view.findViewById(R.id.tablayout);
+        viewpager = (ViewPager) view.findViewById(R.id.viewpager);
 
     }
 

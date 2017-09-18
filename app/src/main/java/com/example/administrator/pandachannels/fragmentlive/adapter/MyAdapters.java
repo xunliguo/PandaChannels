@@ -42,7 +42,7 @@ public class MyAdapters extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         view = LayoutInflater.from(context).inflate(R.layout.manyitem,null);
-       TextView names = view.findViewById(R.id.names);
+       TextView names = (TextView) view.findViewById(R.id.names);
         names.setText(lists.get(i));
         return view;
     }

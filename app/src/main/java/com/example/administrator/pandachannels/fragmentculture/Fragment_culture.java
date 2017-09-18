@@ -44,10 +44,10 @@ public class Fragment_culture extends BaseFragment implements MainContract.LiVie
 
     @Override
     protected void initView(View view) {
-        recyclerview = view.findViewById(R.id.recyclerview);
-        li_img = view.findViewById(R.id.li_img);
-        li_text = view.findViewById(R.id.li_text);
-        ptrclassics = view.findViewById(R.id.ptrclassics);
+        recyclerview = (RecyclerView) view.findViewById(R.id.recyclerview);
+        li_img = (ImageView) view.findViewById(R.id.li_img);
+        li_text = (TextView) view.findViewById(R.id.li_text);
+        ptrclassics = (PtrFrameLayout) view.findViewById(R.id.ptrclassics);
 
         li_img.setOnClickListener(new View.OnClickListener() {
             @Override

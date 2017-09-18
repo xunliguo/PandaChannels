@@ -7,7 +7,6 @@ import android.widget.ListView;
 
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
-import com.example.administrator.pandachannels.fragmentlive.adapter.PinAdapters;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.ManyBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PandaLiveBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PinBean;
@@ -33,9 +32,9 @@ public class PlayandChatFragment extends BaseFragment implements MainContract.XS
 
     @Override
     protected void initView(View view) {
-        listview = view.findViewById(R.id.live_listview);
-        send = view.findViewById(R.id.live_send);
-        ed_pin = view.findViewById(R.id.ed_pinglun);
+        listview = (ListView) view.findViewById(R.id.live_listview);
+        send = (Button) view.findViewById(R.id.live_send);
+        ed_pin = (EditText) view.findViewById(R.id.ed_pinglun);
 
 
     }

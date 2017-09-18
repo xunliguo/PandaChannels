@@ -51,8 +51,8 @@ class  viewHolde extends RecyclerView.ViewHolder{
 
     public viewHolde(View itemView) {
         super(itemView);
-        image = itemView.findViewById(R.id.imageView5);
-        name=itemView.findViewById(R.id.textView7);
+        image = (ImageView) itemView.findViewById(R.id.imageView5);
+        name= (TextView) itemView.findViewById(R.id.textView7);
     }
 }
 }

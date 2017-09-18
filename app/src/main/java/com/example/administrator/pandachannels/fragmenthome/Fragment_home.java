@@ -50,7 +50,7 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
         lo.setMessage("");
         PresentImp presentImp = new PresentImp(this);
         presentImp.requsetData();
-        xRecyclerView = view.findViewById(R.id.homexrecycle);
+        xRecyclerView = (XRecyclerView) view.findViewById(R.id.homexrecycle);
         lo = new ProgressDialog(getActivity());
         lo.setMessage("正在加载");
     }
@@ -79,9 +79,9 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
     public void showDate(final PandaLiveBean pandaLiveBean) {
         View inflate = View.inflate(getActivity(), R.layout.homhead, null);
         xRecyclerView.addHeaderView(inflate);
-        banner = inflate.findViewById(R.id.homebanner);
-        TextView home_birthday = inflate.findViewById(R.id.home_birthday);
-        TextView attention = inflate.findViewById(R.id.attention);
+        banner = (Banner) inflate.findViewById(R.id.homebanner);
+        TextView home_birthday = (TextView) inflate.findViewById(R.id.home_birthday);
+        TextView attention = (TextView) inflate.findViewById(R.id.attention);
         home_birthday.setText(pandaLiveBean.getData().getPandaeye().getItems().get(0).getTitle());
         attention.setText(pandaLiveBean.getData().getPandaeye().getItems().get(1).getTitle());
         home_birthday.setOnClickListener(new View.OnClickListener() {
@@ -105,10 +105,10 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
 
         //轮播图
         homhead(pandaLiveBean);
-        homerecycle = inflate.findViewById(R.id.home_recycleview);
-        homewobderful = inflate.findViewById(R.id.home_wonderful);
-        homeRoing = inflate.findViewById(R.id.home_Roing);
-        homelive = inflate.findViewById(R.id.homeliveChid);
+        homerecycle = (RecyclerView) inflate.findViewById(R.id.home_recycleview);
+        homewobderful = (RecyclerView) inflate.findViewById(R.id.home_wonderful);
+        homeRoing = (RecyclerView) inflate.findViewById(R.id.home_Roing);
+        homelive = (RecyclerView) inflate.findViewById(R.id.homeliveChid);
         //直播秀场   精彩一刻
         initWoudefl(pandaLiveBean);
         //滚滚视屏    直播中国

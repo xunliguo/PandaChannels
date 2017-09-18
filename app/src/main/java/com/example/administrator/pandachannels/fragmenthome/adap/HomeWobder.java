@@ -54,10 +54,10 @@ public class HomeWobder extends RecyclerView.Adapter {
 
         public ViewHoe(View itemView) {
             super(itemView);
-            image = itemView.findViewById(R.id.homeimageView3);
-            tv_duration = itemView.findViewById(R.id.textView3);
-            tv_name = itemView.findViewById(R.id.textView4);
-            tv_time = itemView.findViewById(R.id.textView5);
+            image = (ImageView) itemView.findViewById(R.id.homeimageView3);
+            tv_duration = (TextView) itemView.findViewById(R.id.textView3);
+            tv_name = (TextView) itemView.findViewById(R.id.textView4);
+            tv_time = (TextView) itemView.findViewById(R.id.textView5);
         }
     }
 }

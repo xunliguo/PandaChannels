@@ -110,16 +110,16 @@ ImageView img3_taishan;
         public ViewHolder(View itemView) {
 
             super(itemView);
-            img1_taishan = itemView.findViewById(R.id.img1_taishan);
-            img2_taishan = itemView.findViewById(R.id.img2_taishan);
+            img1_taishan = (ImageView) itemView.findViewById(R.id.img1_taishan);
+            img2_taishan = (ImageView) itemView.findViewById(R.id.img2_taishan);
 
             img1_taishan = (ImageView) itemView.findViewById(R.id.img1_taishan);
             tv1_taishan = (TextView) itemView.findViewById(R.id.tv1_taishan);
 
-            relayout_taishan = itemView.findViewById(R.id.relayout_taishan);
-            layout_taishan = itemView.findViewById(R.id.layout_taishan);
-            tv2_taishan = itemView.findViewById(R.id.tv2_taishan);
-            img3_taishan = itemView.findViewById(R.id.img3_taishan);
+            relayout_taishan = (RelativeLayout) itemView.findViewById(R.id.relayout_taishan);
+            layout_taishan = (LinearLayout) itemView.findViewById(R.id.layout_taishan);
+            tv2_taishan = (TextView) itemView.findViewById(R.id.tv2_taishan);
+            img3_taishan = (ImageView) itemView.findViewById(R.id.img3_taishan);
 
         }
     }

@@ -51,8 +51,8 @@ public class HomeOrginaAdap extends RecyclerView.Adapter {
 
         public ViewHole(View itemView) {
             super(itemView);
-            tv1=   itemView.findViewById(R.id.homeorigtext);
-            image=   itemView.findViewById(R.id.homeoriga);
+            tv1= (TextView) itemView.findViewById(R.id.homeorigtext);
+            image= (ImageView) itemView.findViewById(R.id.homeoriga);
         }
     }
 }
