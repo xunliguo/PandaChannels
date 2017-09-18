@@ -1,4 +1,4 @@
-package com.example.administrator.pandachannels.fragmenthome.Bean;
+package com.example.administrator.pandachannels.fragmenthome.bean;
 
 import java.util.List;
 

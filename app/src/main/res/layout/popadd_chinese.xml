@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+   android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:layout_height="match_parent" android:background="#17397F"
+    android:alpha="0.9">
+
+<LinearLayout
+    android:layout_marginTop="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="30dp">
+    <View
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+    <ImageView
+        android:id="@+id/pop_img1"
+        android:layout_marginRight="8dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/com_facebook_tooltip_black_xout"/>
+</LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="编辑"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/pop_button" />
+
+        <TextView
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:text="切换栏目"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/textView" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+    android:layout_marginTop="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/pop_recy1"></android.support.v7.widget.RecyclerView>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="点击添加更多栏目"/>
+
+<android.support.v7.widget.RecyclerView
+    android:layout_marginTop="30dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/pop_recy2"></android.support.v7.widget.RecyclerView>
+
+
+
+</LinearLayout>

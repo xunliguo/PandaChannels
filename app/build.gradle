@@ -5,7 +5,7 @@ android {
     buildToolsVersion "26.0.1"
     defaultConfig {
         applicationId "com.example.administrator.pandachannels"
-        minSdkVersion 18
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -49,6 +49,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'com.youth.banner:banner:1.4.9'
     compile 'org.greenrobot:greendao-generator:3.0.0'
+    compile 'com.jcodecraeer:xrecyclerview:1.2.6'
     compile 'com.android.support:support-v4:26.+'
     compile 'fm.jiecao:jiecaovideoplayer:2.0'
     compile 'com.jcodecraeer:xrecyclerview:1.2.6'
@@ -57,5 +58,5 @@ dependencies {
     compile 'in.srain.cube:ptr-load-more:1.0.6'
     compile 'com.android.support:support-v4:25.3.1'
     testCompile 'junit:junit:4.12'
-    compile project(path: ':vitamio')
+    compile 'com.android.support.test.espresso:espresso-core:2.2.2'
 }

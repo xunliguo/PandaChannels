@@ -9,10 +9,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.pandachannels.fragmentchinese.Fragment_Chinese;
 import com.example.administrator.pandachannels.fragmentculture.Fragment_culture;
 import com.example.administrator.pandachannels.fragmenthome.Fragment_home;
+import com.example.administrator.pandachannels.fragmenthome.Original;
 import com.example.administrator.pandachannels.fragmentlive.Fragment_live;
 import com.example.administrator.pandachannels.fragmentobserve.activity.centeracticity.CentreActivity;
 import com.example.administrator.pandachannels.fragmentobserve.fragemnt.Fragment_observe;
@@ -107,6 +109,19 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             }
         });
 
+        image = (ImageView) findViewById(R.id.image);
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(HomeActivity.this, "个人中心", Toast.LENGTH_SHORT).show();
+            }
+        });
+        image3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, Original.class));
+            }
+        });
     }
 
     @Override

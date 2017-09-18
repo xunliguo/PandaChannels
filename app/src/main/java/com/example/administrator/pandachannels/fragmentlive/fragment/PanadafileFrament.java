@@ -10,10 +10,11 @@ import android.view.View;
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
 import com.example.administrator.pandachannels.fragmentlive.App;
-import com.example.administrator.pandachannels.fragmentlive.VideoActivity;
+import com.example.administrator.pandachannels.fragmentlive.LiveVideoActivity;
 import com.example.administrator.pandachannels.fragmentlive.adapter.WondfulAdapters;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.ManyBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PandaLiveBean;
+import com.example.administrator.pandachannels.fragmentlive.model.entity.PinBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.WondBean;
 import com.example.administrator.pandachannels.fragmentlive.presenter.PandlifPersenterimpl;
 import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
@@ -81,6 +82,12 @@ private List<WondBean.VideoBean> mlist=new ArrayList<>();
     }
 
     @Override
+    public void showPinlun(List<PinBean.DataBean.ContentBean> content) {
+
+    }
+
+
+    @Override
     public void showDatasWond(List<WondBean.VideoBean> videolist) {
         mlist.addAll(videolist);
         WondfulAdapters adapters=new WondfulAdapters(videolist,getActivity());
@@ -90,10 +97,11 @@ private List<WondBean.VideoBean> mlist=new ArrayList<>();
         adapters.setOnclick(new WondfulAdapters.Listener() {
             @Override
             public void Onclick(int position, View view) {
-                Intent intent=new Intent(getActivity(), VideoActivity.class);
-                String url = mlist.get(position).getUrl();
+                Intent intent=new Intent(getActivity(), LiveVideoActivity.class);
                 String vid = mlist.get(position).getVid();
-                intent.putExtra("url",url+vid);
+                String t =mlist.get(position).getT();
+                intent.putExtra("url",vid);
+                intent.putExtra("title",t);
                 startActivity(intent);
             }
         });

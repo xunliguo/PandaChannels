@@ -13,18 +13,20 @@ import java.util.List;
  * Created by ASUS-PC on 2017/9/15.
  */
 
-public class PinAdapters extends AbsAdapter<PinBean> {
+public class PinAdapters extends AbsAdapter<PinBean.DataBean> {
 
-    public PinAdapters(Context context, int layoutId, List<PinBean> datas) {
+
+
+    public PinAdapters(Context context, int layoutId, List<PinBean.DataBean> datas) {
         super(context, layoutId, datas);
     }
 
     @Override
-    public void bindResponse(ViewHolder holder, PinBean data) {
-    TextView name= (TextView) holder.getView(R.id.pin_name);
-       TextView contont = (TextView) holder.getView(R.id.pin_contont);
-        name.setText(data.getName());
-        contont.setText(data.getContont());
+    public void bindResponse(ViewHolder holder, PinBean.DataBean data) {
+       TextView name = (TextView) holder.getView(R.id.pin_name);
+     TextView contont = (TextView) holder.getView(R.id.pin_contont);
+
+
 
     }
 }

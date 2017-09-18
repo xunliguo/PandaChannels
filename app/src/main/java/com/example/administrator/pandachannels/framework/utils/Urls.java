@@ -8,7 +8,7 @@ package com.example.administrator.pandachannels.framework.utils;
 public class Urls {
 
 
-    //服务器地址
+    //服务器  地址
     private static final String BASEURL = "http://www.ipanda.com/kehuduan/";
 
     //首页
@@ -27,7 +27,7 @@ public class Urls {
     //邮箱注册
     public static final String EMAILREGISTER = "https://reg.cntv.cn/api/register.action";
 
-    //熊猫文化
+    //熊猫文   化
     public static final String PANDACULTURE=BASEURL+"xmwh/index.json";
 
     //熊猫播报 （温）

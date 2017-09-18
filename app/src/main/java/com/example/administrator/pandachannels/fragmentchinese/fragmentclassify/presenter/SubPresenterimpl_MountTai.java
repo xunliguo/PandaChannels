@@ -26,17 +26,20 @@ ArrayList<BeanTaishan.LiveBean> list=new ArrayList<>();
 
     @Override
     public void requsetData() {
+
         OkHttpUtils.getInstance().getNetData(Url.TAISHAN, new OkHttpUtils.CallBacks() {
             @Override
             public void getString(String ss) {
+                subview.showLoading();
                 Gson gson=new Gson();
                 BeanTaishan beanTaishan = gson.fromJson(ss, BeanTaishan.class);
                 List<BeanTaishan.LiveBean> live = beanTaishan.getLive();
                 list.addAll(live);
                 //p层请求完数据，调用V层方法展示数据
                 subview.showData(list);
-
+subview.dissmissLoading();
             }
         });
+
     }
 }
