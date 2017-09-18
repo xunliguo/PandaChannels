@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.adapter.MyAdapter_TaiShan;
+import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanChinese;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.presenter.SubPresenterimpl_MountTai;
 import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
@@ -30,6 +31,10 @@ public class MountTai_fragment extends BaseFragment implements MainContract.SubV
     private TextView fragment_tvtv1;
     private XRecyclerView mountai_recy;
     private ProgressDialog dialog;
+    String s;
+    public MountTai_fragment(String s) {
+        this.s=s;
+    }
 
     @Nullable
     @Override
@@ -46,7 +51,7 @@ public class MountTai_fragment extends BaseFragment implements MainContract.SubV
     @Override
     protected void initView(View view) {
         //p层有了，怎么关联，把this传进来,调用请求数据方法
-        SubPresenterimpl_MountTai subPresenterimpl_mountTai = new SubPresenterimpl_MountTai(this);
+        SubPresenterimpl_MountTai subPresenterimpl_mountTai = new SubPresenterimpl_MountTai(this,s);
         subPresenterimpl_mountTai.requsetData();
 
         mountai_recy = (XRecyclerView) view.findViewById(R.id.mountai_recy);
@@ -87,12 +92,14 @@ public class MountTai_fragment extends BaseFragment implements MainContract.SubV
                public void onRefresh() {
                    myAdapter_taiShan.notifyDataSetChanged();
                    mountai_recy.refreshComplete();
+                   mountai_recy.setLoadingMoreEnabled(true);//允许下拉刷新
                }
 
                @Override
                public void onLoadMore() {
                    myAdapter_taiShan.notifyDataSetChanged();
                    mountai_recy.loadMoreComplete();
+                   mountai_recy.setLoadingMoreEnabled(false);//不允许上拉加载
                }
            });
 
@@ -119,4 +126,8 @@ public class MountTai_fragment extends BaseFragment implements MainContract.SubV
     }
 
 
+    @Override
+    public void showDataChina(ArrayList<BeanChinese> list111) {
+
+    }
 }

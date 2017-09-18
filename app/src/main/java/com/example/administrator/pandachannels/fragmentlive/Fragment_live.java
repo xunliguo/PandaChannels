@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import com.example.administrator.pandachannels.R;
+import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanChinese;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
 import com.example.administrator.pandachannels.fragmentlive.adapter.FragmentAdapters;
 import com.example.administrator.pandachannels.fragmentlive.fragment.Burang_fragment;
@@ -84,6 +85,11 @@ private List<Fragment> mlist=new ArrayList<>();
 
     @Override
     public void showrror() {
+
+    }
+
+    @Override
+    public void showDataChina(ArrayList<BeanChinese> list111) {
 
     }
 }

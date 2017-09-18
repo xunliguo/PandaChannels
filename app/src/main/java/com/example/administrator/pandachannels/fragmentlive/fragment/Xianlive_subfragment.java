@@ -11,9 +11,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.administrator.pandachannels.fragmentlive.adapter.MyAdapters;
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
+import com.example.administrator.pandachannels.fragmentlive.adapter.MyAdapters;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.ManyBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PandaLiveBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.WondBean;

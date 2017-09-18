@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.adapter.MyAdapter_TaiShan;
+import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanChinese;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.presenter.SubPresenterimpl_MountHuangshan;
 import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
@@ -112,6 +113,11 @@ public class MountHang_fragment extends BaseFragment  implements MainContract.Su
 
     @Override
     public void showrror() {
+
+    }
+
+    @Override
+    public void showDataChina(ArrayList<BeanChinese> list111) {
 
     }
 }

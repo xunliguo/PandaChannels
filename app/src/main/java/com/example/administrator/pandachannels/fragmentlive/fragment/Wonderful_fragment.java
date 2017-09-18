@@ -20,7 +20,6 @@ import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
-
 import java.util.ArrayList;
 import java.util.List;
 

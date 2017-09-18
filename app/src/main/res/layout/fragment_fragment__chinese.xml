@@ -29,12 +29,9 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="11dp" />
     </RelativeLayout>-->
-    <LinearLayout
+   <!-- <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
-
-
-
         <android.support.design.widget.TabLayout
             android:id="@+id/tablayout_chinese"
             android:layout_width="0dp"
@@ -46,6 +43,7 @@
             app:tabTextAppearance="@style/TextAppearance.AppCompat.Small"
             app:tabIndicatorHeight="3dp"
             android:layout_height="40dp"
+            app:tabMode="scrollable"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"></android.support.design.widget.TabLayout>
 
@@ -57,7 +55,46 @@
             android:layout_centerVertical="true"
             android:layout_width="40dp"
             android:layout_height="40dp" />
-    </LinearLayout>
+    </LinearLayout>-->
+    <RelativeLayout
+        android:id="@+id/live_china_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1F539E"
+        android:paddingTop="6dp">
+
+        <com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.data.MyTabLayout
+            android:id="@+id/tablayout_chinese"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:layout_marginRight="51dp"
+            android:background="#fff"
+            app:tabIndicatorColor="#1E539C"
+            app:tabSelectedTextColor="#1E539C"
+            app:tabTextColor="#302F36"
+            app:tabMode="scrollable">
+
+        </com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.data.MyTabLayout>
+
+        <ImageView
+            android:id="@+id/img_add"
+            android:layout_width="41dp"
+            android:layout_height="41dp"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/white"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/live_china_add" />
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="41dp"
+            android:layout_toLeftOf="@id/img_add"
+            android:background="@drawable/litter_hide" />
+    </RelativeLayout>
+
+
+
    <android.support.v4.view.ViewPager
        android:id="@+id/viewpager_chinese"
        android:layout_width="match_parent"
