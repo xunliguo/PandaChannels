@@ -31,7 +31,7 @@ public class Video extends AppCompatActivity {
 
     }
     private void initView() {
-        jcvideoplayer = (JCVideoPlayer) findViewById(R.id.videocontroller1);
+        jcvideoplayer = (JCVideoPlayer) findViewById(R.id.shi_video);
         String homelunbo = getIntent().getStringExtra("homeflunbo");
         final String homeTitile = getIntent().getStringExtra("homeTitile");
         OkHttpUtils.getInstance().getNetData(Urls.VIDEOPLAY + homelunbo, new OkHttpUtils.CallBacks() {

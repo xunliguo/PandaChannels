@@ -104,18 +104,12 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(HomeActivity.this, CentreActivity.class);
                 startActivity(intent);
             }
         });
 
-        image = (ImageView) findViewById(R.id.image);
-        image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(HomeActivity.this, "个人中心", Toast.LENGTH_SHORT).show();
-            }
-        });
         image3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -157,11 +151,11 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 text.setText("熊猫直播");
                 image1.setVisibility(View.GONE);
 
-                if (fragment2 == null) {
-                    fragment2 = new Fragment_observe();
-                    transaction.add(R.id.framlayout, fragment2);
+                if (fragment4 == null) {
+                    fragment4 = new Fragment_live();
+                    transaction.add(R.id.framlayout, fragment4);
                 } else {
-                    transaction.show(fragment2);
+                    transaction.show(fragment4);
                 }
 
                 break;
@@ -181,11 +175,11 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 image3.setVisibility(View.INVISIBLE);
                 text.setText("熊猫播报");
                 image1.setVisibility(View.GONE);
-                if (fragment4 == null) {
-                    fragment4 = new Fragment_live();
-                    transaction.add(R.id.framlayout, fragment4);
+                if (fragment2 == null) {
+                    fragment2 = new Fragment_observe();
+                    transaction.add(R.id.framlayout, fragment2);
                 } else {
-                    transaction.show(fragment4);
+                    transaction.show(fragment2);
                 }
 
                 break;

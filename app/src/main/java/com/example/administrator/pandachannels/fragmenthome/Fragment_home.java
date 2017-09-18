@@ -52,8 +52,7 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
      PresentImp presentImp = new PresentImp(this);
         presentImp.requsetData();
         xRecyclerView = (XRecyclerView) view.findViewById(R.id.homexrecycle);
-        lo = new ProgressDialog(getActivity());
-        lo.setMessage("正在加载");
+
     }
 
     @Override
@@ -68,6 +67,8 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
 
     @Override
     public void showLoading() {
+        lo = new ProgressDialog(getActivity());
+        lo.setMessage("正在加载");
         lo.show();
     }
 
