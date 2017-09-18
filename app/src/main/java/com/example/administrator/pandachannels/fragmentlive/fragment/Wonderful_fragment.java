@@ -112,10 +112,10 @@ public class Wonderful_fragment extends BaseFragment implements MainContract.XSu
             @Override
             public void Onclick(int position, View view) {
                 Intent intent=new Intent(getActivity(), LiveVideoActivity.class);
-                String url = mlists.get(position).getUrl();
                 String vid = mlists.get(position).getVid();
-                intent.putExtra("url",url+vid);
-
+                String t = mlists.get(position).getT();
+                intent.putExtra("url",vid);
+                intent.putExtra("title",t);
                 startActivity(intent);
             }
         });

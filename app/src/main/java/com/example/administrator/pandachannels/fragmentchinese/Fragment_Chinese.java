@@ -21,21 +21,25 @@ import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import com.example.administrator.pandachannels.R;
+import com.example.administrator.pandachannels.fragmentchinese.data.ArrayListData1;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.Funghwang_fragment;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.MountEmei_fragment;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.MountHang_fragment;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.MountTai_fragment;
+
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.adapter.PopRecyAdapter1;
-import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.data.ArrayListData1;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanChinese;
+import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
+import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.presenter.Fragment_ChineseimplMain;
 import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
+import com.example.administrator.pandachannels.framework.contract.MainContract;
 import com.example.administrator.pandachannels.framework.utils.OkHttpUtils;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Fragment_Chinese extends BaseFragment implements View.OnClickListener {
+public class Fragment_Chinese extends BaseFragment implements View.OnClickListener,MainContract.SubView {
 
     //  http://www.ipanda.com/kehuduan/PAGE14501775094142282/index.json
     private ImageView img_persion;
@@ -61,6 +65,10 @@ public class Fragment_Chinese extends BaseFragment implements View.OnClickListen
 
     @Override
     protected void initView(View view) {
+        //V层和P层关联
+        Fragment_ChineseimplMain main = new Fragment_ChineseimplMain(this);
+        main.requsetData();
+
         img_add = (ImageView) view.findViewById(R.id.img_add);
         img_add.setOnClickListener(this);
         tablayout_chinese = (TabLayout) view.findViewById(R.id.tablayout_chinese);
@@ -76,14 +84,10 @@ public class Fragment_Chinese extends BaseFragment implements View.OnClickListen
 
     @Override
     protected void initData() {
-        titlelist.add("泰山");
+      /*  titlelist.add("泰山");
         titlelist.add("黄山");
         titlelist.add("凤凰古城");
         titlelist.add("峨眉山");
-//titlelist.add("张家界");
-//titlelist.add("黄果树");
-//titlelist.add("天涯海角");
-//titlelist.add("中央电视塔");
         tablayout_chinese.addTab(tablayout_chinese.newTab().setText(titlelist.get(0)));
         tablayout_chinese.addTab(tablayout_chinese.newTab().setText(titlelist.get(1)));
         tablayout_chinese.addTab(tablayout_chinese.newTab().setText(titlelist.get(2)));
@@ -96,7 +100,7 @@ public class Fragment_Chinese extends BaseFragment implements View.OnClickListen
         Myadap myadap = new Myadap(getFragmentManager());
         tablayout_chinese.setupWithViewPager(viewpager_chinese);
         viewpager_chinese.setAdapter(myadap);
-
+*/
 
     }
 
@@ -114,25 +118,8 @@ public class Fragment_Chinese extends BaseFragment implements View.OnClickListen
         }
     }
 
-  //PopWindow的   设置
+    //PopWindow的   设置
     private void showPopwindow() {
-        //获取网络数据
-        OkHttpUtils.getInstance().getNetData("http://www.ipanda.com/kehuduan/PAGE14501775094142282/index.json", new OkHttpUtils.CallBacks() {
-            @Override
-            public void getString(String ss) {
-                Gson gson=new Gson();
-                BeanChinese beanChinese = gson.fromJson(ss, BeanChinese.class);
-                //30个Tablist
-                List<BeanChinese.AlllistBean> alllist = beanChinese.getAlllist();
-                //5个默认的
-                List<BeanChinese.TablistBean> tablist = beanChinese.getTablist();
-
-            }
-        });
-
-
-
-
 
 
         //PopupWindow ：显示位置更加灵活 。先定义pop.item
@@ -196,6 +183,31 @@ public class Fragment_Chinese extends BaseFragment implements View.OnClickListen
 
             }
         });
+
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void dissmissLoading() {
+
+    }
+
+    @Override
+    public void showData(ArrayList<BeanTaishan.LiveBean> list) {
+
+    }
+
+    @Override
+    public void showrror() {
+
+    }
+
+    @Override
+    public void showDataChina(ArrayList<BeanChinese> list111) {
 
     }
 

@@ -26,18 +26,20 @@ import java.util.List;
 
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 
+import static com.example.administrator.pandachannels.R.id.textView;
+
 
 public class Xianlive_subfragment extends BaseFragment implements MainContract.XSubView, View.OnClickListener {
-     LivePandaPersenterImpl livePandaPersenter=new LivePandaPersenterImpl(this);
-         int a = 0;
+    LivePandaPersenterImpl livePandaPersenter = new LivePandaPersenterImpl(this);
+    int a = 0;
 
 
     ArrayList<String> lists = new ArrayList<>();
-    MyAdapters adapters ;
+    MyAdapters adapters;
 
-      private JCVideoPlayer videoController;
-    private TextView textView;
-    TextView text1;
+    private JCVideoPlayer videoController;
+    private TextView title_textView;
+
     private ListView listView;
     ManyFragment aFrm;
     PlayandChatFragment bFrm;
@@ -51,12 +53,12 @@ public class Xianlive_subfragment extends BaseFragment implements MainContract.X
 
     @Override
     public void showLoading() {
-    dialog.show();
+        dialog.show();
     }
 
     @Override
     public void dissmissLoading() {
-  dialog.dismiss();
+        dialog.dismiss();
     }
 
     @Override
@@ -73,28 +75,31 @@ public class Xianlive_subfragment extends BaseFragment implements MainContract.X
     @Override
     protected void initView(View view) {
         videoController = view.findViewById(R.id.videocontroller1);
+        View view1 = View.inflate(getActivity(), R.layout.livemudel_wathch, null);
+        listView = view.findViewById(R.id.xian_listView);
 
-//        listView = view.findViewById(R.id.listView);
-        text1 = view.findViewById(R.id.text1);
+        listView.addHeaderView(view1);
         up = view.findViewById(R.id.up);
-        textView = view.findViewById(R.id.text);
+        title_textView = view.findViewById(R.id.xian_text);
 
 //      ----------------------------------------------
 
-        title = view.findViewById(R.id.titlename);
-//        adapters = new MyAdapters(getActivity(),lists);
-//        listView.setAdapter(adapters);
-        Button but1s = view.findViewById(R.id.but1s);
-        Button but2s = view.findViewById(R.id.but2s);
-        but1s.setOnClickListener(this) ;
+        title = view1.findViewById(R.id.titlename);
+
+        adapters = new MyAdapters(getActivity(), lists);
+        listView.setAdapter(adapters);
+
+        Button but1s = view1.findViewById(R.id.but1s);
+        Button but2s = view1.findViewById(R.id.but2s);
+        but1s.setOnClickListener(this);
         but2s.setOnClickListener(this);
         dialog = new ProgressDialog(getActivity());
         dialog.setMessage("正在加载....");
 
         FragmentManager supportFragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction transaction = supportFragmentManager.beginTransaction();
-        aFrm=new ManyFragment();
-        transaction.add(R.id.framlayouts,aFrm);
+        aFrm = new ManyFragment();
+        transaction.add(R.id.framlayouts, aFrm);
         transaction.commit();
         livePandaPersenter.requsetData();
     }
@@ -107,10 +112,10 @@ public class Xianlive_subfragment extends BaseFragment implements MainContract.X
     @Override
     protected void initData() {
 
-             videoController.setUp("http://jzvd.nathen.cn/c6e3dc12a1154626b3476d9bf3bd7266/6b56c5f0dc31428083757a45764763b0-5287d2089db37e62345123a1be272f8b.mp4\"","");
+        videoController.setUp("http://jzvd.nathen.cn/c6e3dc12a1154626b3476d9bf3bd7266/6b56c5f0dc31428083757a45764763b0-5287d2089db37e62345123a1be272f8b.mp4\"", "");
 
-              videoController.ivThumb.setImageResource(R.drawable.panda);
-              videoController.setThumbImageViewScalType(ImageView.ScaleType.CENTER_CROP);
+        videoController.ivThumb.setImageResource(R.drawable.panda);
+        videoController.setThumbImageViewScalType(ImageView.ScaleType.CENTER_CROP);
 
         intDate();
 
@@ -122,15 +127,15 @@ public class Xianlive_subfragment extends BaseFragment implements MainContract.X
             @Override
             public void onClick(View view) {
 
-                switch (a){
+                switch (a) {
                     case 0:
-                        a=1;
+                        a = 1;
                         title.setVisibility(View.VISIBLE);
                         up.setImageResource(R.drawable.lpanda_off);
 
                         break;
                     case 1:
-                        a=0;
+                        a = 0;
                         up.setImageResource(R.drawable.lpanda_show);
                         title.setVisibility(View.GONE);
 
@@ -147,8 +152,8 @@ public class Xianlive_subfragment extends BaseFragment implements MainContract.X
         brief = live.get(0).getBrief();
         image = live.get(0).getImage();
         title1 = live.get(0).getTitle();
-        Log.e("tag","================>"+ brief);
-        textView.setText("[正在直播]"+ title1);
+        Log.e("tag", "================>" + brief);
+        title_textView.setText("[正在直播]" + title1);
         title.setText(brief);
         title.setVisibility(View.GONE);
 
@@ -165,26 +170,25 @@ public class Xianlive_subfragment extends BaseFragment implements MainContract.X
     }
 
 
-
     @Override
     public void onClick(View view) {
         FragmentManager supportFragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction transaction = supportFragmentManager.beginTransaction();
-            hideAll(transaction);
-        switch (view.getId()){
+        hideAll(transaction);
+        switch (view.getId()) {
             case R.id.but1s:
-                if (aFrm==null) {
-                   aFrm= new ManyFragment();
+                if (aFrm == null) {
+                    aFrm = new ManyFragment();
                     transaction.add(R.id.framlayouts, aFrm);
-                }else{
+                } else {
                     transaction.show(aFrm);
                 }
                 break;
-            case  R.id.but2s:
-                if (bFrm==null) {
-                 bFrm=new PlayandChatFragment();
-                    transaction.add(R.id.framlayouts,bFrm);
-                }else{
+            case R.id.but2s:
+                if (bFrm == null) {
+                    bFrm = new PlayandChatFragment();
+                    transaction.add(R.id.framlayouts, bFrm);
+                } else {
                     transaction.show(bFrm);
                 }
 
@@ -193,14 +197,15 @@ public class Xianlive_subfragment extends BaseFragment implements MainContract.X
         }
         transaction.commit();
     }
-   private void hideAll(FragmentTransaction transaction){
-       if (aFrm!=null){
-          transaction.hide(aFrm);
-       }
-       if (bFrm!=null){
-           transaction.hide(bFrm);
-       }
-   }
+
+    private void hideAll(FragmentTransaction transaction) {
+        if (aFrm != null) {
+            transaction.hide(aFrm);
+        }
+        if (bFrm != null) {
+            transaction.hide(bFrm);
+        }
+    }
 
     @Override
     public void onPause() {

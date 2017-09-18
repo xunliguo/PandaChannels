@@ -24,9 +24,12 @@
         </activity>
         <activity
             android:name=".HomeActivity"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" />
-        <activity android:name=".fragmentlive.LiveVideoActivity"></activity>
+
+
+            />
+        <activity android:name=".fragmentlive.LiveVideoActivity"
+           android:screenOrientation="landscape"
+            ></activity>
 
     </application>
 
