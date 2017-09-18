@@ -16,6 +16,7 @@ import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.ManyBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PandaLiveBean;
+import com.example.administrator.pandachannels.fragmentlive.model.entity.PinBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.WondBean;
 import com.example.administrator.pandachannels.fragmentlive.presenter.LivePandaPersenterImpl;
 import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
@@ -165,7 +166,14 @@ public class Xianlive_subfragment extends BaseFragment implements MainContract.X
     }
 
     @Override
+    public void showPinlun(List<PinBean.DataBean.ContentBean> content) {
+
+
+    }
+
+    @Override
     public void showDatasWond(List<WondBean.VideoBean> videolist) {
+
 
     }
 

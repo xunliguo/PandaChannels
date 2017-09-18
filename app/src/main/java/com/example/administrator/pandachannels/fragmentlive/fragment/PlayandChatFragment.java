@@ -12,6 +12,7 @@ import com.example.administrator.pandachannels.fragmentlive.model.entity.ManyBea
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PandaLiveBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PinBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.WondBean;
+import com.example.administrator.pandachannels.fragmentlive.presenter.PalyandchatPersertImpl;
 import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
 
@@ -27,7 +28,9 @@ public class PlayandChatFragment extends BaseFragment implements MainContract.XS
     private ListView listview;
     private Button send;
     private EditText ed_pin;
-    private List<PinBean> list=new ArrayList<>();
+    private List<PinBean.DataBean.ContentBean> pin_list=new ArrayList<>();
+     PalyandchatPersertImpl palyandchatPersert=new PalyandchatPersertImpl(this);
+
     @Override
     protected void initView(View view) {
         listview = view.findViewById(R.id.live_listview);
@@ -44,12 +47,9 @@ public class PlayandChatFragment extends BaseFragment implements MainContract.XS
 
     @Override
     protected void initData() {
-        for (int i = 0; i <100 ; i++) {
-            PinBean  pin=new PinBean("央视网网友:","滚滚好逗啊"+i);
-            list.add(pin);
-        }
-        PinAdapters adapters=new PinAdapters(getActivity(),R.layout.pin_item,list);
-        listview.setAdapter(adapters);
+
+//        PinAdapters adapters=new PinAdapters(getActivity(),R.layout.pin_item,list);
+//        listview.setAdapter(adapters);
 
 
     }
@@ -83,7 +83,14 @@ public class PlayandChatFragment extends BaseFragment implements MainContract.XS
     public void showDatas1(List<ManyBean.ListBean> list) {
 
     }
-//zhesih
+
+    @Override
+    public void showPinlun(List<PinBean.DataBean.ContentBean> content) {
+        pin_list.addAll(content);
+
+    }
+
+    //zhesih
     @Override
     public void showDatasWond(List<WondBean.VideoBean> videolist) {
 

@@ -4,6 +4,7 @@ import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.
 import com.example.administrator.pandachannels.fragmenthome.HomeViewInterface;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.ManyBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PandaLiveBean;
+import com.example.administrator.pandachannels.fragmentlive.model.entity.PinBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.WondBean;
 import com.example.administrator.pandachannels.framework.basepresenter.BasePresenter;
 import com.example.administrator.pandachannels.framework.baseview.BaseViewInterface;
@@ -26,6 +27,7 @@ public interface MainContract  {
         void  showDatasWond(List<WondBean.VideoBean> video);
         void showDatas(PandaLiveBean pandaLiveBean);
         void showDatas1(List<ManyBean.ListBean> list);
+        void  showPinlun(List<PinBean.DataBean.ContentBean> content);
 
     }
 

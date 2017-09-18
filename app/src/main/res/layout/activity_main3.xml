@@ -15,14 +15,18 @@
 
 </fm.jiecao.jcvideoplayer_lib.JCVideoPlayer>
     <ImageView
+        android:layout_marginTop="4dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginRight="3dp"
         android:src="@mipmap/play_fullscree_menu_true"
         android:layout_alignParentRight="true"
         android:id="@+id/live_videolist"
         />
     <ImageView
+        android:layout_marginTop="4dp"
         android:layout_width="wrap_content"
+        android:layout_marginRight="3dp"
         android:layout_height="wrap_content"
         android:src="@mipmap/collect_no"
 
@@ -30,7 +34,9 @@
         android:layout_toLeftOf="@+id/live_videolist"
         />
     <ImageView
+        android:layout_marginTop="4dp"
         android:layout_width="wrap_content"
+        android:layout_marginRight="3dp"
         android:layout_height="wrap_content"
         android:src="@mipmap/share"
         android:id="@+id/livepanda_share"

@@ -14,6 +14,7 @@ import com.example.administrator.pandachannels.fragmentlive.LiveVideoActivity;
 import com.example.administrator.pandachannels.fragmentlive.adapter.WondfulAdapters;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.ManyBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PandaLiveBean;
+import com.example.administrator.pandachannels.fragmentlive.model.entity.PinBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.WondBean;
 import com.example.administrator.pandachannels.fragmentlive.presenter.WonfulPersenterImpl;
 import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
@@ -82,6 +83,13 @@ public class Wonderful_fragment extends BaseFragment implements MainContract.XSu
     public void showDatas1(List<ManyBean.ListBean> list) {
 
     }
+
+    @Override
+    public void showPinlun(List<PinBean.DataBean.ContentBean> content) {
+
+    }
+
+
 
     @Override
     public void showDatasWond(final List<WondBean.VideoBean> mlists) {
