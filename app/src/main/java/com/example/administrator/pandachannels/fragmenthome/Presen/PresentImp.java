@@ -25,7 +25,7 @@ public class PresentImp implements MainContract.SubPresenter {
             @Override
             public void getString(String ss) {
                 PandaLiveBean pandaLiveBean = new Gson().fromJson(ss, PandaLiveBean.class);
-                    subView.showDate(pandaLiveBean);
+                subView.showDate(pandaLiveBean);
                 subView.dissmissLoading();
             }
         });
