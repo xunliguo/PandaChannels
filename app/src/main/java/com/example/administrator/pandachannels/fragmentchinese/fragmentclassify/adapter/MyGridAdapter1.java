@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.administrator.pandachannels.R;
@@ -20,9 +21,11 @@ public class MyGridAdapter1 extends BaseAdapter {
     Context context;
     List<Students> list;
     private ViewHolder holder;
-    public MyGridAdapter1(Context context, List<Students> lists11) {
+    String s;
+    public MyGridAdapter1(Context context, List<Students> lists11,String s) {
         this.context = context;
         this.list = lists11;
+        this.s=s;
     }
 
     @Override
@@ -46,14 +49,17 @@ public class MyGridAdapter1 extends BaseAdapter {
             holder = new ViewHolder();
             view = View.inflate(context, R.layout.item_poprecy1, null);
             holder.poprecy1_but1 = view.findViewById(R.id.poprecy1_but1);
+            holder.imageView888= view.findViewById(R.id.imageView888);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
         }
         holder.poprecy1_but1.setText( list.get(i).getTitle());
+
         return view;
     }
     class ViewHolder {
         TextView poprecy1_but1;
+        ImageView imageView888;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.administrator.pandachannels.fragmentchinese;
 
 
+import android.app.ProgressDialog;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -60,7 +61,7 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
     private ImageView img_add;
     private TabLayout tablayout_chinese;
     private ViewPager viewpager_chinese;
-
+    int aa = 0;
 
     private Button pop_button;
     private RecyclerView pop_recy1;
@@ -73,6 +74,8 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
     private Myadap myadap;
     private MyGridAdapter2 gvadapter2;
     private StudentsDao studentsDao2;
+    private String s="qq";
+    private ProgressDialog dialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -85,6 +88,7 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
 
     @Override
     protected void initView(View view) {
+        dialog = new ProgressDialog(getActivity());
         //V层和P层关联
         Fragment_ChineseimplMain main = new Fragment_ChineseimplMain(this);
         main.requsetData();
@@ -104,6 +108,7 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
 
     @Override
     protected void initData() {
+        dialog.show();
         OkHttpUtils.getInstance().getNetData("http://www.ipanda.com/kehuduan/PAGE14501775094142282/index.json", new OkHttpUtils.CallBacks() {
             @Override
             public void getString(String ss) {
@@ -131,6 +136,7 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
 
                     }
                 }
+                dialog.dismiss();
 // 查询第一个数据库所有数据库内容添加到Tablayout 和ViewPager ，Fragment联动
                 List<Students> lists1 = studentsDao.queryBuilder().build().list();
                 for (int i = 0; i < lists1.size(); i++) {
@@ -157,26 +163,6 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
 
         studentsDao2 = daoSession2.getStudentsDao();
 
-
-
-      /*  titlelist.add("泰山");
-        titlelist.add("黄山");
-        titlelist.add("凤凰古城");
-        titlelist.add("峨眉山");
-        tablayout_chinese.addTab(tablayout_chinese.newTab().setText(titlelist.get(0)));
-        tablayout_chinese.addTab(tablayout_chinese.newTab().setText(titlelist.get(1)));
-        tablayout_chinese.addTab(tablayout_chinese.newTab().setText(titlelist.get(2)));
-        tablayout_chinese.addTab(tablayout_chinese.newTab().setText(titlelist.get(3)));
-        framlist.add(new MountTai_fragment());
-        framlist.add(new MountHang_fragment());
-        framlist.add(new Funghwang_fragment());
-        framlist.add(new MountEmei_fragment());
-
-        Myadap myadap = new Myadap(getFragmentManager());
-        tablayout_chinese.setupWithViewPager(viewpager_chinese);
-        viewpager_chinese.setAdapter(myadap);
-*/
-
     }
 
 
@@ -201,11 +187,6 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
         View view = View.inflate(getActivity(), R.layout.popadd_chinese, null);
         pop_button = (Button) view.findViewById(R.id.pop_button);
         pop_img1 = (ImageView) view.findViewById(R.id.pop_img1);
-      /*  pop_button.setOnClickListener(this);
-        pop_recy1 = (RecyclerView) view.findViewById(R.id.pop_recy1);
-        pop_recy1.setOnClickListener(this);
-        pop_recy2 = (RecyclerView) view.findViewById(R.id.pop_recy2);
-        pop_recy2.setOnClickListener(this);*/
         pop_gv1 = view.findViewById(R.id.pop_gv1);
         pop_gv2 = view.findViewById(R.id.pop_gv2);
 
@@ -226,11 +207,12 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
         pop_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String s = pop_button.getText().toString();
+                s = pop_button.getText().toString();
                 if (s.equals("编辑")) {
                     pop_button.setText("完成");
                 }
                 if (s.equals("完成")) {
+                    pop.dismiss();
                     pop_button.setText("编辑");
                 }
 
@@ -243,60 +225,52 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
             }
         });
 
-     /*   final ArrayList<String> list1tab = ArrayListData1.getlist();
-        PopRecyAdapter1 ada1Adapter = new PopRecyAdapter1(getActivity(), list1tab);
-        pop_recy1.setLayoutManager(new GridLayoutManager(getActivity(), 3));
-        pop_recy1.setAdapter(ada1Adapter);*/
-
         //查询数据库内容添加到第一个GridView 里，点击x号关闭PopWindow同时更新viewPager 和Fragment
         final List<Students> lists11 = studentsDao.queryBuilder().build().list();
         listgv1.clear();
         listgv1.addAll(lists11);
         // ==================第一个GridView的设置及监听=====================
-        gvadapter1 = new MyGridAdapter1(getActivity(), listgv1);
+        gvadapter1 = new MyGridAdapter1(getActivity(), listgv1,s);
         pop_gv1.setAdapter(gvadapter1);
         pop_gv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //点击查询所有数据库1内容
-                List<Students> lists112 = studentsDao.queryBuilder().build().list();
-                if (lists112.size() > 4) {
-                    //TODO 先添加到grildView2 集合，再删除
-                    //
-//                    listgv2.add(lists11.get(i));
-                    //添加到第二个数据库里。
+              if (s.equals("编辑")){
+                  //点击查询所有数据库1内容
+                  List<Students> lists112 = studentsDao.queryBuilder().build().list();
+                  if (lists112.size() > 4) {
+                      //TODO 先添加到grildView2 集合，再删除
+                      String title11 = listgv1.get(i).getTitle();
+                      String url11 = listgv1.get(i).getUrl();
+                      Log.e("wwwwwww", "wwwwwwwwwww" + title11);
+
+                      //查询数据库有没有这条数据，如果有就在数据库1里删除
+                      Students stu1 = studentsDao.queryBuilder().where(StudentsDao.Properties.Title.eq(title11)).build().unique();//查询单
+                      //数据库删除一个Studnets以后，30个那个tablayout那个集合 和framlist，titlelist都要及时删除
+                      if (stu1 != null) {
+                          //TODO 这里了插入到数据库2。查询数据库2，刷新
+                          studentsDao2.insert(listgv1.get(i));
+                          listgv2.clear();
+                          List<Students> list2221 = studentsDao2.queryBuilder().build().list();
+                          listgv2.addAll(list2221);
 
 
-                    String title11 = listgv1.get(i).getTitle();
-                    String url11 = listgv1.get(i).getUrl();
-                    Log.e("wwwwwww", "wwwwwwwwwww" + title11);
+                          studentsDao.delete(stu1);
+                          listgv1.remove(i);
+                          gvadapter1.notifyDataSetChanged();
+                      }
 
-                    //查询数据库有没有这条数据，如果有就在数据库1里删除
-                    Students stu1 = studentsDao.queryBuilder().where(StudentsDao.Properties.Title.eq(title11)).build().unique();//查询单
-                    //数据库删除一个Studnets以后，30个那个tablayout那个集合 和framlist，titlelist都要及时删除
-                    if (stu1 != null) {
-                        //TODO 这里了插入到数据库2。查询数据库2，刷新
-                        studentsDao2.insert(listgv1.get(i));
-                        listgv2.clear();
-                        List<Students> list2221 = studentsDao2.queryBuilder().build().list();
-                        listgv2.addAll(list2221);
+                      list111.remove(i);
+                      framlist.remove(i);
+                      titlelist.remove(i);
+                      myadap.notifyDataSetChanged();
+                      gvadapter2.notifyDataSetChanged();
 
-
-                        studentsDao.delete(stu1);
-                        listgv1.remove(i);
-                        gvadapter1.notifyDataSetChanged();
-                    }
-
-                    list111.remove(i);
-                    framlist.remove(i);
-                    titlelist.remove(i);
-                    myadap.notifyDataSetChanged();
-                    gvadapter2.notifyDataSetChanged();
-
-                    Toast.makeText(getActivity(), "已删除" + title11 + "标签", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getActivity(), "不能少于4个标签", Toast.LENGTH_SHORT).show();
-                }
+                      Toast.makeText(getActivity(), "已删除" + title11 + "标签", Toast.LENGTH_SHORT).show();
+                  } else {
+                      Toast.makeText(getActivity(), "不能少于4个标签", Toast.LENGTH_SHORT).show();
+                  }
+              }
             }
         });
 
@@ -311,6 +285,7 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
         pop_gv2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            if (s.equals("编辑")){
                 //TODO 点击gv2 时也是删除该条目，  添加到gv1.的数据库并刷新gv1的列表
                 //查询数据库2有没有这条数据，如果有就在数据库2里删除,在数据库1里添加，并刷新
                 Students stu1 = studentsDao2.queryBuilder().where(StudentsDao.Properties.Title.eq(listgv2.get(i).getTitle())).build().unique();//查询单
@@ -330,26 +305,11 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
                     //TODO=============删除数据库2的内容，刷新========
                     studentsDao2.delete(stu1);
                     listgv2.remove(stu1);
-                    //  listgv2.addAll(list2221);
-                   /* list111.add(stu1.);
-                    framlist.add(i);
-                    titlelist.remove(i);
-                    listgv2.remove(i);*/
                     gvadapter2.notifyDataSetChanged();
 
 
-
-
-                    //  list111.remove(i);
-                    //TODO---------------------===============
-
                 }
-
-//                list111.remove(i);
-//                framlist.remove(i);
-//                titlelist.remove(i);
-//                myadap.notifyDataSetChanged();
-//                gvadapter2.notifyDataSetChanged();
+            }
 
 
             }

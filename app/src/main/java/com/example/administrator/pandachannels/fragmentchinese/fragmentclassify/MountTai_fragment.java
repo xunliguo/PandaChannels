@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.adapter.MyAdapter_TaiShan;
@@ -32,6 +31,8 @@ public class MountTai_fragment extends BaseFragment implements MainContract.SubV
     private XRecyclerView mountai_recy;
     private ProgressDialog dialog;
     String s;
+    private ProgressDialog dialog1;
+
     public MountTai_fragment(String s) {
         this.s=s;
     }
@@ -43,7 +44,7 @@ public class MountTai_fragment extends BaseFragment implements MainContract.SubV
         dialog = new ProgressDialog(getActivity());
         initView(view);
         getLayout();
-
+        dialog1 = new ProgressDialog(getActivity());
         return view;
 
     }
@@ -109,7 +110,7 @@ public class MountTai_fragment extends BaseFragment implements MainContract.SubV
         myAdapter_taiShan.setonitenclicklistener(new MyAdapter_TaiShan.Listener() {
             @Override
             public void setonduanclick(View v, int postion) {
-                Toast.makeText(getActivity(), "1111111", Toast.LENGTH_SHORT).show();
+              dialog1.show();
             }
 
             @Override
