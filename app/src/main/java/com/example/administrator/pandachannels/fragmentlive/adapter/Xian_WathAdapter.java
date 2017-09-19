@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.ManyBean;
+import com.example.administrator.pandachannels.framework.A;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ import java.util.List;
 public class Xian_WathAdapter extends RecyclerView.Adapter<Xian_WathAdapter.ViewHolder> {
     private Context context;
     private List<ManyBean.ListBean> mlist=new ArrayList<>();
-
+   private  Listener listener;
     public Xian_WathAdapter(Context context, List<ManyBean.ListBean> mlist) {
         this.context = context;
         this.mlist = mlist;
@@ -36,11 +37,20 @@ public class Xian_WathAdapter extends RecyclerView.Adapter<Xian_WathAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(Xian_WathAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(Xian_WathAdapter.ViewHolder holder, final int position) {
               holder.title.setText(mlist.get(position).getTitle());
               Glide.with(context).load(mlist.get(position).getImage()).into(holder.thum);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onclick(position);
+            }
+        });
     }
+public  void setOnclick(Listener listeners){
+    this.listener=listeners;
 
+}
     @Override
     public int getItemCount() {
         return mlist.size();
@@ -58,5 +68,10 @@ public class Xian_WathAdapter extends RecyclerView.Adapter<Xian_WathAdapter.View
 
 
         }
+    }
+    public interface  Listener{
+        void  onclick(int position);
+
+
     }
 }

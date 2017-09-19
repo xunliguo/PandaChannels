@@ -31,9 +31,10 @@ public class Burang_fragment extends BaseFragment implements MainContract.XSubVi
    BurangPersenterImpl burangPersenter=new BurangPersenterImpl(this);
    private List<WondBean.VideoBean> mlist=new ArrayList<>();
     private XRecyclerView recyclerView;
+ private WondfulAdapters adapters;
 
 
-    @Override
+ @Override
     public void showLoading() {
 
     }
@@ -57,6 +58,10 @@ public class Burang_fragment extends BaseFragment implements MainContract.XSubVi
     protected void initView(View view) {
      recyclerView = (XRecyclerView) view.findViewById(R.id.bur_recycle);
         burangPersenter.requsetData();
+     adapters = new WondfulAdapters(mlist,getActivity());
+     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
+     recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
+     recyclerView.setAdapter(adapters);
 
     }
 
@@ -89,11 +94,9 @@ public class Burang_fragment extends BaseFragment implements MainContract.XSubVi
 
     @Override
     public void showDatasWond(List<WondBean.VideoBean> videolist) {
-      mlist.addAll(videolist);
-     WondfulAdapters adapters=new WondfulAdapters(mlist,getActivity());
-     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
-     recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
-     recyclerView.setAdapter(adapters);
+       mlist.addAll(videolist);
+      adapters.notifyDataSetChanged();
+
      adapters.setOnclick(new WondfulAdapters.Listener() {
       @Override
       public void Onclick(int position, View view) {

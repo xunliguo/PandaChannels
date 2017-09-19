@@ -17,6 +17,7 @@ import com.example.administrator.pandachannels.fragmentlive.model.entity.PandaLi
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PinBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.WondBean;
 import com.example.administrator.pandachannels.fragmentlive.presenter.WonfulPersenterImpl;
+import com.example.administrator.pandachannels.framework.A;
 import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
@@ -29,21 +30,25 @@ import java.util.List;
  */
 public class Wonderful_fragment extends BaseFragment implements MainContract.XSubView {
          WonfulPersenterImpl wonfulPersenter=new WonfulPersenterImpl(this);
-       private XRecyclerView recyclerView;
-    private WondfulAdapters adapters;
+          private XRecyclerView recyclerView;
+          private WondfulAdapters adapters;
+        private List<WondBean.VideoBean> mlist=new ArrayList<>();
 
     @Override
     protected void initView(View view) {
-
         recyclerView = (XRecyclerView) view.findViewById(R.id.won_recycle);
+        adapters = new WondfulAdapters(mlist,getActivity());
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
+        recyclerView.setAdapter(adapters);
         wonfulPersenter.requsetData();
-
-
     }
 
     @Override
     protected int getLayout() {
         return R.layout.fragment_wonderful_fragment;
+
+
 
     }
 
@@ -92,18 +97,16 @@ public class Wonderful_fragment extends BaseFragment implements MainContract.XSu
 
     @Override
     public void showDatasWond(final List<WondBean.VideoBean> mlists) {
+          mlist.addAll(mlists);
+        adapters.notifyDataSetChanged();
 
-        adapters = new WondfulAdapters(mlists,getActivity());
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
-        recyclerView.setAdapter(adapters);
 
 
         recyclerView.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
                 App.PAGE=1;
-                mlists.clear();
+                mlist.clear();
                 wonfulPersenter.requsetData();
                 recyclerView.refreshComplete();
             }
@@ -121,6 +124,7 @@ public class Wonderful_fragment extends BaseFragment implements MainContract.XSu
                 Intent intent=new Intent(getActivity(), LiveVideoActivity.class);
                 String vid = mlists.get(position).getVid();
                 String t = mlists.get(position).getT();
+                  mlists.get(position);
                 intent.putExtra("url",vid);
                 intent.putExtra("title",t);
                 startActivity(intent);

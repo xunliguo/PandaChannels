@@ -31,6 +31,7 @@ public class Specs_fragment extends BaseFragment implements MainContract.XSubVie
     SpecPresenterImpl specPresenter=new SpecPresenterImpl(this);
  private List<WondBean.VideoBean>  mlisrt=new ArrayList<>();
     private XRecyclerView recyclerView;
+    private WondfulAdapters adapters;
 
     @Override
     public void showLoading() {
@@ -56,6 +57,10 @@ public class Specs_fragment extends BaseFragment implements MainContract.XSubVie
     protected void initView(View view) {
         recyclerView = (XRecyclerView) view.findViewById(R.id.spec_recycle);
         specPresenter.requsetData();
+        adapters = new WondfulAdapters(mlisrt,getActivity());
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
+        recyclerView.setAdapter(adapters);
     }
 
     @Override
@@ -87,10 +92,7 @@ public class Specs_fragment extends BaseFragment implements MainContract.XSubVie
     @Override
     public void showDatasWond(List<WondBean.VideoBean> videolist) {
         mlisrt.addAll(videolist);
-        WondfulAdapters adapters=new WondfulAdapters(mlisrt,getActivity());
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
-        recyclerView.setAdapter(adapters);
+     adapters.notifyDataSetChanged();
         adapters.setOnclick(new WondfulAdapters.Listener() {
             @Override
             public void Onclick(int position, View view) {

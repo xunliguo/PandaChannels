@@ -7,6 +7,7 @@ import android.widget.ListView;
 
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
+import com.example.administrator.pandachannels.fragmentlive.adapter.PinAdapters;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.ManyBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PandaLiveBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PinBean;
@@ -35,6 +36,7 @@ public class PlayandChatFragment extends BaseFragment implements MainContract.XS
         listview = (ListView) view.findViewById(R.id.live_listview);
         send = (Button) view.findViewById(R.id.live_send);
         ed_pin = (EditText) view.findViewById(R.id.ed_pinglun);
+        palyandchatPersert.requsetData();
 
 
     }
@@ -48,7 +50,7 @@ public class PlayandChatFragment extends BaseFragment implements MainContract.XS
     protected void initData() {
 
 //        PinAdapters adapters=new PinAdapters(getActivity(),R.layout.pin_item,list);
-//        listview.setAdapter(adapters);
+//       listview.setAdapter(adapters);
 
 
     }
@@ -86,12 +88,19 @@ public class PlayandChatFragment extends BaseFragment implements MainContract.XS
     @Override
     public void showPinlun(List<PinBean.DataBean.ContentBean> content) {
         pin_list.addAll(content);
+        PinAdapters adapters=new PinAdapters(getActivity(),R.layout.pin_item,pin_list);
+        listview.setAdapter(adapters);
+
+
+
+
 
     }
 
     //zhesih
     @Override
     public void showDatasWond(List<WondBean.VideoBean> videolist) {
+
 
     }
 

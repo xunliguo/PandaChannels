@@ -31,6 +31,7 @@ public class PanadafileFrament extends BaseFragment implements MainContract.XSub
 private List<WondBean.VideoBean> mlist=new ArrayList<>();
         PandlifPersenterimpl pandlifPersenterimpl=new PandlifPersenterimpl(this);
     private XRecyclerView recyclerView;
+    private WondfulAdapters adapters;
 
     @Override
     public void showLoading() {
@@ -59,6 +60,10 @@ private List<WondBean.VideoBean> mlist=new ArrayList<>();
     protected void initView(View view) {
         recyclerView = (XRecyclerView) view.findViewById(R.id.pandafile_recycle);
         pandlifPersenterimpl.requsetData();
+        adapters = new WondfulAdapters(mlist,getActivity());
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
+        recyclerView.setAdapter(adapters);
     }
 
     @Override
@@ -90,10 +95,8 @@ private List<WondBean.VideoBean> mlist=new ArrayList<>();
     @Override
     public void showDatasWond(List<WondBean.VideoBean> videolist) {
         mlist.addAll(videolist);
-        WondfulAdapters adapters=new WondfulAdapters(videolist,getActivity());
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
-        recyclerView.setAdapter(adapters);
+        adapters.notifyDataSetChanged();
+
         adapters.setOnclick(new WondfulAdapters.Listener() {
             @Override
             public void Onclick(int position, View view) {

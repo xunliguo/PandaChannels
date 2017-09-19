@@ -32,6 +32,8 @@ public class Thatthing_fragment extends BaseFragment implements MainContract.XSu
 
     private XRecyclerView recyclerView;
       private List<WondBean.VideoBean> mlist=new ArrayList<>();
+    private WondfulAdapters adapters;
+
     @Override
     public void showLoading() {
 
@@ -56,6 +58,10 @@ public class Thatthing_fragment extends BaseFragment implements MainContract.XSu
     protected void initView(View view) {
         recyclerView = (XRecyclerView) view.findViewById(R.id.that_recycle);
         thatthFrPersenter.requsetData();
+        adapters = new WondfulAdapters(mlist,getActivity());
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
+        recyclerView.setAdapter(adapters);
     }
 
     @Override
@@ -89,10 +95,7 @@ public class Thatthing_fragment extends BaseFragment implements MainContract.XSu
     @Override
     public void showDatasWond(List<WondBean.VideoBean> videolist) {
         mlist.addAll(videolist);
-        WondfulAdapters adapters=new WondfulAdapters(mlist,getActivity());
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
-        recyclerView.setAdapter(adapters);
+      adapters.notifyDataSetChanged();
         adapters.setOnclick(new WondfulAdapters.Listener() {
             @Override
             public void Onclick(int position, View view) {
