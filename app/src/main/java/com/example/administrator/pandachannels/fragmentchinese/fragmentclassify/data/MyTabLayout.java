@@ -12,7 +12,7 @@ import java.lang.reflect.Field;
  * Motto: where my heart get peace,where my self get home.
  */
 public class MyTabLayout extends TabLayout {
-    private static final int TabViewNumber = 5;
+    private static final int TabViewNumber = 4;
     private static final String SCROLLABLE_TAB_MIN_WIDTH = "mScrollableTabMinWidth";
     public MyTabLayout(Context context) {
         super(context);

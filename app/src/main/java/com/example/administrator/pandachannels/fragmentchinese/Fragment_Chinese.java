@@ -2,7 +2,6 @@ package com.example.administrator.pandachannels.fragmentchinese;
 
 
 import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,9 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -23,7 +20,7 @@ import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import com.example.administrator.pandachannels.R;
-import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.MountTai_fragment;
+import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.fragment.MountTai_fragment;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.adapter.MyGridAdapter1;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.adapter.MyGridAdapter2;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanChinese;
@@ -74,18 +71,6 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
     private MyGridAdapter2 gvadapter2;
     private StudentsDao studentsDao2;
     private String s = "qq";
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment like bottom ... and run LayoutCreator again
-        View view = View.inflate(getActivity(), R.layout.fragment_fragment__chinese, null);
-        initView(view);
-        initData();
-        return view;
-    }
-
-
 
     @Override
     protected void initView(View view) {

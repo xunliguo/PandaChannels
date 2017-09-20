@@ -58,10 +58,12 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 //        setContentView(R.layout.activity_home);
         getlayoutID();
         getnetwoke();
-
-
+        initView();
         initShowFisrtFragment();//默认显示第一个Fragment
         initData();
+
+
+
     }
 
     private void initShowFisrtFragment() {
@@ -104,7 +106,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         }else {
             home_img221.setVisibility(View.GONE);
             framlayout.setVisibility(View.VISIBLE);
-            initView();
+
         }
  if (!getnetwoke.equals("网络无连接")&&!getnetwoke.equals("WIFI")) {
             setNetwork2();

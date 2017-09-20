@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -44,11 +43,12 @@ public class CollectActivity extends AppCompatActivity {
 
         shi_tab.addTab(shi_tab.newTab().setText(shi_list.get(0)));
         shi_tab.addTab(shi_tab.newTab().setText(shi_list.get(1)));
-
+        shi_tab.setupWithViewPager(shi_pager);
         MpagerAdapter adapter = new MpagerAdapter(getSupportFragmentManager());
+
         shi_pager.setAdapter(adapter);
         //设置viewpager不能滑动
-        shi_pager.setOnTouchListener(new View.OnTouchListener() {
+     /*   shi_pager.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
@@ -62,7 +62,7 @@ public class CollectActivity extends AppCompatActivity {
                 }
                 return true;
             }
-        });
+        });*/
 
            shi_collect.setOnClickListener(new View.OnClickListener() {
                @Override

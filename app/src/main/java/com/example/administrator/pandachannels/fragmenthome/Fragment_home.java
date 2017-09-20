@@ -92,6 +92,8 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
                 Intent intent = new Intent(getActivity(), Video.class);
                 intent.putExtra("homeflunbo", pandaLiveBean.getData().getPandaeye().getItems().get(0).getPid());
                 intent.putExtra("homeTitile", pandaLiveBean.getData().getPandaeye().getItems().get(0).getTitle());
+                intent.putExtra("homimg",pandaLiveBean.getData().getPandaeye().getItems().get(0).getUrl());
+
                 startActivity(intent);
             }
         });
@@ -101,7 +103,10 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
                 Intent intent = new Intent(getActivity(), Video.class);
                 intent.putExtra("homeflunbo", pandaLiveBean.getData().getPandaeye().getItems().get(1).getPid());
                 intent.putExtra("homeTitile", pandaLiveBean.getData().getPandaeye().getItems().get(1).getTitle());
+                intent.putExtra("homimg",pandaLiveBean.getData().getPandaeye().getItems().get(1).getUrl());
+
                 startActivity(intent);
+
             }
         });
 
@@ -135,7 +140,10 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
                         Intent intent = new Intent(getActivity(), Video.class);
                         intent.putExtra("homeflunbo", arr.get(position).getPid());
                         intent.putExtra("homeTitile", arr.get(position).getTitle());
+                        intent.putExtra("homimg",arr.get(position).getImage());
+
                         startActivity(intent);
+
                     }
                 });
             }
@@ -237,6 +245,8 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
                 Intent intent = new Intent(getActivity(), Video.class);
                 intent.putExtra("homeflunbo", pandaLiveBean.getData().getBigImg().get(position).getPid());
                 intent.putExtra("homeTitile", pandaLiveBean.getData().getBigImg().get(position).getTitle());
+                intent.putExtra("homimg",pandaLiveBean.getData().getBigImg().get(position).getImage());
+
                 startActivity(intent);
             }
         });

@@ -18,9 +18,6 @@ public class Fragment_ChineseimplMain implements MainContract.SubPresenter {
 
 //V层和P层关联起来
 
-
-
-
     public Fragment_ChineseimplMain(MainContract.SubView subview) {
         this.subview=subview;
     }
@@ -34,8 +31,6 @@ public class Fragment_ChineseimplMain implements MainContract.SubPresenter {
                 BeanChinese beanChinese = gson.fromJson(ss, BeanChinese.class);
                list111.add(beanChinese);
                 subview.showDataChina(list111);
-
-
 
             }
         });

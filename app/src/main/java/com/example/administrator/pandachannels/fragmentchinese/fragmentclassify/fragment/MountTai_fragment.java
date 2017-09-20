@@ -1,4 +1,4 @@
-package com.example.administrator.pandachannels.fragmentchinese.fragmentclassify;
+package com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.fragment;
 
 
 import android.app.ProgressDialog;
