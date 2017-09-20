@@ -2,6 +2,10 @@ package com.example.administrator.pandachannels.fragmentlive.fragment;
 
 
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
@@ -13,6 +17,7 @@ import android.widget.TextView;
 
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
+import com.example.administrator.pandachannels.fragmentlive.adapter.HowAdaperts;
 import com.example.administrator.pandachannels.fragmentlive.adapter.MyAdapters;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.ManyBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PandaLiveBean;
@@ -48,7 +53,8 @@ public class Xianlive_subfragment extends BaseFragment implements MainContract.X
     private String brief;
     private ProgressDialog dialog;
     private String image;
-
+    private ReceiveBroadCast receiveBroadCast;
+    private List<String > lsitstring=new ArrayList<>();
 
     @Override
     public void showLoading() {
@@ -65,8 +71,20 @@ public class Xianlive_subfragment extends BaseFragment implements MainContract.X
 
 
     }
+    public class ReceiveBroadCast extends BroadcastReceiver {
 
-    @Override
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            //得到广播中得到的数据，并显示出来
+            String message = intent.getStringExtra("aa");
+            Log.e("tavd","===========>"+message);
+            title_textView.setText("[正在直播]" + message);
+
+
+
+        }
+    }
+        @Override
     public void showrror() {
 
     }
@@ -80,6 +98,10 @@ public class Xianlive_subfragment extends BaseFragment implements MainContract.X
         listView.addHeaderView(view1);
         up = (ImageView) view.findViewById(R.id.up);
         title_textView = (TextView) view.findViewById(R.id.xian_text);
+        receiveBroadCast = new ReceiveBroadCast();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("data");    //只有持有相同的action的接受者才能接收此广播
+       getActivity(). registerReceiver(receiveBroadCast, filter);
 
 //      ----------------------------------------------
 
@@ -111,7 +133,7 @@ public class Xianlive_subfragment extends BaseFragment implements MainContract.X
     @Override
     protected void initData() {
 
-        videoController.setUp("http://jzvd.nathen.cn/c6e3dc12a1154626b3476d9bf3bd7266/6b56c5f0dc31428083757a45764763b0-5287d2089db37e62345123a1be272f8b.mp4\"", "");
+        videoController.setUp("http://jzvd.nathen.cn/c6e3dc12a1154626b3476d9bf3bd7266/6b56c5f0dc31428083757a45764763b0-5287d2089db37e62345123a1be272f8b.mp4","");
 
         videoController.ivThumb.setImageResource(R.drawable.panda);
         videoController.setThumbImageViewScalType(ImageView.ScaleType.CENTER_CROP);
@@ -122,6 +144,9 @@ public class Xianlive_subfragment extends BaseFragment implements MainContract.X
     }
 
     private void intDate() {
+
+
+
         up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

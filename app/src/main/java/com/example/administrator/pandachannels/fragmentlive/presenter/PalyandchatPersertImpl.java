@@ -15,7 +15,7 @@ import java.util.List;
 
 public class PalyandchatPersertImpl implements MainContract.SubPresenter {
 MainContract.XSubView xSubview;
-    private String url="http://newcomment.cntv.cn/comment/list?prepage=20&app=ipandaApp&itemid=zhiboye_chat&nature=1&page=1";
+    private String url="http://newcomment.cntv.cn/comment/list?prepage=20&app=ipandaApp&itemid=zhiboye_chat&nature=1&page=";
 
     public PalyandchatPersertImpl( MainContract.XSubView xSubview) {
         this.xSubview=xSubview;

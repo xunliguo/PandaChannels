@@ -1,5 +1,6 @@
 package com.example.administrator.pandachannels.fragmentlive.fragment;
 
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -81,10 +82,20 @@ public class ManyFragment extends BaseFragment implements MainContract.XSubView{
       Log.e("TAG" ,"==============>"+list);
         mlist.addAll(list);
       adapter.notifyDataSetChanged();
+
       adapter.setOnclick(new Xian_WathAdapter.Listener() {
         @Override
         public void onclick(int position) {
-          Toast.makeText(getActivity(), "很抱歉,服务器出错!", Toast.LENGTH_SHORT).show();
+          Intent intent=new Intent();
+          intent.setAction("data");
+          String title = mlist.get(position).getTitle();
+            String live_image = mlist.get(position).getImage();
+            intent.putExtra("aa",title);
+            intent.putExtra("imageurl",live_image);
+
+            getActivity().sendBroadcast(intent);
+            Toast.makeText(getActivity(), "很抱歉,服务器出错!", Toast.LENGTH_SHORT).show();
+
 
         }
       });

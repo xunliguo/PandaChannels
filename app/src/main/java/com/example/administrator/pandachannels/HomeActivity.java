@@ -216,4 +216,5 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         }
 
     }
+
 }
