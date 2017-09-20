@@ -1,17 +1,22 @@
-package com.example.administrator.pandachannels.fragmentculture;
+package com.example.administrator.pandachannels.fragmentculture.fragment;
 
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.pandachannels.R;
+import com.example.administrator.pandachannels.fragmentculture.LiBean;
+import com.example.administrator.pandachannels.fragmentculture.LiPresenter;
+import com.example.administrator.pandachannels.fragmentculture.activity.LiActivity;
+import com.example.administrator.pandachannels.fragmentculture.activity.WenActivity;
+import com.example.administrator.pandachannels.fragmentculture.adapter.MyAdapter;
 import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
 import com.example.administrator.pandachannels.framework.utils.OkHttpUtils;
@@ -110,28 +115,35 @@ public class Fragment_culture extends BaseFragment implements MainContract.LiVie
         ptrclassics.setPtrHandler(new PtrDefaultHandler() {
             @Override
             public void onRefreshBegin(PtrFrameLayout frame) {
-                a = 1;
-                listsbe.clear();
-                OkHttpUtils.getInstance().getNetData("http://www.ipanda.com/kehuduan/video/index.json", new OkHttpUtils.CallBacks() {
-                    @Override
-                    public void getString(String ss) {
-                        Gson gson = new Gson();
-                        LiBean liBeans = gson.fromJson(ss, LiBean.class);
-                        List<LiBean.ListBean> lblist = liBeans.getList();
-                        listsbe.addAll(lblist);
-                        getActivity().runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                adapter.notifyDataSetChanged();
-                            }
-                        });
-                    }
-                });
+
+                if (a == 14) {
+                    frame.refreshComplete();
+                    Toast.makeText(getActivity(), "暂无新数据。", Toast.LENGTH_SHORT).show();
+                } else {
+                    //如果不是 那么执行a++ 自动加载吓一条
+                    a++;
+                    OkHttpUtils.getInstance().getNetData("http://www.ipanda.com/kehuduan/video/index.json", new OkHttpUtils.CallBacks() {
+                        @Override
+                        public void getString(String ss) {
+                            Gson gson = new Gson();
+                            LiBean liBeans = gson.fromJson(ss, LiBean.class);
+                            List<LiBean.ListBean> lblist = liBeans.getList();
+                            listsbe.addAll(lblist);
+                            getActivity().runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    adapter.notifyDataSetChanged();
+
+                                }
+                            });
+                        }
+                    });
+                    frame.refreshComplete();
+
+
+                }
             }
         });
-    }
 
-    public void onPrepared(MediaPlayer mediaPlayer) {
-
-    }
+}
 }

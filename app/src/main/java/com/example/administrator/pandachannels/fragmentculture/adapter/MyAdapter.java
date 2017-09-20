@@ -1,4 +1,4 @@
-package com.example.administrator.pandachannels.fragmentculture;
+package com.example.administrator.pandachannels.fragmentculture.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.pandachannels.R;
+import com.example.administrator.pandachannels.fragmentculture.LiBean;
 
 import java.util.List;
 

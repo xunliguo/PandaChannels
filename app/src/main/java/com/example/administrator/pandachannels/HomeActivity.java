@@ -20,7 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.administrator.pandachannels.fragmentchinese.Fragment_Chinese;
-import com.example.administrator.pandachannels.fragmentculture.Fragment_culture;
+import com.example.administrator.pandachannels.fragmentculture.fragment.Fragment_culture;
 import com.example.administrator.pandachannels.fragmenthome.Fragment_home;
 import com.example.administrator.pandachannels.fragmenthome.Original;
 import com.example.administrator.pandachannels.fragmentlive.Fragment_live;

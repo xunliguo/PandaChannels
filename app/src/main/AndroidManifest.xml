@@ -92,16 +92,17 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".fragmentculture.LiActivity" />
+        <activity android:name=".fragmentculture.activity.LiActivity" />
+        <activity android:name=".fragmentculture.activity.CuiActivity"/>
 
 
         <activity
-            android:name=".fragmentculture.WenActivity"
-            android:screenOrientation="landscape"></activity>
+            android:name=".fragmentculture.activity.WenActivity"
+            android:screenOrientation="landscape" />
 
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="561cae6ae0f55abd990035bf"></meta-data>
+            android:value="e86dcc9ada036c52bd58f54e2a3d2fa0"></meta-data>
 
         <activity
             android:name=".fragmentlive.LiveVideoActivity"
@@ -115,27 +116,6 @@
         <activity android:name=".fragmenthome.Homevoid"
             android:screenOrientation="landscape"
             ></activity>
-        //李强登录配置
-        <activity
-            android:name="com.umeng.qq.tencent.AuthActivity"
-            android:launchMode="singleTask"
-            android:noHistory="true" >
-
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="tencent100424468" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name="com.umeng.qq.tencent.AssistActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="orientation|keyboardHidden|screenSize"/>
-
-
     </application>
 
 </manifest>

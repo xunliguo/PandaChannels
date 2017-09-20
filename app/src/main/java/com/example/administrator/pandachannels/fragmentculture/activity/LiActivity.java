@@ -1,4 +1,4 @@
-package com.example.administrator.pandachannels.fragmentculture;
+package com.example.administrator.pandachannels.fragmentculture.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.administrator.pandachannels.R;
+import com.example.administrator.pandachannels.fragmentculture.fragment.PerfectFragment;
+import com.example.administrator.pandachannels.fragmentculture.fragment.HinghtFragment;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
@@ -29,7 +31,7 @@ public class LiActivity extends AppCompatActivity implements View.OnClickListene
 
 
     private ImageView li_img;
-
+    private TextView li_text;
     private ImageView li_image;
     private ImageView li_imageview;
     private ImageView li_fan;
@@ -42,11 +44,13 @@ public class LiActivity extends AppCompatActivity implements View.OnClickListene
     private TabLayout tab;
     List<Fragment> fragmentList=new ArrayList<Fragment>();
     List<String> titleList=new ArrayList<String>();
+
+    private boolean isImageview = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_li);
-initView();
+        initView();
 
         //接受传值
         Intent intent=getIntent();
@@ -59,11 +63,11 @@ initView();
 
     private void initView() {
         jCVideoPlayer = (JCVideoPlayer) findViewById(R.id.video);
-        jCVideoPlayer.setUp("http://2449.vod.myqcloud.com/2449_43b6f696980311e59ed467f22794e792.f20.mp4",
-                "http://p.qpic.cn/videoyun/0/2449_43b6f696980311e59ed467f22794e792_1/640");
+        jCVideoPlayer.setUp("http://vod.cntv.lxdns.com/flash/mp4video61/TMS/2017/09/14/29261a6b576f488a9124a7ded9d241d3_h264418000nero_aac32.mp4",
+                "熊猫");
         li_img = (ImageView) findViewById(R.id.li_img);
         li_fan = (ImageView) findViewById(R.id.li_fan);
-
+        li_text= (TextView) findViewById(R.id.li_text);
         li_image = (ImageView) findViewById(R.id.li_image);
         li_imageview = (ImageView) findViewById(R.id.li_imageview);
         li_tv= (TextView) findViewById(R.id.li_tv);
@@ -101,6 +105,16 @@ initView();
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.li_img:
+
+
+                if(isImageview){
+                    li_text.setVisibility(View.VISIBLE);
+                    isImageview = false;
+                }else {
+                    li_text.setVisibility(View.GONE);
+                    isImageview = true;
+                }
+
                 break;
             case R.id.li_image:
 
@@ -116,7 +130,7 @@ initView();
                 }
                 break;
             case R.id.li_imageview:
-               //分享
+                //分享
                 UMWeb web = new UMWeb(url);
                 web.setTitle(title);
                 new ShareAction(LiActivity.this)

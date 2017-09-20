@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.administrator.pandachannels.fragmentculture.WenActivity">
+    tools:context="com.example.administrator.pandachannels.fragmentculture.activity.WenActivity">
     <io.vov.vitamio.widget.VideoView
         android:layout_width="match_parent"
         android:layout_height="200dp"

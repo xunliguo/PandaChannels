@@ -1,4 +1,4 @@
-package com.example.administrator.pandachannels.fragmentculture;
+package com.example.administrator.pandachannels.fragmentculture.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
