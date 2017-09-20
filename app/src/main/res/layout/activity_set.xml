@@ -308,6 +308,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"
             android:text="关于熊猫频道"
+
             app:layout_heightPercent="6%w"
             app:layout_widthPercent="50%w" />
 

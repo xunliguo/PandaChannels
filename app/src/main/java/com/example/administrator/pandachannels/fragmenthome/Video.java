@@ -17,7 +17,6 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 
 public class Video extends AppCompatActivity {
 
-    private VideoView video;
     private HomeShiping homeShiping;
     private JCVideoPlayer jcvideoplayer;
 
@@ -25,13 +24,12 @@ public class Video extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         setContentView(R.layout.activity_video);
         initView();
 
     }
     private void initView() {
-        jcvideoplayer = (JCVideoPlayer) findViewById(R.id.shi_video);
+        jcvideoplayer = (JCVideoPlayer) findViewById(R.id.videocontroller1);
         String homelunbo = getIntent().getStringExtra("homeflunbo");
         final String homeTitile = getIntent().getStringExtra("homeTitile");
         OkHttpUtils.getInstance().getNetData(Urls.VIDEOPLAY + homelunbo, new OkHttpUtils.CallBacks() {

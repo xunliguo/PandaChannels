@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmentobserve.activity.centeracticity.setactivity.SetOneActivity;
+import com.example.administrator.pandachannels.fragmentobserve.activity.centeracticity.setactivity.SetThreeActivity;
 import com.zhy.android.percent.support.PercentRelativeLayout;
 
 public class SetActivity extends AppCompatActivity implements View.OnClickListener {
@@ -75,7 +76,7 @@ public class SetActivity extends AppCompatActivity implements View.OnClickListen
             case R.id.clear:
 
                 final AlertDialog dialog = new AlertDialog.Builder(this).create();
-                View inflate = LayoutInflater.from(this).inflate(R.layout.dialog_layout,null);
+                View inflate = LayoutInflater.from(this).inflate(R.layout.dialog_layout, null);
                 TextView message = (TextView) inflate.findViewById(R.id.message);
                 Button quxiao_butt = (Button) inflate.findViewById(R.id.quxiao_butt);
                 Button quedin_butt = (Button) inflate.findViewById(R.id.quedin_butt);
@@ -101,7 +102,7 @@ public class SetActivity extends AppCompatActivity implements View.OnClickListen
                 break;
             case R.id.user_tickling:
 
-                Intent intent=new Intent(SetActivity.this,SetOneActivity.class);
+                Intent intent = new Intent(SetActivity.this, SetOneActivity.class);
                 startActivity(intent);
                 break;
             case R.id.upgrade:
@@ -129,6 +130,8 @@ public class SetActivity extends AppCompatActivity implements View.OnClickListen
             case R.id.goodreputation:
                 break;
             case R.id.about_pandachannel:
+                Intent panda = new Intent(SetActivity.this, SetThreeActivity.class);
+                startActivity(panda);
                 break;
         }
 
