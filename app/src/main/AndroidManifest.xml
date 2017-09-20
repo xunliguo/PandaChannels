@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.administrator.pandachannels">
-      <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -17,12 +18,11 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:name=".fragmentlive.App"
@@ -35,13 +35,10 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-
-
         <activity
             android:name="com.umeng.qq.tencent.AuthActivity"
             android:launchMode="singleTask"
@@ -61,9 +58,9 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
-        <!--<meta-data-->
-            <!--android:name="UMENG_APPKEY"-->
-            <!--android:value="59787c1165b6d601840014d0" />-->
+        <!-- <meta-data -->
+        <!-- android:name="UMENG_APPKEY" -->
+        <!-- android:value="59787c1165b6d601840014d0" /> -->
 
         <activity
             android:name=".fragmentobserve.activity.VideoActivity"
@@ -76,33 +73,36 @@
         <activity android:name=".fragmentobserve.activity.centeracticity.setactivity.SetOneActivity" />
         <activity android:name=".fragmenthome.Original" />
         <activity android:name=".fragmenthome.HomeWebView" />
+        <activity android:name=".fragmentobserve.activity.ItemActivity" />
         <activity
             android:name=".fragmenthome.Video"
             android:screenOrientation="landscape" />
         <activity
-            android:windowSoftInputMode="adjustResize"
             android:name=".HomeActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".fragmentculture.LiActivity" />
-        <activity android:name=".fragmentculture.WenActivity"
-            android:screenOrientation="landscape"
-            >
+        <activity
+            android:name=".fragmentculture.WenActivity"
+            android:screenOrientation="landscape"></activity>
 
-        </activity>
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="e86dcc9ada036c52bd58f54e2a3d2fa0">
-        </meta-data>
+            android:value="e86dcc9ada036c52bd58f54e2a3d2fa0"></meta-data>
 
-
-        <activity android:name=".fragmentlive.LiveVideoActivity"
+        <activity
+            android:name=".fragmentlive.LiveVideoActivity"
             android:screenOrientation="landscape" />
         <activity
             android:name=".fragmenthome.Homelive"
-            android:screenOrientation="landscape">
-        </activity>
-
+            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".fragmenthome.Video"
+            android:screenOrientation="landscape" />
+        <activity android:name=".fragmenthome.Homevoid"
+            android:screenOrientation="landscape"
+            ></activity>
     </application>
 
 </manifest>

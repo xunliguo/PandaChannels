@@ -22,7 +22,7 @@ public class WenBeanDao extends AbstractDao<WenBean, Void> {
     /**
      * Properties of entity WenBean.<br/>
      * Can be used for QueryBuilder and for referencing column names.
-     */
+    */
     public static class Properties {
         public final static Property Id = new Property(0, String.class, "id", false, "ID");
         public final static Property Title = new Property(1, String.class, "title", false, "TITLE");
@@ -36,7 +36,7 @@ public class WenBeanDao extends AbstractDao<WenBean, Void> {
         public final static Property Allow_share = new Property(9, String.class, "allow_share", false, "ALLOW_SHARE");
         public final static Property Allow_praise = new Property(10, String.class, "allow_praise", false, "ALLOW_PRAISE");
         public final static Property Allow_comment = new Property(11, String.class, "allow_comment", false, "ALLOW_COMMENT");
-    }
+    };
 
 
     public WenBeanDao(DaoConfig config) {
@@ -250,12 +250,6 @@ public class WenBeanDao extends AbstractDao<WenBean, Void> {
     @Override
     public Void getKey(WenBean entity) {
         return null;
-    }
-
-    @Override
-    public boolean hasKey(WenBean entity) {
-        // TODO
-        return false;
     }
 
     @Override

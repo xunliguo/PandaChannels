@@ -89,7 +89,7 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
         home_birthday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), Video.class);
+                Intent intent = new Intent(getActivity(), Homevoid.class);
                 intent.putExtra("homeflunbo", pandaLiveBean.getData().getPandaeye().getItems().get(0).getPid());
                 intent.putExtra("homeTitile", pandaLiveBean.getData().getPandaeye().getItems().get(0).getTitle());
                 intent.putExtra("homimg",pandaLiveBean.getData().getPandaeye().getItems().get(0).getUrl());
@@ -100,7 +100,7 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
         attention.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), Video.class);
+                Intent intent = new Intent(getActivity(), Homevoid.class);
                 intent.putExtra("homeflunbo", pandaLiveBean.getData().getPandaeye().getItems().get(1).getPid());
                 intent.putExtra("homeTitile", pandaLiveBean.getData().getPandaeye().getItems().get(1).getTitle());
                 intent.putExtra("homimg",pandaLiveBean.getData().getPandaeye().getItems().get(1).getUrl());
@@ -137,7 +137,7 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
                 wit.setOnItemClickListener(new RecyclerAdapterWithHF.OnItemClickListener() {
                     @Override
                     public void onItemClick(RecyclerAdapterWithHF adapter, RecyclerView.ViewHolder vh, int position) {
-                        Intent intent = new Intent(getActivity(), Video.class);
+                        Intent intent = new Intent(getActivity(), Homevoid.class);
                         intent.putExtra("homeflunbo", arr.get(position).getPid());
                         intent.putExtra("homeTitile", arr.get(position).getTitle());
                         intent.putExtra("homimg",arr.get(position).getImage());
@@ -160,8 +160,8 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
             @Override
             public void onItemClick(RecyclerAdapterWithHF adapter, RecyclerView.ViewHolder vh, int position) {
                 Intent liveintent=new Intent(getActivity(),Homelive.class);
-                liveintent.putExtra("livehome",list.get(position).getId());
-                liveintent.putExtra("livetitle",list.get(position).getTitle());
+                liveintent.putExtra("livehome",list.get(position-2).getId());
+                liveintent.putExtra("livetitle",list.get(position-2).getTitle());
                 startActivity(liveintent);
             }
         });
@@ -209,7 +209,7 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
                 withH.setOnItemClickListener(new RecyclerAdapterWithHF.OnItemClickListener() {
                     @Override
                     public void onItemClick(RecyclerAdapterWithHF adapter, RecyclerView.ViewHolder vh, int position) {
-                        Intent intent = new Intent(getActivity(), Video.class);
+                        Intent intent = new Intent(getActivity(), Homevoid.class);
                         intent.putExtra("homeflunbo", homelist.get(position).getPid());
                         intent.putExtra("homeTitile", homelist.get(position).getTitle());
                         startActivity(intent);
@@ -242,7 +242,7 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
         banner.setOnBannerListener(new OnBannerListener() {
             @Override
             public void OnBannerClick(int position) {
-                Intent intent = new Intent(getActivity(), Video.class);
+                Intent intent = new Intent(getActivity(), Homevoid.class);
                 intent.putExtra("homeflunbo", pandaLiveBean.getData().getBigImg().get(position).getPid());
                 intent.putExtra("homeTitile", pandaLiveBean.getData().getBigImg().get(position).getTitle());
                 intent.putExtra("homimg",pandaLiveBean.getData().getBigImg().get(position).getImage());

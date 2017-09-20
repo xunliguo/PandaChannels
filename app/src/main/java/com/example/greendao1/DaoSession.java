@@ -47,8 +47,8 @@ public class DaoSession extends AbstractDaoSession {
     }
     
     public void clear() {
-        studentsDaoConfig.clearIdentityScope();
-        wenBeanDaoConfig.clearIdentityScope();
+        studentsDaoConfig.getIdentityScope().clear();
+        wenBeanDaoConfig.getIdentityScope().clear();
     }
 
     public StudentsDao getStudentsDao() {
