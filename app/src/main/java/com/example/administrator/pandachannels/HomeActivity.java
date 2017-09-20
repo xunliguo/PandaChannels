@@ -1,9 +1,17 @@
 package com.example.administrator.pandachannels;
 
+import android.content.ComponentName;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.provider.Settings;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -19,6 +27,7 @@ import com.example.administrator.pandachannels.fragmentlive.Fragment_live;
 import com.example.administrator.pandachannels.fragmentobserve.activity.centeracticity.CentreActivity;
 import com.example.administrator.pandachannels.fragmentobserve.fragemnt.Fragment_observe;
 import com.example.administrator.pandachannels.framework.baseview.BaseActivity;
+import com.example.administrator.pandachannels.framework.utils.Netwoke;
 
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
@@ -39,6 +48,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private ImageView imageView;
     private long firstTime = 0;
     private ImageView image;
+    private Netwoke netwoke;
 
 
     @Override
@@ -72,6 +82,124 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initData() {
+        getnetwoke();
+    }
+
+    private void getnetwoke() {
+        if (netwoke == null) {
+            netwoke = new Netwoke();
+        }
+
+        String getnetwoke = netwoke.getnetwoke(HomeActivity.this);
+
+        Toast.makeText(HomeActivity.this, getnetwoke, Toast.LENGTH_SHORT).show();
+
+        if (getnetwoke.equals("网络无连接")) {
+            setNetwork();
+        }
+ if (!getnetwoke.equals("网络无连接")&&!getnetwoke.equals("WIFI")) {
+            setNetwork2();
+        }
+
+
+    }
+
+    private void setNetwork2() {
+         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage("您正在使用移动数据网络，所产生的流量费由当地运营商收取，是否继续？");
+
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+
+            @Override
+
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+
+        });
+
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+
+            @Override
+
+            public void onClick(DialogInterface dialog, int which) {
+
+
+            }
+
+        });
+
+        builder.create();
+
+        builder.show();
+
+    }
+
+    private void setNetwork() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setIcon(R.mipmap.logo_ipnda);
+
+        builder.setMessage("您的网络未连接，如果继续，请先设置网络！");
+
+        builder.setPositiveButton("设置", new DialogInterface.OnClickListener() {
+
+            @Override
+
+            public void onClick(DialogInterface dialog, int which) {
+
+                Intent intent = null;
+
+                /**
+
+                 * 判断手机系统的版本！如果API大于10 就是3.0+
+
+                 * 因为3.0以上的版本的设置和3.0以下的设置不一样，调用的方法不同
+
+                 */
+
+                if (Build.VERSION.SDK_INT > 10) {
+
+                    intent = new Intent(Settings.ACTION_WIFI_SETTINGS);
+
+                } else {
+
+                    intent = new Intent();
+
+                    ComponentName component = new ComponentName(
+
+                            "com.android.settings",
+
+                            "com.android.settings.WirelessSettings");
+
+                    intent.setComponent(component);
+
+                    intent.setAction("android.intent.action.VIEW");
+
+                }
+
+                startActivity(intent);
+
+            }
+
+        });
+
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+
+            @Override
+
+            public void onClick(DialogInterface dialog, int which) {
+
+
+            }
+
+        });
+
+        builder.create();
+
+        builder.show();
 
     }
 
@@ -216,4 +344,39 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         }
 
     }
+    //对返回键进行监听
+    private static boolean isExit = false;
+    Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            isExit = false;
+        }
+    };
+
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exit();
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    private void exit() {
+        if (!isExit) {
+            isExit = true;
+            Toast.makeText(getApplicationContext(), "连续点击两次退出应用！",
+                    Toast.LENGTH_SHORT).show();
+            // 利用handler延迟发送更改状态信息
+            mHandler.sendEmptyMessageDelayed(0, 2000);
+        } else {
+            finish();
+            System.exit(0);
+        }
+    }
+
+
 }
