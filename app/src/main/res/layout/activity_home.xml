@@ -51,9 +51,17 @@
             />
 
     </RelativeLayout>
-
+<ImageView
+    android:visibility="gone"
+    android:id="@+id/home_img221"
+    android:scaleType="fitXY"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:src="@mipmap/aaa222"/>
 
     <FrameLayout
+
         android:id="@+id/framlayout"
 
         android:layout_width="match_parent"

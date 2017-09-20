@@ -1,7 +1,6 @@
 package com.example.administrator.pandachannels.fragmentchinese;
 
 
-import android.app.ProgressDialog;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -75,7 +74,7 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
     private MyGridAdapter2 gvadapter2;
     private StudentsDao studentsDao2;
     private String s = "qq";
-    private ProgressDialog dialog;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -86,10 +85,11 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
         return view;
     }
 
+
+
     @Override
     protected void initView(View view) {
-        dialog = new ProgressDialog(getActivity());
-        dialog.setMessage("请稍等，正在加载中。。。");
+
         //V层和P层关联
         Fragment_ChineseimplMain main = new Fragment_ChineseimplMain(this);
         main.requsetData();
@@ -109,7 +109,7 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
 
     @Override
     protected void initData() {
-        dialog.show();
+
         OkHttpUtils.getInstance().getNetData("http://www.ipanda.com/kehuduan/PAGE14501775094142282/index.json", new OkHttpUtils.CallBacks() {
             @Override
             public void getString(String ss) {
@@ -139,7 +139,7 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
 
                     }
                 }
-                dialog.dismiss();
+
 // 查询第一个数据库所有数据库内容添加到Tablayout 和ViewPager ，Fragment联动
                 List<Students> lists1 = studentsDao.queryBuilder().build().list();
                 for (int i = 0; i < lists1.size(); i++) {

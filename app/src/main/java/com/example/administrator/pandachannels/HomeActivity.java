@@ -49,6 +49,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private long firstTime = 0;
     private ImageView image;
     private Netwoke netwoke;
+    private ImageView home_img221;
 
 
     @Override
@@ -56,7 +57,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_home);
         getlayoutID();
-        initView();
+        getnetwoke();
+
+
         initShowFisrtFragment();//默认显示第一个Fragment
         initData();
     }
@@ -82,7 +85,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initData() {
-        getnetwoke();
+
     }
 
     private void getnetwoke() {
@@ -92,10 +95,16 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
         String getnetwoke = netwoke.getnetwoke(HomeActivity.this);
 
-        Toast.makeText(HomeActivity.this, getnetwoke, Toast.LENGTH_SHORT).show();
 
         if (getnetwoke.equals("网络无连接")) {
+            home_img221.setVisibility(View.VISIBLE);
+            framlayout.setVisibility(View.GONE);
             setNetwork();
+
+        }else {
+            home_img221.setVisibility(View.GONE);
+            framlayout.setVisibility(View.VISIBLE);
+            initView();
         }
  if (!getnetwoke.equals("网络无连接")&&!getnetwoke.equals("WIFI")) {
             setNetwork2();
@@ -228,6 +237,13 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         image1 = (ImageView) findViewById(R.id.image1);
         image3 = (ImageView) findViewById(R.id.image3);
         image = (ImageView) findViewById(R.id.image);
+        home_img221 = (ImageView) findViewById(R.id.home_img221);
+        home_img221.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getnetwoke();
+            }
+        });
         //点击登录
         image.setOnClickListener(new View.OnClickListener() {
             @Override
