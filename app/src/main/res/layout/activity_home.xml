@@ -51,9 +51,17 @@
             />
 
     </RelativeLayout>
-
+<ImageView
+    android:visibility="gone"
+    android:id="@+id/home_img221"
+    android:scaleType="fitXY"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:src="@mipmap/aaa222"/>
 
     <FrameLayout
+
         android:id="@+id/framlayout"
 
         android:layout_width="match_parent"
@@ -90,10 +98,9 @@
             android:layout_weight="1"
             android:button="@null"
             android:background="@drawable/background01"
-
-            android:drawableTop="@mipmap/tab_panda_eye_normal"
+            android:drawableTop="@mipmap/tab_panda_live_normal"
             android:gravity="center"
-            android:text="熊猫播报" />
+            android:text="熊猫直播" />
 
 
         <RadioButton
@@ -115,11 +122,9 @@
             android:layout_weight="1"
             android:button="@null"
             android:background="@drawable/background01"
-
-
-            android:drawableTop="@mipmap/tab_panda_live_normal"
+            android:drawableTop="@mipmap/tab_panda_eye_normal"
             android:gravity="center"
-            android:text="熊猫直播" />
+            android:text="熊猫播报" />
         <RadioButton
             android:id="@+id/rb_05"
             android:layout_width="0dp"

@@ -1,5 +1,18 @@
 apply plugin: 'com.android.application'
-apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'org.greenrobot.greendao' //=========== 李强数据库配置===============
+//=======================================李强数据库配置
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+}
+//==============李强数据库配置=====
+greendao {
+    schemaVersion 1
+    daoPackage 'com.example.greendao1'
+    targetGenDir 'src/main/java'
+}
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"

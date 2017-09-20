@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
@@ -34,6 +35,9 @@ public class ManyFragment extends BaseFragment implements MainContract.XSubView{
   @Override
     protected void initView(View view) {
     recycle = (RecyclerView) view.findViewById(R.id.recycleview);
+    adapter = new Xian_WathAdapter(getActivity(),mlist);
+    recycle.setLayoutManager(new GridLayoutManager(getActivity(),3));
+    recycle.setAdapter(adapter);
 
     }
 
@@ -76,9 +80,16 @@ public class ManyFragment extends BaseFragment implements MainContract.XSubView{
     public void showDatas1(List<ManyBean.ListBean> list) {
       Log.e("TAG" ,"==============>"+list);
         mlist.addAll(list);
-          adapter = new Xian_WathAdapter(getActivity(),mlist);
-          recycle.setLayoutManager(new GridLayoutManager(getActivity(),3));
-           recycle.setAdapter(adapter);
+      adapter.notifyDataSetChanged();
+      adapter.setOnclick(new Xian_WathAdapter.Listener() {
+        @Override
+        public void onclick(int position) {
+          Toast.makeText(getActivity(), "很抱歉,服务器出错!", Toast.LENGTH_SHORT).show();
+
+        }
+      });
+
+
     }
 
   @Override

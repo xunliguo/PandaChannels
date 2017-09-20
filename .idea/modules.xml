@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PandaChannel.iml" filepath="$PROJECT_DIR$/PandaChannel.iml" />
-      <module fileurl="file://$PROJECT_DIR$/PandaChannels.iml" filepath="$PROJECT_DIR$/PandaChannels.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PandaChannels0909.iml" filepath="$PROJECT_DIR$/PandaChannels0909.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

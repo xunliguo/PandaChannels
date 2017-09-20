@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.WindowManager;
+import android.widget.VideoView;
 
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmenthome.bean.HomeShiping;
@@ -28,7 +29,7 @@ public class Video extends AppCompatActivity {
 
     }
     private void initView() {
-        jcvideoplayer= (JCVideoPlayer) findViewById(R.id.homeshi_vide);
+        jcvideoplayer = (JCVideoPlayer) findViewById(R.id.videocontroller1);
         String homelunbo = getIntent().getStringExtra("homeflunbo");
         final String homeTitile = getIntent().getStringExtra("homeTitile");
         OkHttpUtils.getInstance().getNetData(Urls.VIDEOPLAY + homelunbo, new OkHttpUtils.CallBacks() {
