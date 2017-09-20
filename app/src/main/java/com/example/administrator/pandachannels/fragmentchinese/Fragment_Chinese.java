@@ -72,6 +72,16 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
     private StudentsDao studentsDao2;
     private String s = "qq";
 
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment like bottom ... and run LayoutCreator again
+        View view = View.inflate(getActivity(), R.layout.fragment_fragment__chinese, null);
+        initView(view);
+        initData();
+        return view;
+    }
+
     @Override
     protected void initView(View view) {
 

@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.administrator.pandachannels">
-
+      <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -14,13 +14,15 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    //李强添加判断网络状态
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".fragmentlive.App"
@@ -33,12 +35,11 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".fragmentobserve.activity.WebActivity" />
+
 
 
         <activity
@@ -72,13 +73,14 @@
         <activity android:name=".fragmentobserve.activity.centeracticity.HistoryActivity" />
         <activity android:name=".fragmentobserve.activity.centeracticity.CollectActivity" />
         <activity android:name=".fragmentobserve.activity.centeracticity.SetActivity" />
-        <activity android:name=".fragmentobserve.activity.centeracticity.setactivity.SetOneActivity"></activity>
+        <activity android:name=".fragmentobserve.activity.centeracticity.setactivity.SetOneActivity" />
         <activity android:name=".fragmenthome.Original" />
         <activity android:name=".fragmenthome.HomeWebView" />
         <activity
             android:name=".fragmenthome.Video"
             android:screenOrientation="landscape" />
         <activity
+            android:windowSoftInputMode="adjustResize"
             android:name=".HomeActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
@@ -100,7 +102,7 @@
             android:name=".fragmenthome.Homelive"
             android:screenOrientation="landscape">
         </activity>
-        <category android:name="android.intent.category.LAUNCHER" />
+
     </application>
 
 </manifest>

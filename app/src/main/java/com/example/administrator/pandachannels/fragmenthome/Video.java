@@ -24,7 +24,6 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 
 public class Video extends AppCompatActivity {
 
-    private VideoView video;
     private HomeShiping homeShiping;
     private JCVideoPlayer jcvideoplayer;
     private ImageView homeshou;
@@ -34,13 +33,12 @@ public class Video extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_video);
         initView();
 
     }
-
     private void initView() {
         jcvideoplayer = (JCVideoPlayer) findViewById(R.id.shi_video);
         String homelunbo = getIntent().getStringExtra("homeflunbo");
@@ -52,12 +50,12 @@ public class Video extends AppCompatActivity {
             public void getString(String ss) {
                 homeShiping = new Gson().fromJson(ss, HomeShiping.class);
                 final String str = homeShiping.getVideo().getChapters().get(0).getUrl();
-                System.out.println(str + "aaa");
-                Log.e("AAAAA", str);
+                System.out.println(str+"aaa");
+                Log.e("AAAAA",str);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        jcvideoplayer.setUp(str, homeTitile);
+                        jcvideoplayer.setUp(str,homeTitile);
                     }
                 });
 

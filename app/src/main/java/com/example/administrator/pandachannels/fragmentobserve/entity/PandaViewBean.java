@@ -32,7 +32,7 @@ public class PandaViewBean {
         this.list = list;
     }
 
-    public static class ListBean {
+    public static class ListBean{
         /**
          * num : 1
          * datatype : article

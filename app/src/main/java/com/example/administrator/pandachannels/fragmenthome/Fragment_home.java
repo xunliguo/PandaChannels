@@ -248,6 +248,7 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
                 intent.putExtra("homimg",pandaLiveBean.getData().getBigImg().get(position).getImage());
 
                 startActivity(intent);
+
             }
         });
     }

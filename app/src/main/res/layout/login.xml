@@ -46,12 +46,14 @@
         <ImageView
             android:layout_gravity="center"
             android:layout_width="wrap_content"
+            android:id="@+id/head_image"
             android:src="@drawable/person_sign"
             android:layout_height="wrap_content" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="点击登录"
+            android:id="@+id/head_name"
             android:layout_gravity="center"/>
         <View
             android:layout_width="0dp"

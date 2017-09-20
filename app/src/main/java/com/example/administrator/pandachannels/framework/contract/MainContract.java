@@ -1,14 +1,14 @@
 package com.example.administrator.pandachannels.framework.contract;
 
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanChinese;
-import com.example.administrator.pandachannels.fragmentobserve.ShiViewInterface;
 import com.example.administrator.pandachannels.fragmentculture.LiViewInterface;
-import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanChinese;
 import com.example.administrator.pandachannels.fragmenthome.HomeViewInterface;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.ManyBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PandaLiveBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PinBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.WondBean;
+import com.example.administrator.pandachannels.fragmentobserve.ShiViewInterface;
+import com.example.administrator.pandachannels.fragmentobserve.entity.WenBean;
 import com.example.administrator.pandachannels.framework.basepresenter.BasePresenter;
 import com.example.administrator.pandachannels.framework.baseview.BaseViewInterface;
 
@@ -27,7 +27,7 @@ public interface MainContract  {
 
     }
     interface ShiView extends ShiViewInterface {
-
+        void showWen(WenBean wenBean);
     }
 
     interface  XSubView extends BaseViewInterface{

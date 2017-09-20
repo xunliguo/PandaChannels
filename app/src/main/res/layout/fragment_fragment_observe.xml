@@ -30,7 +30,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    app:srcCompat="@drawable/ic_launcher" />
+                  />
                 <TextView
                     android:id="@+id/img_text"
                     android:layout_width="wrap_content"
@@ -38,7 +38,6 @@
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:text="大熊猫"
                     android:textSize="15sp" />
             </RelativeLayout>
             <android.support.v7.widget.RecyclerView

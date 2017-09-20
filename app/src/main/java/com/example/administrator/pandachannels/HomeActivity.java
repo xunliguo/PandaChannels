@@ -250,12 +250,19 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent intent = new Intent(HomeActivity.this, CentreActivity.class);
                 startActivity(intent);
             }
         });
 
+        image = (ImageView) findViewById(R.id.image);
+         image.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 Intent intent=new Intent(HomeActivity.this,CentreActivity.class);
+                 startActivity(intent);
+             }
+         });
         image3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -386,6 +393,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private void exit() {
         if (!isExit) {
             isExit = true;
+
             Toast.makeText(getApplicationContext(), "连续点击两次退出应用！",
                     Toast.LENGTH_SHORT).show();
             // 利用handler延迟发送更改状态信息
