@@ -5,25 +5,25 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
+       <!-- <ImageView
             android:src="@mipmap/tab_live_china_normal"
             android:scaleType="fitXY"
             android:id="@+id/img1_taishan"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            />
+            />-->
                 <fm.jiecao.jcvideoplayer_lib.JCVideoPlayer
-                    android:visibility="gone"
+
         android:id="@+id/video_taishan"
         android:layout_width="match_parent"
         android:layout_height="200dp" />
-        <ImageView
+        <!--<ImageView
             android:id="@+id/img2_taishan"
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/play"/>
-
+-->
 
     </RelativeLayout>
 

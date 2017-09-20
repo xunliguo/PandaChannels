@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.pandachannels.R;
@@ -52,10 +51,17 @@ this.flv1=flv1;
 
         holder.tv1_taishan.setText("     [正在直播]" + list.get(position).getTitle());
         holder.tv2_taishan.setText(list.get(position).getBrief());
-        Glide.with(context).load(list.get(position).getImage()).error(R.mipmap.tab_live_china_normal).into(holder.img1_taishan);
+  //  1111    Glide.with(context).load(list.get(position).getImage()).error(R.mipmap.tab_live_china_normal).into(holder.img1_taishan);
         Log.e("========","========"+flv1);
         holder.video_taishan.setUp(flv1,"");
-     //   holder.video_taishan.ivThumb.setImageResource();
+        Glide.with(context)
+                .load(list.get(position).getImage())
+                .into(holder.video_taishan.ivThumb);
+
+
+
+
+        //   holder.video_taishan.ivThumb.setImageResource();
 
         holder.relayout_taishan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +78,7 @@ this.flv1=flv1;
 
             }
         });
-        holder.img2_taishan.setOnClickListener(new View.OnClickListener() {
+       /* holder.img2_taishan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(context, "再点一下播放哦", Toast.LENGTH_SHORT).show();
@@ -83,7 +89,7 @@ this.flv1=flv1;
 
             }
         });
-
+*/
 //TODO=====================
 
         // holder.itemView.setTag(position);///把position 设置给tag
@@ -119,8 +125,8 @@ this.flv1=flv1;
         TextView tv2_taishan;
         ImageView img3_taishan;
         JCVideoPlayer  video_taishan;
-        ImageView img1_taishan;
-        ImageView img2_taishan;
+     /*   ImageView img1_taishan;
+        ImageView img2_taishan;*/
         public ViewHolder(View itemView) {
 
             super(itemView);
@@ -133,8 +139,8 @@ this.flv1=flv1;
             layout_taishan = (LinearLayout) itemView.findViewById(R.id.layout_taishan);
             tv2_taishan = (TextView) itemView.findViewById(R.id.tv2_taishan);
             img3_taishan = (ImageView) itemView.findViewById(R.id.img3_taishan);
-            img1_taishan = (ImageView) itemView.findViewById(R.id.img1_taishan);
-            img2_taishan = (ImageView) itemView.findViewById(R.id.img2_taishan);
+           /* img1_taishan = (ImageView) itemView.findViewById(img1_taishan);
+            img2_taishan = (ImageView) itemView.findViewById(img2_taishan);*/
             video_taishan=itemView.findViewById(R.id.video_taishan);
 
         }
