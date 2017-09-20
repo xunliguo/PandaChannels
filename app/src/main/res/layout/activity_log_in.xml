@@ -1,4 +1,4 @@
-<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/aaaa"
     android:layout_width="match_parent"
@@ -6,262 +6,143 @@
     android:background="#e6ebef"
     android:orientation="vertical">
 
-    <com.zhy.android.percent.support.PercentRelativeLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#1f539e"
-        app:layout_heightPercent="10%h"
-        app:layout_widthPercent="100%w">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2a3fc2">
         <ImageView
-            android:id="@+id/back"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:id="@+id/logimh"
             android:src="@mipmap/personal_back_img"
-            app:layout_heightPercent="10%w"
-            app:layout_widthPercent="10%w" />
-
+            />
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="登录"
-            android:textColor="@android:color/white"
+            android:textColor="#fff"
+            android:layout_weight="15"
             android:textSize="20dp"
-            app:layout_heightPercent="50%h"
-            app:layout_widthPercent="50%w" />
-
+            android:gravity="center"
+            />
         <TextView
-            android:id="@+id/zhuce"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="15dp"
-            android:gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="注册"
-            android:textColor="@android:color/white"
+            android:textColor="#fff"
+            android:id="@+id/logreg"
             android:textSize="15dp"
-            app:layout_heightPercent="30%h"
-            app:layout_widthPercent="20%w" />
-    </com.zhy.android.percent.support.PercentRelativeLayout>
+            android:layout_weight="5"
+            android:gravity="center"
+            />
+    </LinearLayout>
 
     <TextView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
         android:gravity="center"
         android:text="使用社交账号登录到熊猫频道"
         android:textColor="#3565a6"
         android:textSize="15dp"
-        app:layout_heightPercent="5%h"
-        app:layout_widthPercent="55%w" />
-
-    <com.zhy.android.percent.support.PercentLinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp"
-        android:background="#ffffff"
+        />
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:background="#fff"
         android:orientation="horizontal"
-        app:layout_heightPercent="15%h"
-        app:layout_widthPercent="87%w">
+        android:weightSum="3">
 
-        <RadioGroup
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="15dp"
+        <RadioButton
+            android:id="@+id/login_weixin"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="#ffffff"
+            android:button="@null"
+            android:drawableTop="@mipmap/login_weixin"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            app:layout_heightPercent="25%w"
-            app:layout_widthPercent="100%w">
+            android:text="微信" />
 
-            <RadioButton
-                android:id="@+id/login_weixin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:button="@null"
-                android:drawableTop="@mipmap/login_weixin"
-                android:gravity="center"
-                android:text="微信" />
+        <RadioButton
+            android:id="@+id/login_qqq"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@mipmap/login_qq"
+            android:gravity="center"
+            android:text="QQ" />
 
-            <RadioButton
-                android:id="@+id/qq"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:button="@null"
-                android:drawableTop="@mipmap/login_qq"
-                android:gravity="center"
-                android:text="QQ" />
-
-            <RadioButton
-                android:id="@+id/login_weibo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:button="@null"
-                android:drawableTop="@mipmap/login_sina"
-                android:gravity="center"
-                android:text="微博" />
-        </RadioGroup>
-    </com.zhy.android.percent.support.PercentLinearLayout>
-
+        <RadioButton
+            android:id="@+id/login_weibo"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@mipmap/login_sina"
+            android:gravity="center"
+            android:text="微博" />
+    </RadioGroup>
     <TextView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
         android:gravity="center"
         android:text="CNTV通行证"
         android:textColor="#3565a6"
         android:textSize="15dp"
-        app:layout_heightPercent="5%h"
-        app:layout_widthPercent="25%w" />
-
-    <com.zhy.android.percent.support.PercentRelativeLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        />
+    <EditText
+        android:id="@+id/shoujihao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp"
-        android:background="#ffffff"
-        android:orientation="horizontal"
-        app:layout_heightPercent="8%h"
-        app:layout_widthPercent="87%w"
-
-        >
-
-        <EditText
-            android:id="@+id/shoujihao"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/info_et"
-            android:clickable="true"
-            android:hint="账号：请输入邮箱或手机号"
-            android:inputType="phone"
-            android:textSize="15dp"
-            app:layout_heightPercent="100%h"
-            app:layout_widthPercent="100%w" />
-
-        <ImageView
-            android:id="@+id/num_x"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/login_edit"
-            android:src="@mipmap/delete_gray"
-            android:visibility="gone"
-            app:layout_heightPercent="7%w"
-            app:layout_widthPercent="7%w" />
-    </com.zhy.android.percent.support.PercentRelativeLayout>
-
-    <TextView
-        android:id="@+id/tishi_email"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="25dp"
-        android:gravity="center"
-        android:text=""
-        android:textColor="#ea2000"
+        android:background="@drawable/info_et"
+        android:clickable="true"
+        android:hint="账号：请输入邮箱或手机号"
+        android:inputType="phone"
         android:textSize="15dp"
-        app:layout_heightPercent="3%h"
-        app:layout_widthPercent="45%w"
-
         />
 
-    <com.zhy.android.percent.support.PercentRelativeLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+    <EditText
+        android:id="@+id/mima"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/login_edit"
-        android:orientation="horizontal"
-        app:layout_heightPercent="8%h"
-        app:layout_widthPercent="87%w"
-
-        >
-
-        <EditText
-            android:id="@+id/mima"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/info_et"
-            android:clickable="true"
-            android:hint="请输入密码"
-            android:password="true"
-            android:textSize="15dp"
-            app:layout_heightPercent="100%h"
-            app:layout_widthPercent="100%w" />
-
-        <ImageView
-            android:id="@+id/pass_x"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center"
-            android:layout_marginRight="15dp"
-            android:src="@mipmap/delete_gray"
-            android:visibility="gone"
-            app:layout_heightPercent="7%w"
-            app:layout_widthPercent="7%w" />
-    </com.zhy.android.percent.support.PercentRelativeLayout>
-
-    <TextView
-        android:id="@+id/tishi_pass"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="25dp"
-        android:gravity="center"
-        android:text=""
-        android:textColor="#ea2000"
+        android:background="@drawable/info_et"
+        android:clickable="true"
+        android:hint="请输入密码"
+        android:password="true"
         android:textSize="15dp"
-        app:layout_heightPercent="3%h"
-        app:layout_widthPercent="35%w" />
-
+        />
     <TextView
         android:id="@+id/forget_pass"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:layout_marginRight="15dp"
         android:gravity="center"
         android:text="忘记密码?"
         android:textColor="#3565a6"
-        app:layout_heightPercent="3%h"
-        app:layout_widthPercent="25%w"
 
         />
-
     <Button
         android:id="@+id/denglu"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
         android:background="@drawable/login_butt"
         android:text="登录"
-        android:textColor="#ffffff"
-        app:layout_heightPercent="12%w"
-        app:layout_widthPercent="90%w" />
-</com.zhy.android.percent.support.PercentLinearLayout>
+        android:layout_margin="20dp"
+        android:textColor="#ffffff" />
+
+</LinearLayout>

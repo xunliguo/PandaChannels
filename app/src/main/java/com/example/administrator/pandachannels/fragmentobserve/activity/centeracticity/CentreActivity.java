@@ -6,21 +6,16 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.administrator.pandachannels.R;
 import com.umeng.socialize.UMAuthListener;
-import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 
 import java.util.Map;
-
-import static java.lang.System.load;
 
 public class CentreActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -68,9 +63,9 @@ public class CentreActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.shi_login:  //login 登录
-//                Intent intent_login=new Intent(CentreActivity.this,LogInActivity.class);
-//                startActivity(intent_login);
-                UMShareAPI.get(this).getPlatformInfo(CentreActivity.this, SHARE_MEDIA.SINA, authListener);
+                Intent intent_login=new Intent(CentreActivity.this,LogInActivity.class);
+                startActivity(intent_login);
+
                 break;
             case R.id.shi_history: //history 历史
                 Intent intent_history=new Intent(CentreActivity.this,HistoryActivity.class);
