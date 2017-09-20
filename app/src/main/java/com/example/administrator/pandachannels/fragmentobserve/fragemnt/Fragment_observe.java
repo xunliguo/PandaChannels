@@ -19,7 +19,6 @@ import com.example.administrator.pandachannels.fragmentobserve.activity.WebActiv
 import com.example.administrator.pandachannels.fragmentobserve.adapter.RecyAdapter;
 import com.example.administrator.pandachannels.fragmentobserve.entity.PandaBean;
 import com.example.administrator.pandachannels.fragmentobserve.entity.PandaViewBean;
-
 import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
 import com.example.administrator.pandachannels.framework.utils.OkHttpUtils;
@@ -31,8 +30,6 @@ import in.srain.cube.views.ptr.PtrClassicDefaultFooter;
 import in.srain.cube.views.ptr.PtrClassicDefaultHeader;
 import in.srain.cube.views.ptr.PtrDefaultHandler2;
 import in.srain.cube.views.ptr.PtrFrameLayout;
-
-import static java.security.AccessController.getContext;
 
 
 /**
@@ -87,6 +84,7 @@ public class Fragment_observe extends BaseFragment implements MainContract.ShiVi
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getContext(),VideoActivity.class);
+                //intent.putExtra("name",lists.get(0).getTitle());
                 getActivity().startActivity(intent);
             }
         });
