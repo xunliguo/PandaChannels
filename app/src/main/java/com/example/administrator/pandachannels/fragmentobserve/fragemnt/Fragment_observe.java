@@ -14,11 +14,12 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmentobserve.Mp;
+import com.example.administrator.pandachannels.fragmentobserve.activity.ItemActivity;
 import com.example.administrator.pandachannels.fragmentobserve.activity.VideoActivity;
-import com.example.administrator.pandachannels.fragmentobserve.activity.WebActivity;
 import com.example.administrator.pandachannels.fragmentobserve.adapter.RecyAdapter;
 import com.example.administrator.pandachannels.fragmentobserve.entity.PandaBean;
 import com.example.administrator.pandachannels.fragmentobserve.entity.PandaViewBean;
+import com.example.administrator.pandachannels.fragmentobserve.entity.WenBean;
 import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
 import com.example.administrator.pandachannels.framework.utils.OkHttpUtils;
@@ -66,6 +67,17 @@ public class Fragment_observe extends BaseFragment implements MainContract.ShiVi
     protected void initData() {
         Mp shiViewInterface = new Mp(this);
         shiViewInterface.requsetData();
+
+        //头布局操作
+        relative.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), VideoActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
+
     }
 
 
@@ -78,27 +90,23 @@ public class Fragment_observe extends BaseFragment implements MainContract.ShiVi
         recy.setAdapter(adapter);
 
 
-
-
-        relative.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(getContext(),VideoActivity.class);
-                //intent.putExtra("name",lists.get(0).getTitle());
-                getActivity().startActivity(intent);
-            }
-        });
-        //通过接口回调实现点击事件
+//通过接口回调实现点击事件
         adapter.Dianji(new RecyAdapter.OnItemClickLiener() {
+
+            private String htmlid;
+
             @Override
             public void OnItemClickLiener(View v, int position) {
-                Intent intent = new Intent(getContext(), WebActivity.class);
-                intent.putExtra("url", list.get(position).getUrl());
-                intent.putExtra("title",list.get(position).getTitle());
+                Intent intent = new Intent(getContext(), ItemActivity.class);
+                PandaViewBean.ListBean listBean = list.get(position);
+                htmlid = listBean.getId();
+                intent.putExtra("id", htmlid);
                 getActivity().startActivity(intent);
+
             }
 
         });
+
 
         //头
         PtrClassicDefaultHeader header = new PtrClassicDefaultHeader(getContext());
@@ -159,6 +167,7 @@ public class Fragment_observe extends BaseFragment implements MainContract.ShiVi
             }
         });
 
+
     }
 
     @Override
@@ -171,7 +180,10 @@ public class Fragment_observe extends BaseFragment implements MainContract.ShiVi
         }
     }
 
+    @Override
+    public void showWen(WenBean wenBean) {
 
+    }
 
 
 }

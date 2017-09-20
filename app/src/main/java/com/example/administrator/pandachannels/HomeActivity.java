@@ -17,6 +17,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.pandachannels.fragmentchinese.Fragment_Chinese;
 import com.example.administrator.pandachannels.fragmentculture.Fragment_culture;
@@ -390,6 +391,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private void exit() {
         if (!isExit) {
             isExit = true;
+
             Toast.makeText(getApplicationContext(), "连续点击两次退出应用！",
                     Toast.LENGTH_SHORT).show();
             // 利用handler延迟发送更改状态信息

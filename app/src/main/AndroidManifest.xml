@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.administrator.pandachannels">
@@ -14,6 +14,9 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -33,21 +36,15 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".fragmentobserve.activity.WebActivity" />
-
-
         <activity
             android:name="com.umeng.qq.tencent.AuthActivity"
             android:launchMode="singleTask"
             android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
@@ -59,11 +56,6 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
-        <!--<meta-data-->
-            <!--android:name="UMENG_APPKEY"-->
-            <!--android:value="59787c1165b6d601840014d0" />-->
-
         <activity
             android:name=".fragmentobserve.activity.VideoActivity"
             android:screenOrientation="landscape" />
@@ -72,7 +64,7 @@
         <activity android:name=".fragmentobserve.activity.centeracticity.HistoryActivity" />
         <activity android:name=".fragmentobserve.activity.centeracticity.CollectActivity" />
         <activity android:name=".fragmentobserve.activity.centeracticity.SetActivity" />
-        <activity android:name=".fragmentobserve.activity.centeracticity.setactivity.SetOneActivity"></activity>
+        <activity android:name=".fragmentobserve.activity.centeracticity.setactivity.SetOneActivity" />
         <activity android:name=".fragmenthome.Original" />
         <activity android:name=".fragmenthome.HomeWebView" />
         <activity
@@ -83,24 +75,20 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity android:name=".fragmentculture.LiActivity" />
-        <activity android:name=".fragmentculture.WenActivity"
-            android:screenOrientation="landscape"
-            >
-
-        </activity>
+        <activity
+            android:name=".fragmentculture.WenActivity"
+            android:screenOrientation="landscape" />
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="e86dcc9ada036c52bd58f54e2a3d2fa0">
-        </meta-data>
-
-
-        <activity android:name=".fragmentlive.LiveVideoActivity"
+            android:value="e86dcc9ada036c52bd58f54e2a3d2fa0" />
+        <activity
+            android:name=".fragmentlive.LiveVideoActivity"
             android:screenOrientation="landscape" />
         <activity
             android:name=".fragmenthome.Homelive"
-            android:screenOrientation="landscape">
-        </activity>
-        <category android:name="android.intent.category.LAUNCHER" />
+            android:screenOrientation="landscape" />
+        <activity android:name=".fragmentobserve.activity.centeracticity.setactivity.SetThreeActivity" />
+        <activity android:name=".fragmentobserve.activity.ItemActivity"></activity>
     </application>
 
 </manifest>

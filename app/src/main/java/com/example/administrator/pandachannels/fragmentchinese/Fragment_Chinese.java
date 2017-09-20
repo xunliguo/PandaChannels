@@ -85,11 +85,8 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
         return view;
     }
 
-
-
     @Override
     protected void initView(View view) {
-
         //V层和P层关联
         Fragment_ChineseimplMain main = new Fragment_ChineseimplMain(this);
         main.requsetData();
@@ -109,7 +106,6 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
 
     @Override
     protected void initData() {
-
         OkHttpUtils.getInstance().getNetData("http://www.ipanda.com/kehuduan/PAGE14501775094142282/index.json", new OkHttpUtils.CallBacks() {
             @Override
             public void getString(String ss) {
@@ -117,8 +113,6 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
                 BeanChinese beanChinese = gson.fromJson(ss, BeanChinese.class);
                 List<BeanChinese.AlllistBean> alllist = beanChinese.getAlllist();
                 List<BeanChinese.TablistBean> tablist = beanChinese.getTablist();
-
-
 
                 list111.addAll(alllist);
                 list222.addAll(tablist);
@@ -139,7 +133,6 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
 
                     }
                 }
-
 // 查询第一个数据库所有数据库内容添加到Tablayout 和ViewPager ，Fragment联动
                 List<Students> lists1 = studentsDao.queryBuilder().build().list();
                 for (int i = 0; i < lists1.size(); i++) {
@@ -153,7 +146,6 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
                 myadap = new Myadap(getFragmentManager());
                 tablayout_chinese.setupWithViewPager(viewpager_chinese);
                 viewpager_chinese.setAdapter(myadap);
-
 
             }
         });

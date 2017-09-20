@@ -10,7 +10,6 @@ public class Urls {
 
     //服务器  地址
     private static final String BASEURL = "http://www.ipanda.com/kehuduan/";
-
     //首页
     public static final String PANDAHOME = "http://www.ipanda.com/kehuduan/shouye/index.json";
     //首页互动

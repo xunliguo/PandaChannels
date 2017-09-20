@@ -22,13 +22,13 @@ public class StudentsDao extends AbstractDao<Students, Long> {
     /**
      * Properties of entity Students.<br/>
      * Can be used for QueryBuilder and for referencing column names.
-    */
+     */
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property Order = new Property(1, int.class, "order", false, "ORDER");
         public final static Property Title = new Property(2, String.class, "title", false, "TITLE");
         public final static Property Url = new Property(3, String.class, "url", false, "URL");
-    };
+    }
 
 
     public StudentsDao(DaoConfig config) {
@@ -134,6 +134,11 @@ public class StudentsDao extends AbstractDao<Students, Long> {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public boolean hasKey(Students entity) {
+        return entity.getId() != null;
     }
 
     @Override

@@ -1,17 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_video"
+    android:id="@+id/activity_item"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.administrator.pandachannels.fragmentobserve.activity.VideoActivity">
+    android:orientation="vertical"
+    tools:context="com.example.administrator.pandachannels.fragmentobserve.activity.ItemActivity">
+<LinearLayout
+    android:background="@color/colorPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/item_back"
+        android:src="@mipmap/personal_back_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
 
-    <fm.jiecao.jcvideoplayer_lib.JCVideoPlayer
-        android:id="@+id/shi_video"
+</LinearLayout>
+
+    <TextView
+        android:id="@+id/item_name"
+        android:textSize="20sp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</RelativeLayout>
+        android:layout_height="wrap_content"
+        android:text="23456"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="234354"
+            android:textSize="15sp"
+            android:id="@+id/item_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="232435"
+            android:layout_marginLeft="20sp"
+            android:id="@+id/item_time"
+            android:textSize="15sp"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="12345"
+        android:textSize="20sp"
+        android:id="@+id/item_info"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/item_shou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/collect_no"
+            />
+        <ImageView
+            android:id="@+id/item_fen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/share"
+            />
+    </LinearLayout>
+</LinearLayout>

@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.example.administrator.pandachannels.R;
@@ -15,7 +16,7 @@ import com.example.administrator.pandachannels.fragmentobserve.fragemnt.setfragm
 
 import java.util.ArrayList;
 
-public class SetOneActivity extends AppCompatActivity {
+public class  SetOneActivity extends AppCompatActivity {
     private ArrayList<String> set_list = new ArrayList<>();
     private ArrayList<Fragment> set_frag = new ArrayList<>();
     private ImageView set_one_back;
@@ -50,6 +51,12 @@ public class SetOneActivity extends AppCompatActivity {
         set_one_back = (ImageView) findViewById(R.id.set_one_back);
         set_one_tab = (TabLayout) findViewById(R.id.set_one_tab);
         set_one_pager = (ViewPager) findViewById(R.id.set_one_pager);
+        set_one_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     private class SetsPagerAdapter extends FragmentPagerAdapter{

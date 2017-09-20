@@ -45,7 +45,7 @@ public class MyGridAdapter2 extends BaseAdapter {
         if (view == null) {
             holder = new ViewHolder();
             view = View.inflate(context, R.layout.item_poprecy1, null);
-            holder.poprecy1_but1 = view.findViewById(R.id.poprecy1_but1);
+            holder.poprecy1_but1 = (TextView) view.findViewById(R.id.poprecy1_but1);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
