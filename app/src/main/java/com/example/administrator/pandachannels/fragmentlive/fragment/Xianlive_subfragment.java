@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
 import com.example.administrator.pandachannels.fragmentlive.adapter.MyAdapters;
+import com.example.administrator.pandachannels.fragmentlive.model.entity.LivexiongBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.ManyBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PandaLiveBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PinBean;
@@ -25,6 +26,8 @@ import com.example.administrator.pandachannels.fragmentlive.model.entity.WondBea
 import com.example.administrator.pandachannels.fragmentlive.presenter.LivePandaPersenterImpl;
 import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
+import com.example.administrator.pandachannels.framework.utils.OkHttpUtils;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,9 +79,23 @@ public class Xianlive_subfragment extends BaseFragment implements MainContract.X
         public void onReceive(Context context, Intent intent) {
             //得到广播中得到的数据，并显示出来
             String message = intent.getStringExtra("aa");
-            Log.e("tavd","===========>"+message);
+            String ids = intent.getStringExtra("ids");
+            Log.e("tavd","===========>"+ids);
             title_textView.setText("[正在直播]" + message);
+            OkHttpUtils.getInstance().getNetData("http://vdn.live.cntv.cn/api2/live.do?channel=pa://cctv_p2p_hd"+ids+"&amp;client=androidapp", new OkHttpUtils.CallBacks() {
 
+                private LivexiongBean.HlsUrlBean hls_url;
+
+                @Override
+                public void getString(String ss) {
+                    Gson gson=new Gson();
+                    LivexiongBean livexiongBean = gson.fromJson(ss, LivexiongBean.class);
+                    String hls1 = livexiongBean.getHls_url().getHls1();
+                    videoController.setUp("http://3811.liveplay.myqcloud.com/live/m3u8/3811_channel379.m3u8?AUTH=DoNe66UuL9xIffwpMKrk7jAhRTM4E4ZIdMgs82armq9b0olACW5Gy6WiPXbvGqP85qx0qYD/k91CgqEtecaUZg==" ,"直播");
+                }
+
+
+            });
 
 
         }
@@ -90,7 +107,7 @@ public class Xianlive_subfragment extends BaseFragment implements MainContract.X
 
     @Override
     protected void initView(View view) {
-        videoController = (JCVideoPlayer) view.findViewById(R.id.videocontroller1);
+        videoController = (JCVideoPlayer) view.findViewById(R.id.videocontroller1sss);
         View view1 = View.inflate(getActivity(), R.layout.livemudel_wathch, null);
         listView = (ListView) view.findViewById(R.id.xian_listView);
 
@@ -132,9 +149,9 @@ public class Xianlive_subfragment extends BaseFragment implements MainContract.X
     @Override
     protected void initData() {
 
-        videoController.setUp("http://ipanda.vtime.cntv.cloudcdn.net/live/ipandahls_/index.m3u8?AUTH=w0QtaMs+eZTjxm0dl//1IJ2qowm0tQtnlVdEVF+5q/GMxVG9rXsUpXH+DKaOPOTTkuLEw/Ylp8WEh4j4tO/lCA==","直播");
+        videoController.setUp("hls_url ","直播");
 
-        videoController.ivThumb.setImageResource(R.drawable.panda);
+        //videoController.ivThumb.setImageResource(R.drawable.panda);
         videoController.setThumbImageViewScalType(ImageView.ScaleType.CENTER_CROP);
 
         intDate();

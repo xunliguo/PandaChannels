@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
@@ -90,11 +89,13 @@ public class ManyFragment extends BaseFragment implements MainContract.XSubView{
           intent.setAction("data");
           String title = mlist.get(position).getTitle();
             String live_image = mlist.get(position).getImage();
+            String icard =  mlist.get(position).getId();
             intent.putExtra("aa",title);
             intent.putExtra("imageurl",live_image);
+           intent.putExtra("ids",icard);
 
             getActivity().sendBroadcast(intent);
-            Toast.makeText(getActivity(), "很抱歉,服务器出错!", Toast.LENGTH_SHORT).show();
+
 
 
         }

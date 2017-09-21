@@ -49,6 +49,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name="com.umeng.qq.tencent.AuthActivity"
             android:launchMode="singleTask"
@@ -68,9 +69,9 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
-        <!-- <meta-data -->
-        <!-- android:name="UMENG_APPKEY" -->
-        <!-- android:value="59787c1165b6d601840014d0" /> -->
+
+
+
 
         <activity
             android:name=".fragmentobserve.activity.VideoActivity"
@@ -102,7 +103,7 @@
 
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="e86dcc9ada036c52bd58f54e2a3d2fa0"></meta-data>
+            android:value="59c3496ae88bad46c600000f"></meta-data>
 
         <activity
             android:name=".fragmentlive.LiveVideoActivity"

@@ -5,9 +5,9 @@
     android:orientation="vertical"
     tools:context="com.example.administrator.pandachannels.fragmentlive.fragment.Xianlive_subfragment">
     <fm.jiecao.jcvideoplayer_lib.JCVideoPlayer
-        android:id="@+id/videocontroller1"
+        android:id="@+id/videocontroller1sss"
         android:layout_width="match_parent"
-        android:layout_height="250dp" />
+        android:layout_height="200dp" />
 
 
 <RelativeLayout
@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="简介"
-        android:textSize="12sp"
+        android:textSize="10sp"
         android:id="@+id/text1_jian"
         android:layout_below="@+id/xian_text"
         android:layout_marginLeft="6dp"

@@ -25,13 +25,13 @@
         android:textSize="20sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="23456"/>
+        android:text=""/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:text="234354"
+            android:text=""
             android:textSize="15sp"
             android:id="@+id/item_from"
             android:layout_width="wrap_content"
@@ -39,7 +39,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="232435"
+            android:text=""
             android:layout_marginLeft="20sp"
             android:id="@+id/item_time"
             android:textSize="15sp"/>
@@ -48,7 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="12345"
+        android:text=""
         android:textSize="20sp"
         android:id="@+id/item_info"
         />
