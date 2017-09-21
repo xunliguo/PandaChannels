@@ -4,12 +4,10 @@ package com.example.administrator.pandachannels.fragmentobserve.fragemnt;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.pandachannels.R;
@@ -22,14 +20,10 @@ import com.example.administrator.pandachannels.fragmentobserve.entity.PandaViewB
 import com.example.administrator.pandachannels.fragmentobserve.entity.WenBean;
 import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
-import com.example.administrator.pandachannels.framework.utils.OkHttpUtils;
-import com.google.gson.Gson;
+import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import java.util.ArrayList;
 
-import in.srain.cube.views.ptr.PtrClassicDefaultFooter;
-import in.srain.cube.views.ptr.PtrClassicDefaultHeader;
-import in.srain.cube.views.ptr.PtrDefaultHandler2;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 
 
@@ -43,7 +37,7 @@ public class Fragment_observe extends BaseFragment implements MainContract.ShiVi
     private TextView img_text;
     private ArrayList<PandaViewBean.ListBean> list;
     private ArrayList<PandaBean.DataBean.BigImgBean> lists;
-    private RecyclerView recy;
+    private XRecyclerView recy;
     private RecyAdapter adapter;
     private PtrFrameLayout ptrclassic;
     private int a = 1;
@@ -51,11 +45,19 @@ public class Fragment_observe extends BaseFragment implements MainContract.ShiVi
 
     @Override
     protected void initView(View view) {
-        img = (ImageView) view.findViewById(R.id.img);
-        img_text = (TextView) view.findViewById(R.id.img_text);
-        recy = (RecyclerView) view.findViewById(R.id.recy);
-        ptrclassic = (PtrFrameLayout) view.findViewById(R.id.ptrclassic);
-        relative = (RelativeLayout) view.findViewById(R.id.relative);
+
+        recy = (XRecyclerView) view.findViewById(R.id.recy);
+        View in = View.inflate(getActivity(), R.layout.zhuzihead, null);
+        recy.addHeaderView(in);
+        img = (ImageView) in.findViewById(R.id.img);
+        img_text = (TextView) in.findViewById(R.id.img_text);
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), VideoActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -68,14 +70,14 @@ public class Fragment_observe extends BaseFragment implements MainContract.ShiVi
         Mp shiViewInterface = new Mp(this);
         shiViewInterface.requsetData();
 
-        //头布局操作
-        relative.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), VideoActivity.class);
-                getActivity().startActivity(intent);
-            }
-        });
+//        //头布局操作
+//        relative.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getContext(), VideoActivity.class);
+//                getActivity().startActivity(intent);
+//            }
+//        });
 
 
     }
@@ -88,6 +90,17 @@ public class Fragment_observe extends BaseFragment implements MainContract.ShiVi
         recy.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter = new RecyAdapter(getActivity(), list);
         recy.setAdapter(adapter);
+        recy.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
+                recy.refreshComplete();
+            }
+
+            @Override
+            public void onLoadMore() {
+                recy.loadMoreComplete();
+            }
+        });
 
 
 //通过接口回调实现点击事件
@@ -107,65 +120,65 @@ public class Fragment_observe extends BaseFragment implements MainContract.ShiVi
 
         });
 
-
-        //头
-        PtrClassicDefaultHeader header = new PtrClassicDefaultHeader(getContext());
-        //脚
-        PtrClassicDefaultFooter footer = new PtrClassicDefaultFooter(getContext());
-        ptrclassic.setHeaderView(header);
-        ptrclassic.setFooterView(footer);
-        ptrclassic.addPtrUIHandler(header);
-        ptrclassic.addPtrUIHandler(footer);
-
-        ptrclassic.setPtrHandler(new PtrDefaultHandler2() {
-            @Override
-            public void onLoadMoreBegin(PtrFrameLayout frame) {
-                //a为条目索引 判断a如果到了最后一条 提示无新数据
-                if (a == 14) {
-                    frame.refreshComplete();
-                    Toast.makeText(getActivity(), "暂无新数据。", Toast.LENGTH_SHORT).show();
-                } else {
-                    //如果不是 那么执行a++ 自动加载吓一条
-                    a++;
-                    OkHttpUtils.getInstance().getNetData("http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getArticleAndVideoListInfo.json&primary_id=PAGE1422435191506336&serviceId=panda&pageSize=6&page=" + a, new OkHttpUtils.CallBacks() {
-                        @Override
-                        public void getString(String ss) {
-                            Gson gson = new Gson();
-                            PandaViewBean pandaViewBean = gson.fromJson(ss, PandaViewBean.class);
-                            list.addAll(pandaViewBean.getList());
-                            getActivity().runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    adapter.notifyDataSetChanged();
-                                }
-                            });
-                        }
-                    });
-                    frame.refreshComplete();
-                }
-            }
-
-            @Override
-            public void onRefreshBegin(PtrFrameLayout frame) {
-                a = 1;
-                list.clear();
-                OkHttpUtils.getInstance().getNetData("http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getArticleAndVideoListInfo.json&primary_id=PAGE1422435191506336&serviceId=panda&pageSize=6&page=" + a, new OkHttpUtils.CallBacks() {
-                    @Override
-                    public void getString(String ss) {
-                        Gson gson = new Gson();
-                        PandaViewBean pandaViewBean = gson.fromJson(ss, PandaViewBean.class);
-                        list.addAll(pandaViewBean.getList());
-                        getActivity().runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                adapter.notifyDataSetChanged();
-                            }
-                        });
-                    }
-                });
-                frame.refreshComplete();
-            }
-        });
+//
+//        //头
+//        PtrClassicDefaultHeader header = new PtrClassicDefaultHeader(getContext());
+//        //脚
+//        PtrClassicDefaultFooter footer = new PtrClassicDefaultFooter(getContext());
+//        ptrclassic.setHeaderView(header);
+//        ptrclassic.setFooterView(footer);
+//        ptrclassic.addPtrUIHandler(header);
+//        ptrclassic.addPtrUIHandler(footer);
+//
+//        ptrclassic.setPtrHandler(new PtrDefaultHandler2() {
+//            @Override
+//            public void onLoadMoreBegin(PtrFrameLayout frame) {
+//                //a为条目索引 判断a如果到了最后一条 提示无新数据
+//                if (a == 14) {
+//                    frame.refreshComplete();
+//                    Toast.makeText(getActivity(), "暂无新数据。", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    //如果不是 那么执行a++ 自动加载吓一条
+//                    a++;
+//                    OkHttpUtils.getInstance().getNetData("http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getArticleAndVideoListInfo.json&primary_id=PAGE1422435191506336&serviceId=panda&pageSize=6&page=" + a, new OkHttpUtils.CallBacks() {
+//                        @Override
+//                        public void getString(String ss) {
+//                            Gson gson = new Gson();
+//                            PandaViewBean pandaViewBean = gson.fromJson(ss, PandaViewBean.class);
+//                            list.addAll(pandaViewBean.getList());
+//                            getActivity().runOnUiThread(new Runnable() {
+//                                @Override
+//                                public void run() {
+//                                    adapter.notifyDataSetChanged();
+//                                }
+//                            });
+//                        }
+//                    });
+//                    frame.refreshComplete();
+//                }
+//            }
+//
+//            @Override
+//            public void onRefreshBegin(PtrFrameLayout frame) {
+//                a = 1;
+//                list.clear();
+//                OkHttpUtils.getInstance().getNetData("http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getArticleAndVideoListInfo.json&primary_id=PAGE1422435191506336&serviceId=panda&pageSize=6&page=" + a, new OkHttpUtils.CallBacks() {
+//                    @Override
+//                    public void getString(String ss) {
+//                        Gson gson = new Gson();
+//                        PandaViewBean pandaViewBean = gson.fromJson(ss, PandaViewBean.class);
+//                        list.addAll(pandaViewBean.getList());
+//                        getActivity().runOnUiThread(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                adapter.notifyDataSetChanged();
+//                            }
+//                        });
+//                    }
+//                });
+//                frame.refreshComplete();
+//            }
+//        });
 
 
     }

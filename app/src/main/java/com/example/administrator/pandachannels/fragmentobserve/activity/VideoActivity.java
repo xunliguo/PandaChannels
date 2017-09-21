@@ -3,6 +3,7 @@ package com.example.administrator.pandachannels.fragmentobserve.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -28,6 +29,8 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_videos);
         initView();
         initData();
@@ -148,5 +151,10 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onCancel(SHARE_MEDIA share_media) {
 
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        JCVideoPlayer.releaseAllVideos();
     }
 }

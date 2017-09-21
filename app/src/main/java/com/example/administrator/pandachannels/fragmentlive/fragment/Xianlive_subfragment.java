@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 import com.example.administrator.pandachannels.R;
 import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.BeanTaishan;
-import com.example.administrator.pandachannels.fragmentlive.adapter.HowAdaperts;
 import com.example.administrator.pandachannels.fragmentlive.adapter.MyAdapters;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.ManyBean;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.PandaLiveBean;
@@ -133,7 +132,7 @@ public class Xianlive_subfragment extends BaseFragment implements MainContract.X
     @Override
     protected void initData() {
 
-        videoController.setUp("http://jzvd.nathen.cn/c6e3dc12a1154626b3476d9bf3bd7266/6b56c5f0dc31428083757a45764763b0-5287d2089db37e62345123a1be272f8b.mp4","");
+        videoController.setUp("http://ipanda.vtime.cntv.cloudcdn.net/live/ipandahls_/index.m3u8?AUTH=w0QtaMs+eZTjxm0dl//1IJ2qowm0tQtnlVdEVF+5q/GMxVG9rXsUpXH+DKaOPOTTkuLEw/Ylp8WEh4j4tO/lCA==","直播");
 
         videoController.ivThumb.setImageResource(R.drawable.panda);
         videoController.setThumbImageViewScalType(ImageView.ScaleType.CENTER_CROP);
@@ -239,10 +238,8 @@ public class Xianlive_subfragment extends BaseFragment implements MainContract.X
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
-
-        videoController.releaseAllVideos();
-
+    public void onDestroy() {
+        super.onDestroy();
+        JCVideoPlayer.releaseAllVideos();
     }
 }

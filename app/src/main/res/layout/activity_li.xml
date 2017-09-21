@@ -6,58 +6,62 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.administrator.pandachannels.fragmentculture.activity.LiActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        >
+        android:background="#1F539E">
+
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/fenlei_fanhui"
             android:id="@+id/li_fan"
-            />
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:src="@drawable/fenlei_fanhui" />
+
         <TextView
+            android:id="@+id/li_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:gravity="center"
             android:text="大熊猫"
-            android:id="@+id/li_tv"
-            android:layout_marginLeft="80dp"
+            android:textColor="#fff"
+            android:layout_marginTop="10dp"
             android:textSize="20sp"
-
             />
     </LinearLayout>
 
     <fm.jiecao.jcvideoplayer_lib.JCVideoPlayer
+        android:id="@+id/video"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:id="@+id/video"/>
+        android:layout_height="200dp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="首播时间"
-        android:textSize="13sp"
-        />
+        android:textSize="13sp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="栏目介绍"
-        android:textSize="10sp"
-        />
+        android:textSize="10sp" />
+
     <ImageView
+        android:id="@+id/li_img"
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:layout_marginTop="5dp"
-        android:src="@drawable/cwl"
-        android:id="@+id/li_img"
-        />
+        android:src="@drawable/cwl" />
+
     <TextView
+        android:id="@+id/li_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="高清完整"
-        android:id="@+id/li_text"
-        android:textSize="13sp"
-        />
+        android:textSize="13sp" />
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tab"
@@ -66,29 +70,29 @@
         android:layout_weight="1" />
 
     <android.support.v4.view.ViewPager
+        android:id="@+id/viewpagers"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4"
-        android:id="@+id/viewpagers"
 
         />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        >
+        android:gravity="center_horizontal">
+
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="50dp"
-            android:src="@drawable/cwl1"
             android:id="@+id/li_image"
-            />
-        <ImageView
             android:layout_width="30dp"
             android:layout_height="50dp"
-            android:src="@drawable/cwl3"
+            android:src="@drawable/cwl1" />
+
+        <ImageView
             android:id="@+id/li_imageview"
+            android:layout_width="30dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="20dp"
-            />
+            android:src="@drawable/cwl3" />
     </LinearLayout>
 </LinearLayout>

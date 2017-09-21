@@ -32,8 +32,6 @@ import com.youth.banner.listener.OnBannerListener;
 import java.util.ArrayList;
 import java.util.List;
 
-
-//十大按时打算的
 public class Fragment_home extends BaseFragment implements MainContract.SubHome {
 
 
@@ -162,6 +160,7 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
                 Intent liveintent=new Intent(getActivity(),Homelive.class);
                 liveintent.putExtra("livehome",list.get(position-2).getId());
                 liveintent.putExtra("livetitle",list.get(position-2).getTitle());
+                liveintent.putExtra("liveimm",list.get(position-2).getImage());
                 startActivity(liveintent);
             }
         });
@@ -193,6 +192,7 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
                 Intent liveintent=new Intent(getActivity(),Homelive.class);
                 liveintent.putExtra("livehome",lists.get(position).getId());
                 liveintent.putExtra("livetitle",lists.get(position).getTitle());
+                liveintent.putExtra("liveimm",lists.get(position).getImage());
                 startActivity(liveintent);
             }
         });

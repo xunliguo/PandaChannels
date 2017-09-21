@@ -63,9 +63,9 @@ public class CentreActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.shi_login:  //login 登录
-                Intent intent_login=new Intent(CentreActivity.this,LogInActivity.class);
-                startActivity(intent_login);
-
+              Intent intent_login=new Intent(CentreActivity.this,LogInActivity.class);
+               startActivity(intent_login);
+              //  UMShareAPI.get(this).getPlatformInfo(CentreActivity.this, SHARE_MEDIA.SINA, authListener);
                 break;
             case R.id.shi_history: //history 历史
                 Intent intent_history=new Intent(CentreActivity.this,HistoryActivity.class);

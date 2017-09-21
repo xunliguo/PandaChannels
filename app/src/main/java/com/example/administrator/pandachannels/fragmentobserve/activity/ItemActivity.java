@@ -16,8 +16,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.administrator.pandachannels.R;
+import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.Students;
 import com.example.administrator.pandachannels.fragmentobserve.entity.WenBean;
 import com.example.administrator.pandachannels.framework.utils.OkHttpUtils;
+import com.example.greendao1.DaoMaster;
+import com.example.greendao1.DaoSession;
+import com.example.greendao1.StudentsDao;
 import com.google.gson.Gson;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
@@ -47,7 +51,8 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
     int a=0;
     private String title;
     private String content;
-
+    private StudentsDao studentsDao;
+    int aa = 0;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,6 +88,7 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
                 Gson gson = new Gson();
                 WenBean wenBean = gson.fromJson(ss, WenBean.class);
                 title = wenBean.getTitle();
+
                 String source = wenBean.getSource();
                 String pubtime = wenBean.getPubtime();
                 content = wenBean.getContent();
@@ -145,14 +151,25 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
                 finish();
                 break;
             case R.id.item_shou:
-                if (a == 0) {
+                if (aa == 0) {
+                    DaoMaster.DevOpenHelper devOpenHelper = new DaoMaster.DevOpenHelper(ItemActivity.this, "aa.db", null);
+                    DaoMaster daoMaster = new DaoMaster(devOpenHelper.getReadableDb());
+                    DaoSession daoSession = daoMaster.newSession();
+                    studentsDao = daoSession.getStudentsDao();
+                    studentsDao.queryBuilder().build().list();
+                    studentsDao.insert(new Students(null, 0, title, "aa"));
+                    Toast.makeText(ItemActivity.this, "已收藏，请到【我的收藏】中查看", Toast.LENGTH_SHORT).show();
+
                     item_shou.setImageResource(R.drawable.collect_yes);
-                    a = 1;
-                    Toast.makeText(this, "已收藏，请到[我的收藏]去查看", Toast.LENGTH_SHORT).show();
-                } else {
+                    aa = 1;
+                }else {
+                    /*Students stu1 = studentsDao.queryBuilder().where(StudentsDao.Properties.Title.eq(homeTitile)).build().unique();//查询单
+                    if (stu1 != null) {
+                        studentsDao.delete(stu1);
+                    }*/
                     item_shou.setImageResource(R.drawable.collect_no);
-                    a = 0;
-                    Toast.makeText(this, "已取消收藏", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ItemActivity.this, "已取消收藏", Toast.LENGTH_SHORT).show();
+                    aa = 0;
                 }
                 break;
             case R.id.item_fen:

@@ -10,31 +10,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-
-import com.bumptech.glide.Glide;
 import com.example.administrator.pandachannels.R;
-import com.example.administrator.pandachannels.fragmenthome.GlideImageLoader;
+import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.Students;
 import com.example.administrator.pandachannels.fragmentlive.model.entity.LivedeoBean;
 import com.example.administrator.pandachannels.framework.utils.OkHttpUtils;
+import com.example.greendao1.DaoMaster;
+import com.example.greendao1.DaoSession;
+import com.example.greendao1.StudentsDao;
 import com.google.gson.Gson;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
-
 import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.media.UMVideo;
-
 
 import java.util.List;
 
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
-
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 
 public class LiveVideoActivity extends AppCompatActivity implements View.OnClickListener {
@@ -49,9 +46,13 @@ public class LiveVideoActivity extends AppCompatActivity implements View.OnClick
     private String liveimage;
     private String url;
   private int a=0;
+    int aa = 0;
+    private StudentsDao studentsDao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         if(Build.VERSION.SDK_INT>=23){
             String[] mPermissionList = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.CALL_PHONE,Manifest.permission.READ_LOGS,Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.SET_DEBUG_APP,Manifest.permission.SYSTEM_ALERT_WINDOW,Manifest.permission.GET_ACCOUNTS,Manifest.permission.WRITE_APN_SETTINGS};
             ActivityCompat.requestPermissions(this,mPermissionList,123);
@@ -122,6 +123,27 @@ public class LiveVideoActivity extends AppCompatActivity implements View.OnClick
                           Toast toast=Toast.makeText(LiveVideoActivity.this,"已添加，请到【我的收藏中查看】",Toast.LENGTH_SHORT);
                           toast.setGravity(Gravity.CENTER, 0, 0);
                           toast.show();
+                          if (aa == 0) {
+                              DaoMaster.DevOpenHelper devOpenHelper = new DaoMaster.DevOpenHelper(LiveVideoActivity.this, "aa.db", null);
+                              DaoMaster daoMaster = new DaoMaster(devOpenHelper.getReadableDb());
+                              DaoSession daoSession = daoMaster.newSession();
+                              studentsDao = daoSession.getStudentsDao();
+                              studentsDao.queryBuilder().build().list();
+                              studentsDao.insert(new Students(null, 0, title, liveimage));
+                              Toast.makeText(LiveVideoActivity.this, "已收藏，请到【我的收藏】中查看", Toast.LENGTH_SHORT).show();
+
+                              live_collection.setImageResource(R.drawable.collect_yes);
+                              aa = 1;
+                          }else {
+                    /*Students stu1 = studentsDao.queryBuilder().where(StudentsDao.Properties.Title.eq(homeTitile)).build().unique();//查询单
+                    if (stu1 != null) {
+                        studentsDao.delete(stu1);
+                    }*/
+                              live_collection.setImageResource(R.drawable.collect_no);
+                              Toast.makeText(LiveVideoActivity.this, "已取消收藏", Toast.LENGTH_SHORT).show();
+                              aa = 0;
+                          }
+
                           break;
                       case 1:
                           a=0;

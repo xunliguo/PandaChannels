@@ -29,7 +29,6 @@
         android:layout_marginRight="3dp"
         android:layout_height="wrap_content"
         android:src="@mipmap/collect_no"
-
         android:id="@+id/live_collection"
         android:layout_toLeftOf="@+id/live_videolist"
         />

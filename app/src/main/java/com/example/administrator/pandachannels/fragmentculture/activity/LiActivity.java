@@ -14,8 +14,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.administrator.pandachannels.R;
-import com.example.administrator.pandachannels.fragmentculture.fragment.PerfectFragment;
+import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.Students;
 import com.example.administrator.pandachannels.fragmentculture.fragment.HinghtFragment;
+import com.example.administrator.pandachannels.fragmentculture.fragment.PerfectFragment;
+import com.example.greendao1.DaoMaster;
+import com.example.greendao1.DaoSession;
+import com.example.greendao1.StudentsDao;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
@@ -29,7 +33,7 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 
 public class LiActivity extends AppCompatActivity implements View.OnClickListener,UMShareListener {
 
-
+    int aa = 0;
     private ImageView li_img;
     private TextView li_text;
     private ImageView li_image;
@@ -46,6 +50,9 @@ public class LiActivity extends AppCompatActivity implements View.OnClickListene
     List<String> titleList=new ArrayList<String>();
 
     private boolean isImageview = true;
+    private StudentsDao studentsDao;
+    private String imgg;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +63,7 @@ public class LiActivity extends AppCompatActivity implements View.OnClickListene
         Intent intent=getIntent();
         title = intent.getStringExtra("title");
         url = intent.getStringExtra("url");
+        imgg = intent.getStringExtra("imgg");
         li_tv.setText(title);
 
     }
@@ -74,7 +82,31 @@ public class LiActivity extends AppCompatActivity implements View.OnClickListene
         tab= (TabLayout) findViewById(R.id.tab);
         viewpagers = (ViewPager) findViewById(R.id.viewpagers);
         li_img.setOnClickListener(this);
-        li_image.setOnClickListener(this);
+        li_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (aa == 0) {
+                    DaoMaster.DevOpenHelper devOpenHelper = new DaoMaster.DevOpenHelper(LiActivity.this, "aa.db", null);
+                    DaoMaster daoMaster = new DaoMaster(devOpenHelper.getReadableDb());
+                    DaoSession daoSession = daoMaster.newSession();
+                    studentsDao = daoSession.getStudentsDao();
+                    studentsDao.queryBuilder().build().list();
+                    studentsDao.insert(new Students(null, 0, title, imgg));
+                    Toast.makeText(LiActivity.this, "已收藏，请到【我的收藏】中查看", Toast.LENGTH_SHORT).show();
+
+                    li_image.setImageResource(R.drawable.collect_yes);
+                    aa = 1;
+                }else {
+                    /*Students stu1 = studentsDao.queryBuilder().where(StudentsDao.Properties.Title.eq(homeTitile)).build().unique();//查询单
+                    if (stu1 != null) {
+                        studentsDao.delete(stu1);
+                    }*/
+                    li_image.setImageResource(R.drawable.collect_no);
+                    Toast.makeText(LiActivity.this, "已取消收藏", Toast.LENGTH_SHORT).show();
+                    aa = 0;
+                }
+            }
+        });
         li_imageview.setOnClickListener(this);
         li_fan.setOnClickListener(this);
         initTitles();
