@@ -20,6 +20,7 @@ public class Mp implements MainContract.SubPresenter {
 
     @Override
     public void requsetData() {
+        shiView.showLoading();
         OkHttpUtils.getInstance().getNetData(Urls.PANDAVIEW, new OkHttpUtils.CallBacks() {
 
             @Override
@@ -28,6 +29,7 @@ public class Mp implements MainContract.SubPresenter {
                 PandaViewBean listBean = gson.fromJson(ss, PandaViewBean.class);
                 //解析完通过调用v层接口里的方法吧数据传到UI界面进行展示
                 shiView.showData(listBean);
+                shiView.diassLoading();
             }
         });
 

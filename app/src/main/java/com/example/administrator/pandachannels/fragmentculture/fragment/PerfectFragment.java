@@ -45,6 +45,7 @@ public class PerfectFragment extends Fragment {
 
 
     private void initData () {
+
         OkhttpUtils.getUtil().send("http://www.ipanda.com/kehuduan/video/index.json", new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {

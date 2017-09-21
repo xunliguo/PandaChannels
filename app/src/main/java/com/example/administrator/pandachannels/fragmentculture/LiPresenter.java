@@ -17,13 +17,16 @@ public class LiPresenter implements MainContract.SubPresenter {
 
     @Override
     public void requsetData() {
+        liView.showLoading();
         OkHttpUtils.getInstance().getNetData("http://www.ipanda.com/kehuduan/video/index.json", new OkHttpUtils.CallBacks() {
             @Override
             public void getString(String ss) {
                 Gson gson=new Gson();
                 LiBean liBean = gson.fromJson(ss, LiBean.class);
                 liView.showData(liBean);
+                liView.dissmissLoading();
             }
         });
+
     }
 }

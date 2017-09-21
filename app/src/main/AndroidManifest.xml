@@ -103,20 +103,26 @@
 
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="59c3496ae88bad46c600000f"></meta-data>
+            android:value="59c3496ae88bad46c600000f">
+
+        </meta-data>
 
         <activity
             android:name=".fragmentlive.LiveVideoActivity"
             android:screenOrientation="landscape" />
         <activity
             android:name=".fragmenthome.Homelive"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape">
+
+        </activity>
         <activity
             android:name=".fragmenthome.Video"
             android:screenOrientation="landscape" />
         <activity android:name=".fragmenthome.Homevoid"
             android:screenOrientation="landscape"
-            ></activity>
+            >
+
+        </activity>
     </application>
 
 </manifest>

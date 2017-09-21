@@ -56,12 +56,12 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.shouquan:
-                UMShareAPI.get(this).doOauthVerify(LogInActivity.this, SHARE_MEDIA.QQ, authListener);
-                //   UMShareAPI.get(this).getPlatformInfo(LogInActivity.this, SHARE_MEDIA.QQ, umAuthListener);
+               UMShareAPI.get(this).doOauthVerify(LogInActivity.this, SHARE_MEDIA.QQ, authListener);
+                 //  UMShareAPI.get(this).getPlatformInfo(LogInActivity.this, SHARE_MEDIA.QQ, authListener);
                 break;
             case R.id.loginxx:
 
-              UMShareAPI.get(this).getPlatformInfo(LogInActivity.this, SHARE_MEDIA.QQ, umAuthListener);
+           UMShareAPI.get(this).getPlatformInfo(LogInActivity.this, SHARE_MEDIA.QQ, umAuthListener);
 
                 break;
         }
@@ -133,17 +133,6 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
             Toast.makeText(LogInActivity.this, "取消了", Toast.LENGTH_LONG).show();
         }
     };
-
-
-
-
-
-
-
-
-
-
-
     private UMAuthListener umAuthListener = new UMAuthListener() {
         @Override
         public void onStart(SHARE_MEDIA platform) {
@@ -151,14 +140,13 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         }
         @Override
         public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
-            Toast.makeText(LogInActivity.this, "Authorize succeed", Toast.LENGTH_SHORT).show();
-            Log.e("demo",data+"=================1<");
+            Toast.makeText(getApplicationContext(), "Authorize succeed", Toast.LENGTH_SHORT).show();
 
         }
 
         @Override
         public void onError(SHARE_MEDIA platform, int action, Throwable t) {
-            Toast.makeText( LogInActivity.this, "Authorize fail", Toast.LENGTH_SHORT).show();
+            Toast.makeText( getApplicationContext(), "Authorize fail", Toast.LENGTH_SHORT).show();
         }
 
         @Override
@@ -166,14 +154,24 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
             Toast.makeText( getApplicationContext(), "Authorize cancel", Toast.LENGTH_SHORT).show();
         }
     };
-
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

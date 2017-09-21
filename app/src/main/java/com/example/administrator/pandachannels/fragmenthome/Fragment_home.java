@@ -66,7 +66,7 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
     @Override
     public void showLoading() {
         lo = new ProgressDialog(getActivity());
-        lo.setMessage("正在加载");
+        lo.setMessage("正在拼命加载中");
         lo.show();
     }
 

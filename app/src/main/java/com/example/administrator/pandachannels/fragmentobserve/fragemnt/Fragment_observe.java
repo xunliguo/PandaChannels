@@ -1,6 +1,7 @@
 package com.example.administrator.pandachannels.fragmentobserve.fragemnt;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -42,6 +43,7 @@ public class Fragment_observe extends BaseFragment implements MainContract.ShiVi
     private PtrFrameLayout ptrclassic;
     private int a = 1;
     private RelativeLayout relative;
+    private ProgressDialog dialog;
 
     @Override
     protected void initView(View view) {
@@ -196,6 +198,18 @@ public class Fragment_observe extends BaseFragment implements MainContract.ShiVi
     @Override
     public void showWen(WenBean wenBean) {
 
+    }
+
+    @Override
+    public void showLoading() {
+        dialog = new ProgressDialog(getActivity());
+        dialog.setMessage("正在拼命加载中");
+        dialog.show();
+    }
+
+    @Override
+    public void diassLoading() {
+dialog.dismiss();
     }
 
 

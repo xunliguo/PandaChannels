@@ -1,6 +1,7 @@
 package com.example.administrator.pandachannels.fragmentculture.fragment;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -41,10 +42,12 @@ public class Fragment_culture extends BaseFragment implements MainContract.LiVie
     private PtrFrameLayout ptrclassics;
     private MyAdapter adapter;
     private LiPresenter liPresenter;
+    private ProgressDialog dialog;
 
 
     @Override
     protected void initView(View view) {
+
         recyclerview = (XRecyclerView) view.findViewById(R.id.recyclerview);
 
         View headviews = View.inflate(getActivity(), R.layout.headview, null);
@@ -85,12 +88,15 @@ public class Fragment_culture extends BaseFragment implements MainContract.LiVie
 
     @Override
     protected void initData() {
+
         liPresenter = new LiPresenter(this);
         liPresenter.requsetData();
+
     }
 
     @Override
     public void showData(LiBean liBean) {
+
         //请求的图片
         List<LiBean.BigImgBean> bigImg = liBean.getBigImg();
         for (int i = 0; i < bigImg.size(); i++) {
@@ -103,6 +109,7 @@ public class Fragment_culture extends BaseFragment implements MainContract.LiVie
         final List<LiBean.ListBean> listbe = liBean.getList();
         listsbe.addAll(listbe);
         adapter.notifyDataSetChanged();
+
         //条目点击事件跳转到视频播放界面
         adapter.Dianji(new MyAdapter.OnItemClickLiener() {
             @Override
@@ -118,5 +125,17 @@ public class Fragment_culture extends BaseFragment implements MainContract.LiVie
             }
         });
 
+    }
+
+    @Override
+    public void showLoading() {
+        dialog = new ProgressDialog(getActivity());
+        dialog.setMessage("正在拼命加载中");
+        dialog.show();
+    }
+
+    @Override
+    public void dissmissLoading() {
+    dialog.dismiss();
     }
 }

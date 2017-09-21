@@ -1,6 +1,7 @@
 package com.example.administrator.pandachannels.fragmentchinese;
 
 
+import android.app.ProgressDialog;
 import android.graphics.drawable.ColorDrawable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -71,6 +72,7 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
     private MyGridAdapter2 gvadapter2;
     private StudentsDao studentsDao2;
     private String s = "qq";
+    private ProgressDialog dialog;
 
 /*
     @Override
@@ -104,7 +106,9 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
 
     @Override
     protected void initData() {
-
+        dialog = new ProgressDialog(getActivity());
+        dialog.setMessage("正在拼命加载中");
+        dialog.show();
         OkHttpUtils.getInstance().getNetData("http://www.ipanda.com/kehuduan/PAGE14501775094142282/index.json", new OkHttpUtils.CallBacks() {
             @Override
             public void getString(String ss) {
@@ -149,7 +153,7 @@ public class Fragment_Chinese extends BaseFragment implements MainContract.SubVi
                 tablayout_chinese.setupWithViewPager(viewpager_chinese);
                 viewpager_chinese.setAdapter(myadap);
 
-
+dialog.dismiss();
             }
         });
 

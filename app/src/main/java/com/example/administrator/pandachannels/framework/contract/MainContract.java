@@ -28,6 +28,8 @@ public interface MainContract  {
     }
     interface ShiView extends ShiViewInterface {
         void showWen(WenBean wenBean);
+        void  showLoading();
+        void  diassLoading();
     }
 
     interface  XSubView extends BaseViewInterface{
@@ -39,7 +41,9 @@ public interface MainContract  {
     }
     interface  LiView extends LiViewInterface {
 
+        void showLoading();
 
+        void dissmissLoading();
 
     }
     interface  SubHome extends HomeViewInterface {

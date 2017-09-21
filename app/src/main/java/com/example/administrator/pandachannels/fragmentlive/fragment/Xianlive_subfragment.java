@@ -131,7 +131,7 @@ public class Xianlive_subfragment extends BaseFragment implements MainContract.X
         but1s.setOnClickListener(this);
         but2s.setOnClickListener(this);
         dialog = new ProgressDialog(getActivity());
-        dialog.setMessage("正在加载....");
+        dialog.setMessage("正在拼命加载中");
 
         FragmentManager supportFragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction transaction = supportFragmentManager.beginTransaction();
