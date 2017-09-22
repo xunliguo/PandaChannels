@@ -20,6 +20,7 @@ public class MyGridAdapter2 extends BaseAdapter {
     Context context;
     List<Students> list;
     private ViewHolder holder;
+    public MyGridAdapter2(){}
     public MyGridAdapter2(Context context, List<Students> list) {
         this.context = context;
         this.list = list;

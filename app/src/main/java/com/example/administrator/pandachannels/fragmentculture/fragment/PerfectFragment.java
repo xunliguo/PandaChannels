@@ -4,6 +4,7 @@ package com.example.administrator.pandachannels.fragmentculture.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -24,6 +25,8 @@ import java.util.List;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
+
+import static com.example.administrator.pandachannels.R.id.recyclerview;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -70,6 +73,7 @@ public class PerfectFragment extends Fragment {
 
         adapter = new LiAdapter(getActivity(), list);
         rece.setLayoutManager(new GridLayoutManager(getActivity(), 1));
+        rece.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
         rece.setAdapter(adapter);
         adapter.setItemOnClick(new LiAdapter.Listener() {
             @Override

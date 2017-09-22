@@ -3,7 +3,6 @@ package com.example.administrator.pandachannels.fragmentchinese.fragmentclassify
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -48,11 +47,10 @@ this.flv1=flv1;
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
+        holder.video_taishan.setThumbImageViewScalType(ImageView.ScaleType.FIT_XY);
 
         holder.tv1_taishan.setText("     [正在直播]" + list.get(position).getTitle());
         holder.tv2_taishan.setText(list.get(position).getBrief());
-  //  1111    Glide.with(context).load(list.get(position).getImage()).error(R.mipmap.tab_live_china_normal).into(holder.img1_taishan);
-        Log.e("========","========"+flv1);
         holder.video_taishan.setUp(flv1,"");
         Glide.with(context)
                 .load(list.get(position).getImage())
@@ -69,11 +67,11 @@ this.flv1=flv1;
                 //判断控件是否隐藏，如果隐藏就显示
                 if (holder.layout_taishan.getVisibility() == View.GONE) {
                     holder.layout_taishan.setVisibility(View.VISIBLE);//可见
-                    holder.img3_taishan.setImageResource(R.drawable.com_facebook_tooltip_blue_topnub);
+                    holder.img3_taishan.setImageResource(R.drawable.lpanda_show);
 
                 } else {
                     holder.layout_taishan.setVisibility(View.GONE);//隐藏
-                    holder.img3_taishan.setImageResource(R.drawable.com_facebook_tooltip_blue_bottomnub);
+                    holder.img3_taishan.setImageResource(R.drawable.lpanda_off);
                 }
 
             }
@@ -142,6 +140,7 @@ this.flv1=flv1;
            /* img1_taishan = (ImageView) itemView.findViewById(img1_taishan);
             img2_taishan = (ImageView) itemView.findViewById(img2_taishan);*/
             video_taishan=itemView.findViewById(R.id.video_taishan);
+
 
         }
     }

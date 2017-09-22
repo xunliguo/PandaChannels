@@ -47,6 +47,19 @@ public class PlayandChatFragment extends BaseFragment implements MainContract.XS
         send = (Button) view.findViewById(R.id.live_send);
         ed_pin = (EditText) view.findViewById(R.id.ed_pinglun);
         palyandchatPersert.requsetData();
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final String s = ed_pin.getText().toString();
+                Log.e("tag","=======>"+s);
+                PinBean.DataBean.ContentBean demo=new  PinBean.DataBean.ContentBean();
+                demo.setAuthor("QQ用户");
+                demo.setMessage(s);
+                mlist.add(demo);
+                adapters.notifyDataSetChanged();
+                ed_pin.setText(" ");
+            }
+        });
 
 
     }

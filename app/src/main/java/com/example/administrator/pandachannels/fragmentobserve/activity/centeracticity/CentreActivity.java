@@ -6,13 +6,17 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.administrator.pandachannels.R;
 import com.umeng.socialize.UMAuthListener;
+import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 
 import java.util.Map;
@@ -25,6 +29,8 @@ public class CentreActivity extends AppCompatActivity implements View.OnClickLis
     private LinearLayout shi_set;
     private ImageView back;
     private ImageView head_image;
+    private ImageView headimage;
+    private TextView headname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +56,8 @@ public class CentreActivity extends AppCompatActivity implements View.OnClickLis
         shi_set = (LinearLayout) findViewById(R.id.shi_set);
         head_image = (ImageView) findViewById(R.id.head_image);
         back = (ImageView) findViewById(R.id.back);
-
+        headimage = (ImageView) findViewById(R.id.head_image);
+        headname = (TextView) findViewById(R.id.head_name);
         shi_login.setOnClickListener(this);
         shi_history.setOnClickListener(this);
         shi_collect.setOnClickListener(this);
@@ -63,12 +70,14 @@ public class CentreActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.shi_login:  //login 登录
-              Intent intent_login=new Intent(CentreActivity.this,LogInActivity.class);
-               startActivity(intent_login);
-              //  UMShareAPI.get(this).getPlatformInfo(CentreActivity.this, SHARE_MEDIA.SINA, authListener);
+          //    Intent intent_login=new Intent(CentreActivity.this,LogInActivity.class);
+             //  startActivity(intent_login);
+               UMShareAPI.get(this).getPlatformInfo(CentreActivity.this, SHARE_MEDIA.QQ, authListener);
+                //UMShareAPI.get(this).doOauthVerify(CentreActivity.this, SHARE_MEDIA.QQ, umAuthListener);
+
                 break;
             case R.id.shi_history: //history 历史
-                Intent intent_history=new Intent(CentreActivity.this,HistoryActivity.class);
+                Intent intent_history=new Intent(CentreActivity.this,CollectActivity.class);
                 startActivity(intent_history);
                 break;
             case R.id.shi_collect://collect 收藏
@@ -102,9 +111,12 @@ public class CentreActivity extends AppCompatActivity implements View.OnClickLis
          */
         @Override
         public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
-
+            Log.e("TAG","======>"+data);
             Toast.makeText(CentreActivity.this, "成功了", Toast.LENGTH_LONG).show();
-
+            String name = data.get("name");
+            String iconurl = data.get("iconurl");
+            Glide.with(CentreActivity.this).load(iconurl).into(head_image);
+            headname.setText(name);
         }
 
         /**
@@ -116,7 +128,7 @@ public class CentreActivity extends AppCompatActivity implements View.OnClickLis
         @Override
         public void onError(SHARE_MEDIA platform, int action, Throwable t) {
 
-            Toast.makeText(CentreActivity.this, "失败：" + t.getMessage(),                                  Toast.LENGTH_LONG).show();
+            Toast.makeText(CentreActivity.this, "失败：" + t.getMessage(), Toast.LENGTH_LONG).show();
         }
 
         /**
@@ -126,8 +138,15 @@ public class CentreActivity extends AppCompatActivity implements View.OnClickLis
          */
         @Override
         public void onCancel(SHARE_MEDIA platform, int action) {
+
             Toast.makeText(CentreActivity.this, "取消了", Toast.LENGTH_LONG).show();
         }
     };
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
+
+    }
 
 }

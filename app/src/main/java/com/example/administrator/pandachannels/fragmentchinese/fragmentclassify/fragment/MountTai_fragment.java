@@ -1,6 +1,7 @@
 package com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.fragment;
 
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -28,6 +29,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */                                                   //实现v层的接口
+@SuppressLint("ValidFragment")
 public class MountTai_fragment extends BaseFragment implements MainContract.SubView {
 
     private TextView fragment_tvtv1;

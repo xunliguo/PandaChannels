@@ -4,6 +4,7 @@ package com.example.administrator.pandachannels.fragmentculture.fragment;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.ImageView;
@@ -55,7 +56,9 @@ public class Fragment_culture extends BaseFragment implements MainContract.LiVie
         li_img = (ImageView) headviews.findViewById(R.id.lili_img);
         li_text = (TextView) headviews.findViewById(R.id.lili_text);
         adapter = new MyAdapter(getContext(), listsbe);
+
         recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerview.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
         recyclerview.setAdapter(adapter);
         li_img.setOnClickListener(new View.OnClickListener() {
             @Override
