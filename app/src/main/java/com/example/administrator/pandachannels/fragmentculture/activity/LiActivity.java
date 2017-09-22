@@ -221,4 +221,9 @@ public class LiActivity extends AppCompatActivity implements View.OnClickListene
             return titleList.get(position);
         }
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        JCVideoPlayer.releaseAllVideos();
+    }
 }

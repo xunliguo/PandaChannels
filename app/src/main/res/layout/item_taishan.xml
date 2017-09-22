@@ -17,13 +17,7 @@
         android:id="@+id/video_taishan"
         android:layout_width="match_parent"
         android:layout_height="200dp" />
-        <!--<ImageView
-            android:id="@+id/img2_taishan"
-            android:layout_centerInParent="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/play"/>
--->
+
 
     </RelativeLayout>
 
@@ -54,7 +48,7 @@
            android:id="@+id/img3_taishan"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:src="@drawable/com_facebook_tooltip_blue_bottomnub"/>
+           android:src="@drawable/lpanda_show"/>
 
 
        <LinearLayout

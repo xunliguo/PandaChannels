@@ -32,7 +32,7 @@ public class WenActivity extends AppCompatActivity {
     private void initView() {
         videoController = (JCVideoPlayer) findViewById(R.id.video);
 
-        videoController.setUp("http://2449.vod.myqcloud.com/2449_43b6f696980311e59ed467f22794e792.f20.mp4",
+        videoController.setUp("http://cntv.vod.cdn.myqcloud.com/flash/mp4video62/TMS/2017/09/21/49ebe6886fac4b98a760dfe32736f08d_h264818000nero_aac32.mp4",
                 "《特别节目》我们的友谊去那里");
     }
     @Override

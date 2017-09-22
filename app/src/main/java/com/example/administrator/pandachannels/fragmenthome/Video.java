@@ -3,6 +3,7 @@ package com.example.administrator.pandachannels.fragmenthome;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -91,5 +92,11 @@ public class Video extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         JCVideoPlayer.releaseAllVideos();
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return super.onTouchEvent(event);
+        
     }
 }

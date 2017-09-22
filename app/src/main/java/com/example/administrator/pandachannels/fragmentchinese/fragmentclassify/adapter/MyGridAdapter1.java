@@ -22,6 +22,7 @@ public class MyGridAdapter1 extends BaseAdapter {
     List<Students> list;
     private ViewHolder holder;
     String s;
+    public MyGridAdapter1(){}
     public MyGridAdapter1(Context context, List<Students> lists11,String s) {
         this.context = context;
         this.list = lists11;

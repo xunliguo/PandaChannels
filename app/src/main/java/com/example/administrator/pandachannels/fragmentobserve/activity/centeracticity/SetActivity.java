@@ -3,6 +3,7 @@ package com.example.administrator.pandachannels.fragmentobserve.activity.centera
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v7.app.AlertDialog;
@@ -127,7 +128,9 @@ public class SetActivity extends AppCompatActivity implements View.OnClickListen
                 }).start();
 
                 break;
-            case R.id.goodreputation:
+            case R.id.goodreputation: //喜欢我们好评哦
+                shareAppShop(SetActivity.this,"com.example.administrator.pandachannels");
+
                 break;
             case R.id.about_pandachannel:
                 Intent panda = new Intent(SetActivity.this, SetThreeActivity.class);
@@ -135,5 +138,15 @@ public class SetActivity extends AppCompatActivity implements View.OnClickListen
                 break;
         }
 
+    }
+    public static void shareAppShop(SetActivity activity, String packageName) {
+        try {
+            Uri uri = Uri.parse("market://details?id="+ "com.example.administrator.pandachannels");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            activity.startActivity(intent);
+        } catch (Exception e) {
+            Toast.makeText(activity, "您没有安装应用市场", Toast.LENGTH_SHORT).show();
+        }
     }
 }

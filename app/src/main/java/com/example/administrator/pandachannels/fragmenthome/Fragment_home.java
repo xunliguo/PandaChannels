@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.chanven.lib.cptr.recyclerview.RecyclerAdapterWithHF;
 import com.example.administrator.pandachannels.R;
+import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.Students;
 import com.example.administrator.pandachannels.fragmenthome.Presen.PresentImp;
 import com.example.administrator.pandachannels.fragmenthome.adap.HomeListAdap;
 import com.example.administrator.pandachannels.fragmenthome.adap.HomeReayAdap;
@@ -18,10 +19,12 @@ import com.example.administrator.pandachannels.fragmenthome.adap.HomeWobder;
 import com.example.administrator.pandachannels.fragmenthome.bean.HomeRolling;
 import com.example.administrator.pandachannels.fragmenthome.bean.HomeWobderfulBean;
 import com.example.administrator.pandachannels.fragmenthome.bean.PandaLiveBean;
-
 import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
 import com.example.administrator.pandachannels.framework.utils.OkHttpUtils;
+import com.example.greendao1.DaoMaster;
+import com.example.greendao1.DaoSession;
+import com.example.greendao1.StudentsDao;
 import com.google.gson.Gson;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.youth.banner.Banner;
@@ -42,6 +45,7 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
     private RecyclerView homeRoing;
     private RecyclerView homelive;
     private ProgressDialog lo;
+    private StudentsDao studentsDao;
 
     @Override
     protected void initView(View view) {
@@ -242,12 +246,27 @@ public class Fragment_home extends BaseFragment implements MainContract.SubHome 
         banner.setOnBannerListener(new OnBannerListener() {
             @Override
             public void OnBannerClick(int position) {
+
+
+
+
                 Intent intent = new Intent(getActivity(), Homevoid.class);
                 intent.putExtra("homeflunbo", pandaLiveBean.getData().getBigImg().get(position).getPid());
                 intent.putExtra("homeTitile", pandaLiveBean.getData().getBigImg().get(position).getTitle());
                 intent.putExtra("homimg",pandaLiveBean.getData().getBigImg().get(position).getImage());
 
                 startActivity(intent);
+                //点击播放插入数据库
+                DaoMaster.DevOpenHelper devOpenHelper = new DaoMaster.DevOpenHelper(getActivity(), "ss.db", null);
+
+                DaoMaster daoMaster = new DaoMaster(devOpenHelper.getReadableDb());
+
+                DaoSession daoSession = daoMaster.newSession();
+
+                studentsDao = daoSession.getStudentsDao();
+                studentsDao.insert(new Students(null,111,pandaLiveBean.getData().getBigImg().get(position).getTitle(),pandaLiveBean.getData().getBigImg().get(position).getImage()));
+
+
 
             }
         });

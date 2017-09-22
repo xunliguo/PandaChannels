@@ -68,10 +68,6 @@ public class Homelive extends AppCompatActivity {
                     imm.setImageResource(R.drawable.collect_yes);
                     aa = 1;
                 }else {
-                    /*Students stu1 = studentsDao.queryBuilder().where(StudentsDao.Properties.Title.eq(homeTitile)).build().unique();//查询单
-                    if (stu1 != null) {
-                        studentsDao.delete(stu1);
-                    }*/
                     imm.setImageResource(R.drawable.collect_no);
                     Toast.makeText(Homelive.this, "已取消收藏", Toast.LENGTH_SHORT).show();
                     aa = 0;

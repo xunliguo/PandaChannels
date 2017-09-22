@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.pandachannels.R;
+import com.example.administrator.pandachannels.fragmentchinese.fragmentclassify.moble.Students;
 import com.example.administrator.pandachannels.fragmentobserve.Mp;
 import com.example.administrator.pandachannels.fragmentobserve.activity.ItemActivity;
 import com.example.administrator.pandachannels.fragmentobserve.activity.VideoActivity;
@@ -21,6 +22,9 @@ import com.example.administrator.pandachannels.fragmentobserve.entity.PandaViewB
 import com.example.administrator.pandachannels.fragmentobserve.entity.WenBean;
 import com.example.administrator.pandachannels.framework.baseview.BaseFragment;
 import com.example.administrator.pandachannels.framework.contract.MainContract;
+import com.example.greendao1.DaoMaster;
+import com.example.greendao1.DaoSession;
+import com.example.greendao1.StudentsDao;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import java.util.ArrayList;
@@ -44,6 +48,7 @@ public class Fragment_observe extends BaseFragment implements MainContract.ShiVi
     private int a = 1;
     private RelativeLayout relative;
     private ProgressDialog dialog;
+    private StudentsDao studentsDao;
 
     @Override
     protected void initView(View view) {
@@ -112,10 +117,23 @@ public class Fragment_observe extends BaseFragment implements MainContract.ShiVi
 
             @Override
             public void OnItemClickLiener(View v, int position) {
+                String title = list.get(position).getTitle();
+                String picurl1 = list.get(position).getPicurl();
                 Intent intent = new Intent(getContext(), ItemActivity.class);
                 PandaViewBean.ListBean listBean = list.get(position);
                 htmlid = listBean.getId();
                 intent.putExtra("id", htmlid);
+                //点击播放插入数据库
+                DaoMaster.DevOpenHelper devOpenHelper = new DaoMaster.DevOpenHelper(getActivity(), "ss.db", null);
+
+                DaoMaster daoMaster = new DaoMaster(devOpenHelper.getReadableDb());
+
+                DaoSession daoSession = daoMaster.newSession();
+
+                studentsDao = daoSession.getStudentsDao();
+                studentsDao.insert(new Students(null, 111, title, picurl1));
+
+
                 getActivity().startActivity(intent);
 
             }
@@ -209,7 +227,7 @@ public class Fragment_observe extends BaseFragment implements MainContract.ShiVi
 
     @Override
     public void diassLoading() {
-dialog.dismiss();
+        dialog.dismiss();
     }
 
 
