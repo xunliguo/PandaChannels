@@ -16,6 +16,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:id="@+id/wond_image"
+
                 android:layout_width="120dp"
                 android:layout_height="80dp"
                 android:src="@mipmap/ic_launcher"

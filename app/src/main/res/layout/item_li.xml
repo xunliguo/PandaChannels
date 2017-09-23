@@ -1,39 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ImageView
-        android:id="@+id/RollingImage"
-        android:layout_width="170dp"
-        android:layout_height="100dp"
-        android:padding="10dp"
-        android:scaleType="fitXY"
-        android:src="@mipmap/ic_launcher" />
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <LinearLayout
-        android:id="@+id/RollingLinear1"
-        android:layout_width="wrap_content"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="15dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:text="2345"
-            android:id="@+id/RollingTitle"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textSize="20sp" />
+            android:layout_height="100dp">
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/RollingImage"
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                android:src="@mipmap/ic_launcher"
 
-
-            <TextView
-                android:text="234"
-                android:id="@+id/RollingContent"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/default_time_view"
+                android:layout_alignBottom="@+id/RollingImage"
+                android:layout_alignLeft="@+id/RollingImage"
+                android:layout_alignStart="@+id/RollingImage"
+                android:layout_marginBottom="7dp"
+                android:id="@+id/imageView" />
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:textSize="10sp" />
+                android:src="@mipmap/play"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="7dp"
+                android:layout_alignBottom="@+id/RollingImage"
+                android:layout_alignLeft="@+id/RollingImage"
+                android:layout_alignStart="@+id/RollingImage"
+                android:layout_alignTop="@+id/imageView"
+                android:id="@+id/imageView2" />
+
+            <TextView
+                android:id="@+id/li_lengths"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.0.0.0"
+                android:textColor="@color/biz_audio_progress_first"
+                android:layout_alignTop="@+id/imageView"
+                android:layout_toRightOf="@+id/imageView2"
+                android:layout_toEndOf="@+id/imageView2"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp" />
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_marginLeft="5dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+            <TextView
+                android:id="@+id/RollingTitle"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1512111"
+                android:textColor="#000"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/RollingContent"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:textSize="10sp"
+                android:layout_height="wrap_content"
+                android:text="timie"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

@@ -163,7 +163,7 @@
         android:layout_marginRight="3dp"
         android:background="#fff"
         android:gravity="center_vertical"
-        android:text="  滚滚视屏"
+        android:text="  滚滚视频"
         android:textColor="#4b48d7" />
 
     <View

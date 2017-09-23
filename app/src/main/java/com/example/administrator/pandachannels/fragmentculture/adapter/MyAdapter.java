@@ -40,6 +40,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         Glide.with(context).load(listBean.getImage()).error(R.mipmap.ic_launcher).into(viewHolder.RollingImage);
         viewHolder.RollingTitle.setText(listBean.getTitle());
         viewHolder.RollingContent.setText(listBean.getBrief());
+        viewHolder.timers.setText(listBean.getVideoLength());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,8 +59,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         private final ImageView RollingImage;
         private final TextView RollingTitle;
         private final TextView RollingContent;
+        private final TextView timers;
+
         public ViewHolder(View itemView) {
             super(itemView);
+            timers =(TextView) itemView.findViewById(R.id.li_lengths);
             RollingImage = (ImageView) itemView.findViewById(R.id.RollingImage);
             RollingTitle = (TextView) itemView.findViewById(R.id.RollingTitle);
             RollingContent = (TextView) itemView.findViewById(R.id.RollingContent);
