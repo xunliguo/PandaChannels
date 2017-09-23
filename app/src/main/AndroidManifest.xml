@@ -61,6 +61,7 @@
         <activity android:name=".fragmentobserve.activity.centeracticity.HistoryActivity" />
         <activity android:name=".fragmentobserve.activity.centeracticity.CollectActivity" />
         <activity android:name=".fragmentobserve.activity.centeracticity.SetActivity" />
+        <activity android:name=".fragmentobserve.activity.centeracticity.setactivity.SetThreeActivity" />
         <activity android:name=".fragmentobserve.activity.centeracticity.setactivity.SetOneActivity" />
         <activity android:name=".fragmenthome.Original" />
         <activity android:name=".fragmenthome.HomeWebView" />
