@@ -34,6 +34,7 @@
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
 
 
+
     <application
         android:name=".fragmentlive.App"
         android:allowBackup="true"
